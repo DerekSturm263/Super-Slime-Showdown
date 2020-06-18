@@ -6,6 +6,14 @@
             "id": "6b09b73a-1f51-4b3f-a9ed-968532d6464a",
             "actions": [
                 {
+                    "name": "Start Movement",
+                    "type": "PassThrough",
+                    "id": "537f219f-a1c5-4e66-875b-51b85b6d159d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Movement",
                     "type": "PassThrough",
                     "id": "f781cad1-e53f-4d15-88cf-542d906e018a",
@@ -18,54 +26,39 @@
                 {
                     "name": "",
                     "id": "3f771118-93a0-4e0f-8e0b-8400c3fba697",
-                    "path": "<Pointer>/position",
+                    "path": "<Touchscreen>/primaryTouch/position",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Touchscreen",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "1a663d34-2e2c-44e4-b3bb-7588b8d215a4",
-                    "path": "<Pointer>/position",
+                    "id": "0f99c618-4706-4b64-8aff-88ec283d89e3",
+                    "path": "<Touchscreen>/primaryTouch/startPosition",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "2baf29b5-3ced-4a56-bbf9-8cd34128e06f",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "41d46fcd-b807-4142-b2c3-558bc4bddf52",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "cc5d9295-aa77-45f5-9007-7d3ae958aee6",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
+                    "groups": "Touchscreen",
+                    "action": "Start Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Touchscreen",
+            "bindingGroup": "Touchscreen",
+            "devices": [
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

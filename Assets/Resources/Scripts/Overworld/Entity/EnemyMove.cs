@@ -1,19 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMove : EntityMove
 {
     private Vector2 movVal;
 
+    private void Awake()
+    {
+        rb2 = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
     private void Start()
     {
-        InvokeRepeating("ChangeDirection", 1f);
+        InvokeRepeating("ChangeDirection", 1f, 1f);
     }
 
     private void Update()
     {
-        EnemyMove(movVal);
+        Move(movVal);
     }
 
     private void ChangeDirection()
