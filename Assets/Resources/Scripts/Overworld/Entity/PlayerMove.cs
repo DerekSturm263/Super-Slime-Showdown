@@ -13,7 +13,8 @@ public class PlayerMove : EntityMove
         anim = GetComponent<Animator>();
 
         controls.Player.StartMovement.performed += ctx => StartMove(ctx.ReadValue<Vector2>());
-        controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>(), true);
+        //controls.Player.StopMovement.performed += ctx => StopMove();
 
         TouchSimulation.Enable();
     }

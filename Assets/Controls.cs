@@ -33,6 +33,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Stop Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""a56aba26-5cef-4870-b804-acd078bdf0db"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -79,6 +87,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_StartMovement = m_Player.FindAction("Start Movement", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_StopMovement = m_Player.FindAction("Stop Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -130,12 +139,14 @@ public class @Controls : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_StartMovement;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_StopMovement;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @StartMovement => m_Wrapper.m_Player_StartMovement;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @StopMovement => m_Wrapper.m_Player_StopMovement;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -151,6 +162,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @StopMovement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopMovement;
+                @StopMovement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopMovement;
+                @StopMovement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStopMovement;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -161,6 +175,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @StopMovement.started += instance.OnStopMovement;
+                @StopMovement.performed += instance.OnStopMovement;
+                @StopMovement.canceled += instance.OnStopMovement;
             }
         }
     }
@@ -178,5 +195,6 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         void OnStartMovement(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnStopMovement(InputAction.CallbackContext context);
     }
 }

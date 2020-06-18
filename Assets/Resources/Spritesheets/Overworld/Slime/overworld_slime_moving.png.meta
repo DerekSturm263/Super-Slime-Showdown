@@ -74,6 +74,84 @@ TextureImporter:
   - first:
       213: -6236602237704642449
     second: overworld_slime_moving_23
+  - first:
+      213: 5258196151501465598
+    second: overworld_slime_moving_0
+  - first:
+      213: 5212673384572895597
+    second: overworld_slime_moving_1
+  - first:
+      213: 3096912101049220001
+    second: overworld_slime_moving_2
+  - first:
+      213: 8175192722076868077
+    second: overworld_slime_moving_3
+  - first:
+      213: 8249960711426019274
+    second: overworld_slime_moving_4
+  - first:
+      213: -8543127589819093358
+    second: overworld_slime_moving_5
+  - first:
+      213: -2992284643722626945
+    second: overworld_slime_moving_6
+  - first:
+      213: -7492874789724320837
+    second: overworld_slime_moving_7
+  - first:
+      213: 1205440032120998260
+    second: overworld_slime_moving_8
+  - first:
+      213: -7321573372487495111
+    second: overworld_slime_moving_9
+  - first:
+      213: 8083089376973083190
+    second: overworld_slime_moving_10
+  - first:
+      213: -4229484083836201432
+    second: overworld_slime_moving_11
+  - first:
+      213: -5801106043774734012
+    second: overworld_slime_moving_12
+  - first:
+      213: -1588508179767392437
+    second: overworld_slime_moving_13
+  - first:
+      213: -881176982347529009
+    second: overworld_slime_moving_14
+  - first:
+      213: -7319272158448785026
+    second: overworld_slime_moving_15
+  - first:
+      213: -527172552937469061
+    second: overworld_slime_moving_16
+  - first:
+      213: 6225924359092130719
+    second: overworld_slime_moving_17
+  - first:
+      213: -669599999274744544
+    second: overworld_slime_moving_18
+  - first:
+      213: -3951445955233849470
+    second: overworld_slime_moving_19
+  - first:
+      213: 4973624042866292953
+    second: overworld_slime_moving_20
+  - first:
+      213: 7211699401265483828
+    second: overworld_slime_moving_21
+  - first:
+      213: 7294711358278039593
+    second: overworld_slime_moving_22
+  - first:
+      213: -7985025821337226336
+    second: overworld_slime_moving_23
+  - first:
+      213: -856991327671410769
+    second: overworld_slime_moving_24
+  - first:
+      213: -397365078064581773
+    second: overworld_slime_moving_25
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +214,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,7 +226,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -160,7 +238,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -174,10 +252,10 @@ TextureImporter:
       name: overworld_slime_moving_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
-        width: 36
-        height: 36
+        x: 1
+        y: 148
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44792a3534d817770800000000000000
-      internalID: 8606815683187218244
+      spriteID: ef722996a8dd8f840800000000000000
+      internalID: 5258196151501465598
       vertices: []
       indices: 
       edges: []
@@ -195,10 +273,10 @@ TextureImporter:
       name: overworld_slime_moving_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 144
-        width: 36
-        height: 36
+        x: 37
+        y: 148
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c41b29ecc31027b0800000000000000
-      internalID: -5251175394707827517
+      spriteID: d61c99943d2275840800000000000000
+      internalID: 5212673384572895597
       vertices: []
       indices: 
       edges: []
@@ -216,10 +294,10 @@ TextureImporter:
       name: overworld_slime_moving_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 144
-        width: 36
-        height: 36
+        x: 73
+        y: 148
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26c5d3283a323b2f0800000000000000
-      internalID: -958383110528082846
+      spriteID: 1abb5a3d5217afa20800000000000000
+      internalID: 3096912101049220001
       vertices: []
       indices: 
       edges: []
@@ -237,10 +315,10 @@ TextureImporter:
       name: overworld_slime_moving_3
       rect:
         serializedVersion: 2
-        x: 108
-        y: 144
-        width: 36
-        height: 36
+        x: 109
+        y: 148
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f3989ff34ed6d970800000000000000
-      internalID: 8779448907237725172
+      spriteID: ded10c9777e147170800000000000000
+      internalID: 8175192722076868077
       vertices: []
       indices: 
       edges: []
@@ -258,10 +336,10 @@ TextureImporter:
       name: overworld_slime_moving_4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 144
-        width: 36
-        height: 36
+        x: 145
+        y: 148
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 821a3bc3852946300800000000000000
-      internalID: 244481187458031912
+      spriteID: acf0a7f8e8fbd7270800000000000000
+      internalID: 8249960711426019274
       vertices: []
       indices: 
       edges: []
@@ -279,10 +357,10 @@ TextureImporter:
       name: overworld_slime_moving_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 108
-        width: 36
-        height: 36
+        x: 1
+        y: 112
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2bf6a7eb88ef9e40800000000000000
-      internalID: 5665502543839951661
+      spriteID: 29e6ef178b6b07980800000000000000
+      internalID: -8543127589819093358
       vertices: []
       indices: 
       edges: []
@@ -300,10 +378,10 @@ TextureImporter:
       name: overworld_slime_moving_6
       rect:
         serializedVersion: 2
-        x: 36
-        y: 108
-        width: 36
-        height: 36
+        x: 37
+        y: 112
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,8 +389,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d502b60e9ee0d8190800000000000000
-      internalID: -7958688568838512547
+      spriteID: f787e0868f44976d0800000000000000
+      internalID: -2992284643722626945
       vertices: []
       indices: 
       edges: []
@@ -321,10 +399,10 @@ TextureImporter:
       name: overworld_slime_moving_7
       rect:
         serializedVersion: 2
-        x: 72
-        y: 108
-        width: 36
-        height: 36
+        x: 73
+        y: 112
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,8 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d6c546dfa2e21720800000000000000
-      internalID: 2815561961902032599
+      spriteID: bbb8004e316f30890800000000000000
+      internalID: -7492874789724320837
       vertices: []
       indices: 
       edges: []
@@ -342,10 +420,10 @@ TextureImporter:
       name: overworld_slime_moving_8
       rect:
         serializedVersion: 2
-        x: 108
-        y: 108
-        width: 36
-        height: 36
+        x: 109
+        y: 112
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,8 +431,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5af18f0b810a02280800000000000000
-      internalID: -9070073621615468635
+      spriteID: 4798b9092559ab010800000000000000
+      internalID: 1205440032120998260
       vertices: []
       indices: 
       edges: []
@@ -363,10 +441,10 @@ TextureImporter:
       name: overworld_slime_moving_9
       rect:
         serializedVersion: 2
-        x: 144
-        y: 108
-        width: 36
-        height: 36
+        x: 145
+        y: 112
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,8 +452,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e42b8af8406c4340800000000000000
-      internalID: 4849356765328516328
+      spriteID: 9329cef1fcb846a90800000000000000
+      internalID: -7321573372487495111
       vertices: []
       indices: 
       edges: []
@@ -384,10 +462,10 @@ TextureImporter:
       name: overworld_slime_moving_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 72
-        width: 36
-        height: 36
+        x: 1
+        y: 76
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,8 +473,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 826562a41c7f17f30800000000000000
-      internalID: 4571707506302539304
+      spriteID: 632d63a56f6ec2070800000000000000
+      internalID: 8083089376973083190
       vertices: []
       indices: 
       edges: []
@@ -405,10 +483,10 @@ TextureImporter:
       name: overworld_slime_moving_11
       rect:
         serializedVersion: 2
-        x: 36
-        y: 72
-        width: 36
-        height: 36
+        x: 37
+        y: 76
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,8 +494,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e58aefc9969d8200800000000000000
-      internalID: 183968747154474465
+      spriteID: 82656cf62aadd45c0800000000000000
+      internalID: -4229484083836201432
       vertices: []
       indices: 
       edges: []
@@ -426,10 +504,10 @@ TextureImporter:
       name: overworld_slime_moving_12
       rect:
         serializedVersion: 2
-        x: 72
-        y: 72
-        width: 36
-        height: 36
+        x: 73
+        y: 76
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,8 +515,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a97c3429c5ac9820800000000000000
-      internalID: 2926396141198932391
+      spriteID: 4417f6ce9c45e7fa0800000000000000
+      internalID: -5801106043774734012
       vertices: []
       indices: 
       edges: []
@@ -447,10 +525,10 @@ TextureImporter:
       name: overworld_slime_moving_13
       rect:
         serializedVersion: 2
-        x: 108
-        y: 72
-        width: 36
-        height: 36
+        x: 109
+        y: 76
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -458,8 +536,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5355a9e970e105ac0800000000000000
-      internalID: -3868559061836737227
+      spriteID: b47892e0a3c74f9e0800000000000000
+      internalID: -1588508179767392437
       vertices: []
       indices: 
       edges: []
@@ -468,10 +546,10 @@ TextureImporter:
       name: overworld_slime_moving_14
       rect:
         serializedVersion: 2
-        x: 144
-        y: 72
-        width: 36
-        height: 36
+        x: 145
+        y: 76
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -479,8 +557,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30b86003863a06cb0800000000000000
-      internalID: -4872715128937215229
+      spriteID: fc4cce6043e65c3f0800000000000000
+      internalID: -881176982347529009
       vertices: []
       indices: 
       edges: []
@@ -489,10 +567,10 @@ TextureImporter:
       name: overworld_slime_moving_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 36
-        width: 36
-        height: 36
+        x: 1
+        y: 40
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -500,8 +578,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 377c5316957ab69d0800000000000000
-      internalID: -2779944342646306957
+      spriteID: e79e04540c8bc6a90800000000000000
+      internalID: -7319272158448785026
       vertices: []
       indices: 
       edges: []
@@ -510,10 +588,10 @@ TextureImporter:
       name: overworld_slime_moving_16
       rect:
         serializedVersion: 2
-        x: 36
-        y: 36
-        width: 36
-        height: 36
+        x: 37
+        y: 40
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -521,8 +599,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9489e6652d1243850800000000000000
-      internalID: 6355742161403549769
+      spriteID: b7b83de2b5b1fa8f0800000000000000
+      internalID: -527172552937469061
       vertices: []
       indices: 
       edges: []
@@ -531,10 +609,10 @@ TextureImporter:
       name: overworld_slime_moving_17
       rect:
         serializedVersion: 2
-        x: 72
-        y: 36
-        width: 36
-        height: 36
+        x: 73
+        y: 40
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,8 +620,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 184efa02099b9e290800000000000000
-      internalID: -7860547645923662719
+      spriteID: f93532ed73de66650800000000000000
+      internalID: 6225924359092130719
       vertices: []
       indices: 
       edges: []
@@ -552,10 +630,10 @@ TextureImporter:
       name: overworld_slime_moving_18
       rect:
         serializedVersion: 2
-        x: 108
-        y: 36
-        width: 36
-        height: 36
+        x: 109
+        y: 40
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -563,8 +641,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c010f13595ab7f600800000000000000
-      internalID: 502074776284496140
+      spriteID: 02580ad295a15b6f0800000000000000
+      internalID: -669599999274744544
       vertices: []
       indices: 
       edges: []
@@ -573,10 +651,10 @@ TextureImporter:
       name: overworld_slime_moving_19
       rect:
         serializedVersion: 2
-        x: 144
-        y: 36
-        width: 36
-        height: 36
+        x: 145
+        y: 40
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -584,8 +662,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb4146df876cc1460800000000000000
-      internalID: 7213858926090261694
+      spriteID: 28fd121e6d4a929c0800000000000000
+      internalID: -3951445955233849470
       vertices: []
       indices: 
       edges: []
@@ -594,10 +672,10 @@ TextureImporter:
       name: overworld_slime_moving_20
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 36
-        height: 36
+        x: 1
+        y: 4
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -605,8 +683,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a1f6537c86e5be40800000000000000
-      internalID: 5671692796647895459
+      spriteID: 9d8336137bcd50540800000000000000
+      internalID: 4973624042866292953
       vertices: []
       indices: 
       edges: []
@@ -615,10 +693,10 @@ TextureImporter:
       name: overworld_slime_moving_21
       rect:
         serializedVersion: 2
-        x: 36
-        y: 0
-        width: 36
-        height: 36
+        x: 37
+        y: 4
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -626,8 +704,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe9b8c830b2c7cec0800000000000000
-      internalID: -3546652119408264721
+      spriteID: 430935f656a151460800000000000000
+      internalID: 7211699401265483828
       vertices: []
       indices: 
       edges: []
@@ -636,10 +714,10 @@ TextureImporter:
       name: overworld_slime_moving_22
       rect:
         serializedVersion: 2
-        x: 72
-        y: 0
-        width: 36
-        height: 36
+        x: 73
+        y: 4
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -647,8 +725,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 776244dc5335ded70800000000000000
-      internalID: 9074000314763585143
+      spriteID: 9287b21d4550c3560800000000000000
+      internalID: 7294711358278039593
       vertices: []
       indices: 
       edges: []
@@ -657,10 +735,10 @@ TextureImporter:
       name: overworld_slime_moving_23
       rect:
         serializedVersion: 2
-        x: 108
-        y: 0
-        width: 36
-        height: 36
+        x: 109
+        y: 4
+        width: 34
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -668,8 +746,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f606538ce432379a0800000000000000
-      internalID: -6236602237704642449
+      spriteID: 0a37fdc625d7f2190800000000000000
+      internalID: -7985025821337226336
       vertices: []
       indices: 
       edges: []
