@@ -22,36 +22,54 @@ public class EntityMove : MonoBehaviour
     [Header("Settings")]
     [SerializeField] [Tooltip("How fast the slime moves.")] private float moveSpeed = 2f;
     [SerializeField] [Tooltip("Scales the slime's speed based on distance from where the original tap was.")] private float moveScaler = 0.5f;
+    protected float maxDist = 5f; // Maximum length you can move the held tap between the original.
 
-    private Vector2 firstTapPos;
+    private Vector2 tapStartPos;
 
     [Header("UI Images")]
-    public Image firstTapIcon;
-    public Image heldTapIcon;
+    [SerializeField] private Image tapStartIcon = null; // Where the user started a tap.
+    [SerializeField] private Image tapHoldIcon = null; // Where the user's finger currently is.
 
-    protected void StartMove(Vector2 startPos)
+    protected void StartMove(Vector2 tapPos)
     {
-        firstTapPos = Camera.main.ScreenToWorldPoint(startPos);
+        tapStartPos = tapPos;
 
-        firstTapIcon.GetComponent<RectTransform>().anchoredPosition = startPos - new Vector2(Screen.width, Screen.height) / 2f;
-        firstTapIcon.GetComponent<CanvasGroup>().alpha = 0.5f;
+        tapStartIcon.gameObject.SetActive(true);
+        tapStartIcon.GetComponent<RectTransform>().anchoredPosition = tapStartPos - new Vector2(Screen.width, Screen.height) / 2f;
+
+        tapHoldIcon.gameObject.SetActive(true);
+        tapHoldIcon.GetComponent<RectTransform>().anchoredPosition = tapStartIcon.GetComponent<RectTransform>().anchoredPosition;
     }
 
-    protected void Move(Vector2 heldPos, bool isPlayer = false)
+    protected void Move(Vector2 tapPos, bool isPlayer = false)
     {
         Vector2 moveVal;
+        float tapDist = 1f;
 
         if (isPlayer)
         {
-            heldTapIcon.GetComponent<RectTransform>().anchoredPosition = heldPos - new Vector2(Screen.width, Screen.height) / 2f;
-            heldTapIcon.GetComponent<CanvasGroup>().alpha = 0.25f;
+            Camera camera = Camera.main;
+
+            // Sets a distance float between the world positions of each tap icon.
+            tapDist = (Vector2.Distance(camera.ScreenToWorldPoint(tapPos), camera.ScreenToWorldPoint(tapStartPos)));
+
+            if (tapDist <= maxDist)
+            {
+                tapHoldIcon.GetComponent<RectTransform>().anchoredPosition = tapPos - new Vector2(Screen.width, Screen.height) / 2f;
+            }
+            else
+            {
+                // Clamps the distance of the tap hold icon.
+                tapHoldIcon.GetComponent<RectTransform>().anchoredPosition = tapStartPos + ( (tapPos - tapStartPos).normalized * camera.WorldToScreenPoint( new Vector2(maxDist, 0f) ).x ) - new Vector2(Screen.width, Screen.height) / 2f;
+                tapDist = maxDist;
+            }
 
             // Sets a movement vector based on the position between where your finger started and where it is now.
-            moveVal = (Vector2)Camera.main.ScreenToWorldPoint(heldPos) - firstTapPos;
+            moveVal = tapPos - tapStartPos;
         }
         else
         {
-            moveVal = heldPos;
+            moveVal = tapPos;
         }
 
         // Sets an x and a y based on input.
@@ -59,7 +77,7 @@ public class EntityMove : MonoBehaviour
         currentVel.y = Mathf.Lerp(-1f, 1f, moveVal.normalized.y + 0.5f);
 
         // Applys your velocity.
-        rb2.velocity = currentVel * moveVal.magnitude * moveSpeed * moveScaler;
+        rb2.velocity = currentVel * moveSpeed * moveScaler * tapDist;
 
         #region Animation States
 
@@ -108,11 +126,13 @@ public class EntityMove : MonoBehaviour
         #endregion
     }
 
-    protected void StopMove(int tapCount)
+    protected void StopMove()
     {
-        firstTapIcon.GetComponent<CanvasGroup>().alpha = 0f;
-        heldTapIcon.GetComponent<CanvasGroup>().alpha = 0f;
-        
+        Debug.Log("End Tap.");
+
+        tapStartIcon.gameObject.SetActive(false);
+        tapHoldIcon.gameObject.SetActive(false);
+
         // Stops all movement.
         rb2.velocity = Vector2.zero;
         

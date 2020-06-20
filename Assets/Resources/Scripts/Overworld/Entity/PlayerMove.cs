@@ -14,9 +14,10 @@ public class PlayerMove : EntityMove
 
         controls.Player.StartMovement.performed += ctx => StartMove(ctx.ReadValue<Vector2>());
         controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>(), true);
-        //controls.Player.StopMovement.performed += ctx => StopMove();
 
         TouchSimulation.Enable();
+
+        maxDist = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x * 1.25f;
     }
 
     private void OnEnable()
