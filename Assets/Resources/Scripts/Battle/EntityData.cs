@@ -23,7 +23,7 @@ public class EntityData
     private ShopCosmetic ShopCosmetic; // The tntity can have 1 Cosmetic that you can buy in a shop.
 
     public EntityData(string name, uint hp, uint energy, float pow, float def, float spd,
-        Dictionary<Type, float> typeAffinities, List<Move> moves, Ability ability, List<TypeCosmetic> typeCosmetics, ShopCosmetic shopCosmetic)
+        Dictionary<Type, float> typeAffinities, List<Move> moves, Ability ability = null, List<TypeCosmetic> typeCosmetics = null, ShopCosmetic shopCosmetic = null)
     {
         Name = name;
         HPMax = hp;

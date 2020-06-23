@@ -12,12 +12,13 @@ public class PlayerMove : EntityMove
         rb2 = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        controls.Player.StartMovement.performed += ctx => StartMove(ctx.ReadValue<Vector2>());
-        controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>(), true);
-
         TouchSimulation.Enable();
 
-        maxDist = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height)).x * 1.25f;
+        controls.Player.StartMovement.performed += ctx => StartMove(ctx.ReadValue<Vector2>());
+        controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>(), true);
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerUp += ctx => StopMove();
+
+        maxDist = Screen.width / 1.75f;
     }
 
     private void OnEnable()

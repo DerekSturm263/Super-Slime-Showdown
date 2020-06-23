@@ -20,9 +20,11 @@ public class EntityMove : MonoBehaviour
     private Vector2 currentVel;
 
     [Header("Settings")]
-    [SerializeField] [Tooltip("How fast the slime moves.")] private float moveSpeed = 2f;
-    [SerializeField] [Tooltip("Scales the slime's speed based on distance from where the original tap was.")] private float moveScaler = 0.5f;
-    protected float maxDist = 5f; // Maximum length you can move the held tap between the original.
+    [SerializeField] [Tooltip("The minimum speed the slime can move.")] private float moveSpeedMin = 2f;
+    [SerializeField] [Tooltip("The maximum speed the slime can move.")] private float moveSpeedMax = 5f;
+    private float currentSpeed;
+
+    protected float maxDist; // Maximum length you can move the held tap between the original.
 
     private Vector2 tapStartPos;
 
@@ -43,15 +45,12 @@ public class EntityMove : MonoBehaviour
 
     protected void Move(Vector2 tapPos, bool isPlayer = false)
     {
-        Vector2 moveVal;
-        float tapDist = 1f;
+        Vector2 moveVect;
 
         if (isPlayer)
         {
-            Camera camera = Camera.main;
-
             // Sets a distance float between the world positions of each tap icon.
-            tapDist = (Vector2.Distance(camera.ScreenToWorldPoint(tapPos), camera.ScreenToWorldPoint(tapStartPos)));
+            float tapDist = Vector2.Distance(tapPos, tapStartPos);
 
             if (tapDist <= maxDist)
             {
@@ -60,24 +59,30 @@ public class EntityMove : MonoBehaviour
             else
             {
                 // Clamps the distance of the tap hold icon.
-                tapHoldIcon.GetComponent<RectTransform>().anchoredPosition = tapStartPos + ( (tapPos - tapStartPos).normalized * camera.WorldToScreenPoint( new Vector2(maxDist, 0f) ).x ) - new Vector2(Screen.width, Screen.height) / 2f;
+                tapHoldIcon.GetComponent<RectTransform>().anchoredPosition = tapStartPos + ( (tapPos - tapStartPos).normalized * maxDist ) - new Vector2(Screen.width, Screen.height) / 2f;
                 tapDist = maxDist;
             }
 
+            // Lerps speed.
+            currentSpeed = Mathf.Lerp(moveSpeedMin, moveSpeedMax, tapDist / maxDist);
+
             // Sets a movement vector based on the position between where your finger started and where it is now.
-            moveVal = tapPos - tapStartPos;
+            moveVect = (tapPos - tapStartPos).normalized;
         }
         else
         {
-            moveVal = tapPos;
+            moveVect = tapPos;
+
+            // Sets speed.
+            currentSpeed = moveSpeedMin * 1.5f;
         }
 
         // Sets an x and a y based on input.
-        currentVel.x = Mathf.Lerp(-1f, 1f, moveVal.normalized.x + 0.5f);
-        currentVel.y = Mathf.Lerp(-1f, 1f, moveVal.normalized.y + 0.5f);
+        currentVel.x = Mathf.Lerp(-1f, 1f, moveVect.x + 0.5f);
+        currentVel.y = Mathf.Lerp(-1f, 1f, moveVect.y + 0.5f);
 
-        // Applys your velocity.
-        rb2.velocity = currentVel * moveSpeed * moveScaler * tapDist;
+        // Applies your velocity.
+        rb2.velocity = currentVel * currentSpeed;
 
         #region Animation States
 
@@ -99,14 +104,17 @@ public class EntityMove : MonoBehaviour
 
     protected void MoveTowards(GameObject g)
     {
-        Vector2 moveVal = new Vector2(g.transform.position.x - transform.position.x, g.transform.position.y - transform.position.y).normalized * moveSpeed;
+        Vector2 moveVal = new Vector2(g.transform.position.x - transform.position.x, g.transform.position.y - transform.position.y).normalized;
 
         // Sets an x and a y based on input.
-        currentVel.x = Mathf.Lerp(-1f, 1f, moveVal.normalized.x + 0.5f);
-        currentVel.y = Mathf.Lerp(-1f, 1f, moveVal.normalized.y + 0.5f);
+        currentVel.x = Mathf.Lerp(-1f, 1f, moveVal.x + 0.5f);
+        currentVel.y = Mathf.Lerp(-1f, 1f, moveVal.y + 0.5f);
 
-        // Applys your velocity.
-        rb2.velocity = currentVel * moveVal.magnitude * moveSpeed * moveScaler;
+        // Sets speed.
+        currentSpeed = (moveSpeedMin + moveSpeedMax) / 2f;
+
+        // Applies your velocity.
+        rb2.velocity = currentVel * currentSpeed;
 
         #region Animation States
 
@@ -134,6 +142,7 @@ public class EntityMove : MonoBehaviour
         tapHoldIcon.gameObject.SetActive(false);
 
         // Stops all movement.
+        currentSpeed = 0f;
         rb2.velocity = Vector2.zero;
         
         // Sets animation state to idle.
