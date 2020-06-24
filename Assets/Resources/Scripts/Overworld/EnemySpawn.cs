@@ -14,47 +14,39 @@ public class EnemySpawn : MonoBehaviour
 
     #endregion
 
-    private uint slimesMax = 10;
-    private uint slimesCurrent = 0;
+    [Tooltip("Must be equal to the number of enemies that can spawn on that island.")] private List<Transform> spawnPoints = new List<Transform>();
 
-    private Transform[] spawnPoints = null;
-
-    public uint islandNum;
-    private List<EntityData> island1Enemies = new List<EntityData>() { AcornSlime };
+    [Tooltip("Each int represents an island 1 - 6.")] public uint islandNum;
+    private readonly Dictionary<uint, List<EntityData>> islandEnemies = new Dictionary<uint, List<EntityData>>();
 
     [SerializeField] private GameObject enemySlime = null;
 
-    private void Update()
+    private class ShuffleComparer<T> : IComparer<T>
     {
-        if (slimesCurrent < slimesMax)
+        public int Compare(T x, T y)
         {
-            SpawnEnemy();
+            return Random.Range(-1, 1);
         }
     }
 
-    private void SpawnEnemy()
+    private void Awake()
     {
-        EntityData newEnemy = null;
+        // Add enemies.
+        islandEnemies[1].Add(AcornSlime);
 
-        switch (islandNum)
+        spawnPoints.Sort(0, spawnPoints.Count, new ShuffleComparer<Transform>());
+
+        for (int i = 0; i < spawnPoints.Count; i++)
         {
-            case 1:
-                newEnemy = island1Enemies[Random.Range(0, island1Enemies.Count)];
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
+            EntityData newEnemy = islandEnemies[islandNum][i];
+            SpawnEnemy(newEnemy, spawnPoints[i].position);
         }
+    }
 
-        Instantiate(enemySlime);
-        EntityData enemyScript = enemySlime.GetComponent<EntityData>();
-        enemyScript = newEnemy;
+    private void SpawnEnemy(EntityData enemy, Vector2 location)
+    {
+        Instantiate(enemySlime, location, Quaternion.identity);
+        EntityData data = enemySlime.GetComponent<EntityData>();
+        data = enemy;
     }
 }
