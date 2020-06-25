@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8169797803270005656}
   - component: {fileID: 8169797803270005663}
   - component: {fileID: 8169797803270005662}
+  - component: {fileID: -6145375125813761544}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -171,3 +172,15 @@ MonoBehaviour:
   tapStartIcon: {fileID: 0}
   tapHoldIcon: {fileID: 0}
   followDistance: 3.5
+--- !u!114 &-6145375125813761544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169797803270005661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c72d537890ee64c806a29910e2b639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

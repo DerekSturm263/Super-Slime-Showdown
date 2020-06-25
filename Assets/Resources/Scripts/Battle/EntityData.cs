@@ -2,52 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityData
+public class EntityData : MonoBehaviour
 {
-    private string Name;
-    private List<Type> Types = new List<Type>(); // This is the type that is displayed in battle. The player can have up to 2 is they dual type.
-    private uint HPMax;
-    private uint HPCurrent;
-    private uint EnergyMax;
-    private uint EnergyCurrent;
-    private float Pow;
-    private float Def;
-    private float Spd;
+    public Enemy data;
+    private EntityMove move;
 
-    private Dictionary<Type, float> TypeAffinities = new Dictionary<Type, float>(); // These are the affinities for each type.
+    private SpriteRenderer sprtRndr;
+    private List<GameObject> typeCosmetics;
+    private List<GameObject> shopCosmetics;
 
-    private List<Move> Moves = new List<Move>(); // The entity can have up to 4 moves.
-    private Ability Ability;
-
-    private List<TypeCosmetic> TypeCosmetics = new List<TypeCosmetic>(); // The entity can have up to 3 Type Cosmetics displayed at once.
-    private ShopCosmetic ShopCosmetic; // The tntity can have 1 Cosmetic that you can buy in a shop.
-
-    public EntityData(string name, uint hp, uint energy, float pow, float def, float spd,
-        Dictionary<Type, float> typeAffinities, List<Move> moves, Ability ability = null, List<TypeCosmetic> typeCosmetics = null, ShopCosmetic shopCosmetic = null)
+    public void AssignStats(Enemy enemy)
     {
-        Name = name;
-        HPMax = hp;
-        HPCurrent = HPMax;
-        EnergyMax = energy;
-        EnergyCurrent = EnergyMax;
-        Pow = pow;
-        Def = def;
-        Spd = spd;
-        TypeAffinities = typeAffinities;
-        Moves = moves;
-        Ability = ability;
-        TypeCosmetics = typeCosmetics;
-        ShopCosmetic = shopCosmetic;
+        sprtRndr = GetComponent<SpriteRenderer>();
+        move = GetComponent<EntityMove>();
 
-        List<float> affinityFloats = new List<float>();
-        List<Type> affinityTypes = new List<Type>();
-        foreach (KeyValuePair<Type, float> value in typeAffinities)
+        data = enemy;
+        gameObject.name = data.Name;
+        transform.localScale = new Vector2(data.Size, data.Size);
+        move.moveSpeedMin = (data.CanMove) ? move.moveSpeedMin : 0f;
+        move.moveSpeedMax = (data.CanMove) ? move.moveSpeedMax : 0f;
+
+        if (data.Types.Count == 1)
         {
-            affinityFloats.Add(value.Value);
-            affinityTypes.Add(value.Key);
+            sprtRndr.color = data.Types[0].TypeColor;
         }
-
-        affinityFloats.Sort();
-        affinityFloats.Reverse();
+        else
+        {
+            sprtRndr.color = Color.Lerp(data.Types[0].TypeColor, data.Types[1].TypeColor, 0.5f);
+        }
     }
 }

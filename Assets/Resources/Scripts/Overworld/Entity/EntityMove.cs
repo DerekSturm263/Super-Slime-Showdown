@@ -20,8 +20,8 @@ public class EntityMove : MonoBehaviour
     private Vector2 currentVel;
 
     [Header("Settings")]
-    [SerializeField] [Tooltip("The minimum speed the slime can move.")] private float moveSpeedMin = 2f;
-    [SerializeField] [Tooltip("The maximum speed the slime can move.")] private float moveSpeedMax = 5f;
+    [SerializeField] [Tooltip("The minimum speed the slime can move.")] public float moveSpeedMin = 2f;
+    [SerializeField] [Tooltip("The maximum speed the slime can move.")] public float moveSpeedMax = 5f;
     private float currentSpeed;
 
     protected float maxDist; // Maximum length you can move the held tap between the original.
