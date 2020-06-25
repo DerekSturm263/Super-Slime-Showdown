@@ -8,7 +8,11 @@ public class EnemySpawn : MonoBehaviour
     #region Enemy Slime Declaration
 
     // Standard enemies.
-    static readonly EntityData AcornSlime = new EntityData("Acorn", 0, 0, 0f, 0f, 0f, new Dictionary<Type, float>() { [Types.Nature] = 1f }, new List<Move>() { Moves.Roll } );
+    static readonly EntityData AcornSlime = new EntityData("Acorn", 0, 0, 0f, 0f, 0f, // Name & Stats.
+        new Dictionary<Type, float>() { [Types.Nature] = 1f }, // Type Affinities.
+        new List<Move>() { Moves.Roll } ); // Move list.
+
+    static readonly EntityData 
 
     // Boss enemies.
 
