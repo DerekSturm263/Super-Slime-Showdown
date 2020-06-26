@@ -86,14 +86,11 @@ public class EntityMove : MonoBehaviour
 
         #region Animation States
 
-        // Sets whether you're idle or not.
-        animState = (rb2.velocity.magnitude == 0f) ? State.Idle : State.Moving;
-
         // Sets the direction you're moving in.
-        if (Mathf.Abs(rb2.velocity.x) > Mathf.Abs(rb2.velocity.y))
-            animDir = (rb2.velocity.x < 0f) ? Direction.Left : Direction.Right;
-        else if (Mathf.Abs(rb2.velocity.x) < Mathf.Abs(rb2.velocity.y))
-            animDir = (rb2.velocity.y < 0f) ? Direction.Down : Direction.Up;
+        if (Mathf.Abs(currentVel.x) > Mathf.Abs(currentVel.y))
+            animDir = (currentVel.x < 0f) ? Direction.Left : Direction.Right;
+        else if (Mathf.Abs(currentVel.x) < Mathf.Abs(currentVel.y))
+            animDir = (currentVel.y < 0f) ? Direction.Down : Direction.Up;
 
         // Converts them into animation states.
         anim.SetInteger("State", 1);
@@ -118,17 +115,14 @@ public class EntityMove : MonoBehaviour
 
         #region Animation States
 
-        // Sets whether you're idle or not.
-        animState = (rb2.velocity.magnitude == 0f) ? State.Idle : State.Moving;
-
         // Sets the direction you're moving in.
-        if (Mathf.Abs(rb2.velocity.x) > Mathf.Abs(rb2.velocity.y))
-            animDir = (rb2.velocity.x < 0f) ? Direction.Left : Direction.Right;
-        else if (Mathf.Abs(rb2.velocity.x) < Mathf.Abs(rb2.velocity.y))
-            animDir = (rb2.velocity.y < 0f) ? Direction.Down : Direction.Up;
+        if (Mathf.Abs(currentVel.x) > Mathf.Abs(currentVel.y))
+            animDir = (currentVel.x < 0f) ? Direction.Left : Direction.Right;
+        else if (Mathf.Abs(currentVel.x) < Mathf.Abs(currentVel.y))
+            animDir = (currentVel.y < 0f) ? Direction.Down : Direction.Up;
 
         // Converts them into animation states.
-        anim.SetInteger("State", (int)animState);
+        anim.SetInteger("State", 1);
         anim.SetInteger("Direction", (int)animDir);
 
         #endregion
@@ -136,8 +130,6 @@ public class EntityMove : MonoBehaviour
 
     protected void StopMove()
     {
-        Debug.Log("End Tap.");
-
         tapStartIcon.gameObject.SetActive(false);
         tapHoldIcon.gameObject.SetActive(false);
 

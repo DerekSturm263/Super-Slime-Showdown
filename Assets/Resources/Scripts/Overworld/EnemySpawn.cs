@@ -9,7 +9,7 @@ public class EnemySpawn : MonoBehaviour
 {
     #region Enemy Slime Declaration
 
-    // Standard enemies.
+    // Enemies.
     static readonly Enemy Acorn = new Enemy("Acorn", 0, 0, 0f, 0f, 0f, // Name & Stats.
         new Dictionary<Type, float>() { [Types.Nature] = 1f }, // Type Affinities.
         new List<Move>() { Moves.Roll } ); // Move list.
@@ -20,28 +20,58 @@ public class EnemySpawn : MonoBehaviour
 
     static readonly Enemy Peanut = new Enemy("Peanut", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Slam } );
+        new List<Move>() { Moves.Roll } );
+
+    static readonly Enemy NatureEnemy4 = new Enemy("Nature Enemy 4", 0, 0, 0f, 0f, 0f,
+        new Dictionary<Type, float>() { [Types.Nature] = 1f },
+        new List<Move>() { Moves.Roll });
+
+    static readonly Enemy NatureEnemy5 = new Enemy("Nature Enemy 5", 0, 0, 0f, 0f, 0f,
+        new Dictionary<Type, float>() { [Types.Nature] = 1f },
+        new List<Move>() { Moves.Roll });
 
     static readonly Enemy Frost = new Enemy("Frost", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Roll } );
+        new List<Move>() { Moves.Slam } );
 
     static readonly Enemy Snowflake = new Enemy("Snowflake", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Ice] = 1f },
         new List<Move>() { Moves.Slam } );
 
-    // Boss enemies.
-    static readonly Enemy ExampleBoss = new Enemy("Example", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f, [Types.Ice] = 1f },
+    static readonly Enemy IceEnemy3 = new Enemy("Ice Enemy 3", 0, 0, 0f, 0f, 0f,
+        new Dictionary<Type, float>() { [Types.Ice] = 1f },
+        new List<Move>() { Moves.Slam });
+
+    static readonly Enemy IceEnemy4 = new Enemy("Ice Enemy 4", 0, 0, 0f, 0f, 0f,
+        new Dictionary<Type, float>() { [Types.Ice] = 1f },
+        new List<Move>() { Moves.Slam });
+
+    static readonly Enemy IceEnemy5 = new Enemy("Ice Enemy 5", 0, 0, 0f, 0f, 0f,
+        new Dictionary<Type, float>() { [Types.Ice] = 1f },
+        new List<Move>() { Moves.Slam });
+
+    // Bosses
+    static readonly Enemy ExampleBoss = new Enemy("Nature Boss", 0, 0, 0f, 0f, 0f,
+        new Dictionary<Type, float>() { [Types.Nature] = 10f, [Types.Ice] = 2.5f },
         new List<Move>() { Moves.Slam, Moves.Roll },
-        4f, false ); // Size & CanMove.
+        3f, false ); // Size & CanMove.
+
+    static readonly Enemy ExampleBoss2 = new Enemy("Ice Boss", 0, 0, 0f, 0f, 0f,
+        new Dictionary<Type, float>() { [Types.Nature] = 2.5f, [Types.Ice] = 10f },
+        new List<Move>() { Moves.Slam, Moves.Roll },
+        3f, false );
 
     #endregion
 
     [Tooltip("Each int represents an island 1 - 6.")] public uint islandNum;
 
-    private Dictionary<uint, List<Vector2>> spawnPoints = new Dictionary<uint, List<Vector2>>();
-    private Dictionary<uint, List<Enemy>> islandEnemies = new Dictionary<uint, List<Enemy>>();
+    // Enemies.
+    private Dictionary<Type, List<Vector2>> spawnPoints = new Dictionary<Type, List<Vector2>>(); // Dictionary represents Type as Key, List of Spawn Points as Values.
+    private Dictionary<Type, List<Enemy>> islandEnemies = new Dictionary<Type, List<Enemy>>(); // Dictionary represents Type as Key, List of Enemies as Values.
+
+    // Bosses.
+    private Dictionary<uint, List<Vector2>> bossSpawnPoints = new Dictionary<uint, List<Vector2>>(); // Dictionary represents Island Number as Key, List of Spawn Points as Values.
+    private Dictionary<uint, List<Enemy>> islandBosses = new Dictionary<uint, List<Enemy>>(); // Dictionary represents Island Number as Key, List of Enemies as Values.
 
     [SerializeField] private GameObject enemySlime = null;
 
@@ -55,22 +85,42 @@ public class EnemySpawn : MonoBehaviour
 
     private void Awake()
     {
-        // This part I hate.
-
         #region Spawn Points
 
-        spawnPoints.Add(1, new List<Vector2> { new Vector2(0f, -15f),
-                                               new Vector2(0f, 12.5f),
-                                               new Vector2(20f, 0f),
-                                               new Vector2(-30f, -25f),
-                                               new Vector2(27.5f, -25f),
-                                               new Vector2(27.5f, -47.5f) } );
+        spawnPoints.Add(Types.Nature, new List<Vector2>
+        {
+            new Vector2(-33f, -24.7f),
+            new Vector2(-13f, -19.8f),
+            new Vector2(14.5f, -18.3f),
+            new Vector2(33.3f, 2.8f),
+            new Vector2(32.6f, -15.5f),
+            new Vector2(16.6f, 2.1f)
+        });
+
+        spawnPoints.Add(Types.Ice, new List<Vector2>
+        {
+            new Vector2(3.3f, 15.7f),
+            new Vector2(20.3f, 21.3f),
+            new Vector2(35.2f, 20.3f),
+            new Vector2(-18.6f, 16.6f),
+            new Vector2(-37.4f, 6.2f),
+            new Vector2(-36.9f, 6.4f)
+        });
+
+        bossSpawnPoints.Add(1, new List<Vector2>
+        {
+            new Vector2(28.8f, -31.6f),
+            new Vector2(-32.5f, 17.8f)
+        });
 
         #endregion
 
         #region Enemies
 
-        islandEnemies.Add(1, new List<Enemy> { Acorn, Herb, Peanut, Frost, Snowflake, ExampleBoss } );
+        // First island.
+        islandEnemies.Add( Types.Nature, new List<Enemy> { Acorn, Herb, Peanut, NatureEnemy4, NatureEnemy5 } );
+        islandEnemies.Add( Types.Ice, new List<Enemy> { Frost, Snowflake, IceEnemy3, IceEnemy4, IceEnemy5 } );
+        islandBosses.Add( 1, new List<Enemy> { ExampleBoss, ExampleBoss2 } );
 
         #endregion
 
@@ -86,12 +136,48 @@ public class EnemySpawn : MonoBehaviour
 
     private void SpawnEnemies(uint island)
     {
-        spawnPoints[island].Sort(0, spawnPoints[islandNum].Count, new ShuffleComparer<Vector2>());
+        List<Type> islandTypes = new List<Type>();
 
-        for (int i = 0; i < islandEnemies[island].Count; i++)
+        switch (island)
         {
-            Enemy newEnemy = islandEnemies[island][i];
-            SpawnEnemy(newEnemy, spawnPoints[island][i]);
+            case 1:
+                islandTypes.Add(Types.Nature);
+                islandTypes.Add(Types.Ice);
+                break;
+            case 2:
+                islandTypes.Add(Types.Earth);
+                islandTypes.Add(Types.Water);
+                break;
+            case 3:
+                islandTypes.Add(Types.Wind);
+                islandTypes.Add(Types.Volt);
+                break;
+            case 4:
+                islandTypes.Add(Types.Fire);
+                islandTypes.Add(Types.Toxin);
+                break;
+            case 5:
+                islandTypes.Add(Types.Light);
+                islandTypes.Add(Types.Shadow);
+                break;
+        }
+
+        spawnPoints[islandTypes[0]].Sort(0, spawnPoints[islandTypes[0]].Count, new ShuffleComparer<Vector2>());
+        spawnPoints[islandTypes[1]].Sort(0, spawnPoints[islandTypes[1]].Count, new ShuffleComparer<Vector2>());
+
+        foreach (Type type in islandTypes)
+        {
+            for (int i = 0; i < islandEnemies[type].Count; i++)
+            {
+                Enemy newEnemy = islandEnemies[type][i];
+                SpawnEnemy(newEnemy, spawnPoints[type][i]);
+            }
+        }
+
+        for (int i = 0; i < islandBosses[island].Count; i++)
+        {
+            Enemy newBoss = islandBosses[island][i];
+            SpawnEnemy(newBoss, bossSpawnPoints[island][i]);
         }
     }
 
