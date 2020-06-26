@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animDir: 0
   animState: 0
-  moveSpeedMin: 1.25
+  moveSpeedMin: 1
   moveSpeedMax: 5
   tapStartIcon: {fileID: 0}
   tapHoldIcon: {fileID: 0}
