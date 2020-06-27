@@ -12,54 +12,54 @@ public class EnemySpawn : MonoBehaviour
     // Enemies.
     static readonly Enemy Acorn = new Enemy("Acorn", 0, 0, 0f, 0f, 0f, // Name & Stats.
         new Dictionary<Type, float>() { [Types.Nature] = 1f }, // Type Affinities.
-        new List<Move>() { Moves.Roll } ); // Move list.
+        new List<Move>() { Moves.Roll }, 1.5f ); // Move list.
 
     static readonly Enemy Herb = new Enemy("Herb", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll, Moves.Slam });
+        new List<Move>() { Moves.Roll }, 1.5f );
 
     static readonly Enemy Peanut = new Enemy("Peanut", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll } );
+        new List<Move>() { Moves.Roll }, 1.5f );
 
     static readonly Enemy NatureEnemy4 = new Enemy("Nature Enemy 4", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll });
+        new List<Move>() { Moves.Roll }, 1.5f );
 
     static readonly Enemy NatureEnemy5 = new Enemy("Nature Enemy 5", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll });
+        new List<Move>() { Moves.Roll }, 1.5f );
 
     static readonly Enemy Frost = new Enemy("Frost", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam } );
+        new List<Move>() { Moves.Slam }, 1.5f );
 
     static readonly Enemy Snowflake = new Enemy("Snowflake", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam } );
+        new List<Move>() { Moves.Slam }, 1.5f );
 
     static readonly Enemy IceEnemy3 = new Enemy("Ice Enemy 3", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam });
+        new List<Move>() { Moves.Slam }, 1.5f );
 
     static readonly Enemy IceEnemy4 = new Enemy("Ice Enemy 4", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam });
+        new List<Move>() { Moves.Slam }, 1.5f );
 
     static readonly Enemy IceEnemy5 = new Enemy("Ice Enemy 5", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam });
+        new List<Move>() { Moves.Slam }, 1.5f );
 
     // Bosses
     static readonly Enemy ExampleBoss = new Enemy("Nature Boss", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 10f, [Types.Ice] = 2.5f },
         new List<Move>() { Moves.Slam, Moves.Roll },
-        3f, false ); // Size & CanMove.
+        1f, 3f, false ); // Size & CanMove.
 
     static readonly Enemy ExampleBoss2 = new Enemy("Ice Boss", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 2.5f, [Types.Ice] = 10f },
         new List<Move>() { Moves.Slam, Moves.Roll },
-        3f, false );
+        1f, 3f, false );
 
     #endregion
 

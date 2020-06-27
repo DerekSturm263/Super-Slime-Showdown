@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class PlayerInfo
+public static class PlayerInfo
 {
     public static uint goldCount;
 

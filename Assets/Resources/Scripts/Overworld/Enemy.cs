@@ -22,15 +22,25 @@ public class Enemy
     public bool CanMove; // Used in overworld so bosses don't move.
 
     public Dictionary<Type, float> TypeAffinities = new Dictionary<Type, float>(); // These are the affinities for each type.
+    
+    // The entity can have up to 4 moves.
+    public List<Move> Level1Moves = new List<Move>();
+    public List<Move> Level2Moves = new List<Move>();
+    public List<Move> Level3Moves = new List<Move>();
+    public List<Move> Level4Moves = new List<Move>();
+    public List<Move> Level5Moves = new List<Move>();
 
-    public List<Move> Moves = new List<Move>(); // The entity can have up to 4 moves.
     public Ability Ability;
 
     public List<TypeCosmetic> TypeCosmetics = new List<TypeCosmetic>(); // The entity can have up to 3 Type Cosmetics displayed at once.
     public ShopCosmetic ShopCosmetic; // The tntity can have 1 Cosmetic that you can buy in a shop.
 
+    public uint TimesFought; // The nubmer of times you've beaten an enemy.
+    public float StrengthMultiplier; // The stats of the enemy will be multiplied by this amount every time you beat them.
+
     public Enemy(string name, uint hp, uint energy, float pow, float def, float spd,
-        Dictionary<Type, float> typeAffinities, List<Move> moves, float size = 1f, bool canMove = true, Ability ability = null, List<TypeCosmetic> typeCosmetics = null, ShopCosmetic shopCosmetic = null)
+        Dictionary<Type, float> typeAffinities, List<Move> moves, float strengthMultipler, float size = 1f, bool canMove = true, Ability ability = null,
+        List<TypeCosmetic> typeCosmetics = null, ShopCosmetic shopCosmetic = null)
     {
         Name = name;
         HPMax = hp;
@@ -41,12 +51,14 @@ public class Enemy
         Def = def;
         Spd = spd;
         TypeAffinities = typeAffinities;
-        Moves = moves;
+        Level1Moves = moves;
+        StrengthMultiplier = strengthMultipler;
         Size = size;
         CanMove = canMove;
         Ability = ability;
         TypeCosmetics = typeCosmetics;
         ShopCosmetic = shopCosmetic;
+        TimesFought = 1;
 
         #region Type Setting
 
@@ -56,15 +68,6 @@ public class Enemy
         var typesList = TypeAffinities.ToList();
         typesList.Sort((x, y) => (y.Value.CompareTo(x.Value)));
         typesList.ForEach((x) => Types.Add(x.Key));
-
-        if (typesList.Count > 1)
-        {
-
-        }
-        else
-        {
-            
-        }
 
         #endregion
     }
