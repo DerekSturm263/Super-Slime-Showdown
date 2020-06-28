@@ -45,6 +45,9 @@ TagManager:
   - name: Level
     uniqueID: 309019555
     locked: 0
+  - name: Particles
+    uniqueID: 3404374395
+    locked: 0
   - name: Entity
     uniqueID: 4230480809
     locked: 0

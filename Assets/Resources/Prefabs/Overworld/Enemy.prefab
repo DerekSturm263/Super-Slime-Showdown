@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &8169797803270005657
@@ -168,10 +168,10 @@ MonoBehaviour:
   animDir: 0
   animState: 0
   moveSpeedMin: 1
-  moveSpeedMax: 4
+  moveSpeedMax: 4.75
   tapStartIcon: {fileID: 0}
   tapHoldIcon: {fileID: 0}
-  followDistance: 3
+  followDistance: 4
 --- !u!114 &-6145375125813761544
 MonoBehaviour:
   m_ObjectHideFlags: 0
