@@ -54,12 +54,12 @@ public class EnemySpawn : MonoBehaviour
     static readonly Enemy ExampleBoss = new Enemy("Nature Boss", 0, 0, 0f, 0f, 0f,
         new Dictionary<Type, float>() { [Types.Nature] = 10f, [Types.Ice] = 2.5f },
         new List<Move>() { Moves.Slam, Moves.Roll },
-        1f, 3f, false ); // Size & CanMove.
+        1f, 2.5f, false ); // Size & CanMove.
 
     static readonly Enemy ExampleBoss2 = new Enemy("Ice Boss", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Nature] = 2.5f, [Types.Ice] = 10f },
+        new Dictionary<Type, float>() { [Types.Ice] = 10f, [Types.Nature] = 2.5f },
         new List<Move>() { Moves.Slam, Moves.Roll },
-        1f, 3f, false );
+        1f, 2.5f, false );
 
     #endregion
 

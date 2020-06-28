@@ -21,10 +21,17 @@ public class EnemyMove : EntityMove
     private void Update()
     {
         // Sets the direction based on distance from the player.
-        if (Vector2.Distance(transform.position, player.transform.position) > followDistance)
-            Move(movVal);
-        else
-            MoveTowards(player);
+        if (Vector2.Distance(transform.position, player.transform.position) < followDistance * 2)
+        {
+            if (Vector2.Distance(transform.position, player.transform.position) > followDistance)
+                Move(movVal);
+            else
+                MoveTowards(player);
+        }
+        else if (rb2.velocity.magnitude > 0f)
+        {
+            StopMove();
+        }
     }
 
     private void ChangeDirection()

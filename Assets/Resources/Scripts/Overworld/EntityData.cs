@@ -22,7 +22,7 @@ public class EntityData : MonoBehaviour
         move.moveSpeedMin = (data.CanMove) ? move.moveSpeedMin : 0f;
         move.moveSpeedMax = (data.CanMove) ? move.moveSpeedMax : 0f;
 
-        if (data.Types.Count == 1)
+        if (data.Types.Count == 1 || data.TypeAffinities[data.Types[0]] != data.TypeAffinities[data.Types[1]])
         {
             sprtRndr.color = data.Types[0].TypeColor;
         }

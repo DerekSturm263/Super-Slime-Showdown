@@ -128,10 +128,13 @@ public class EntityMove : MonoBehaviour
         #endregion
     }
 
-    protected void StopMove()
+    protected void StopMove(bool isPlayer = false)
     {
-        tapStartIcon.gameObject.SetActive(false);
-        tapHoldIcon.gameObject.SetActive(false);
+        if (isPlayer)
+        {
+            tapStartIcon.gameObject.SetActive(false);
+            tapHoldIcon.gameObject.SetActive(false);
+        }
 
         // Stops all movement.
         currentSpeed = 0f;

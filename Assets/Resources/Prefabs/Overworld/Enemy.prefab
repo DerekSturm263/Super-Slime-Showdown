@@ -168,10 +168,10 @@ MonoBehaviour:
   animDir: 0
   animState: 0
   moveSpeedMin: 1
-  moveSpeedMax: 5
+  moveSpeedMax: 4
   tapStartIcon: {fileID: 0}
   tapHoldIcon: {fileID: 0}
-  followDistance: 3.5
+  followDistance: 3
 --- !u!114 &-6145375125813761544
 MonoBehaviour:
   m_ObjectHideFlags: 0
