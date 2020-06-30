@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -7,6 +6,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class TitleUIManager : MonoBehaviour
 {
     private Controls controls;
+    public Animator anim;
 
     private void Awake()
     {
@@ -14,21 +14,13 @@ public class TitleUIManager : MonoBehaviour
 
         TouchSimulation.Enable();
 
-        controls.Player.StartMovement.performed += ctx => StartGame();
+        controls.UI.Tap.performed += ctx => StartCoroutine(StartGame());
     }
 
-    private void StartGame()
+    private IEnumerator StartGame()
     {
+        anim.SetBool("EndScene", true);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Overworld");
-    }
-
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
     }
 }

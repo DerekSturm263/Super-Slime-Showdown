@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredient
+public class Ingredient : Item
 {
-    public string Name;
-    public string Description;
     public string Descriptor1; // This adjective will be added to the beginning of whatever meal is cooked.
     public string Descriptor2; // This adjective will be added to the beginning of the description of whatever meal is cooked.
     public string Descriptor3; // This adjective will be added to the end of the description of whatever meal is cooked.
 
     public Type IngredientType;
 
-    public uint Cost;
-
-    public Sprite Image;
     public Ingredient Compliment; // If this ingredient is used in combination with its compliment, the effects will be improved.
 
     public string CookedName;

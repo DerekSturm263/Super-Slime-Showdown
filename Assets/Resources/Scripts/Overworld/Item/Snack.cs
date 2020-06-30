@@ -1,13 +1,7 @@
 ﻿using UnityEngine;
 
-public class Snack
+public class Snack : Item
 {
-    public string Name;
-    public string Description;
-    public uint Cost;
-
-    public Sprite Image;
-
     public Type SnackType;
 
     public float StrengthMultiplier;

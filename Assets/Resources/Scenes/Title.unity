@@ -47652,6 +47652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccf69bea24c228458cd7a219797dd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2081243411}
 --- !u!4 &1163916864
 Transform:
   m_ObjectHideFlags: 0
@@ -47866,6 +47867,7 @@ GameObject:
   - component: {fileID: 1330083763}
   - component: {fileID: 1330083765}
   - component: {fileID: 1330083764}
+  - component: {fileID: 1330083766}
   m_Layer: 5
   m_Name: Begin - TMP
   m_TagString: Untagged
@@ -48012,6 +48014,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330083762}
   m_CullTransparentMesh: 0
+--- !u!225 &1330083766
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330083762}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1509473523
 GameObject:
   m_ObjectHideFlags: 0
@@ -48023,6 +48037,7 @@ GameObject:
   - component: {fileID: 1509473524}
   - component: {fileID: 1509473526}
   - component: {fileID: 1509473525}
+  - component: {fileID: 1509473527}
   m_Layer: 5
   m_Name: Version - TMP
   m_TagString: Untagged
@@ -48169,6 +48184,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509473523}
   m_CullTransparentMesh: 0
+--- !u!225 &1509473527
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509473523}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2077317972
 GameObject:
   m_ObjectHideFlags: 0
@@ -48224,6 +48251,7 @@ GameObject:
   - component: {fileID: 2081243408}
   - component: {fileID: 2081243407}
   - component: {fileID: 2081243406}
+  - component: {fileID: 2081243411}
   m_Layer: 5
   m_Name: Canvas - Overlay
   m_TagString: Untagged
@@ -48313,3 +48341,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &2081243411
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081243405}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b87066fdefca25343aa668b7cdcfa074, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
