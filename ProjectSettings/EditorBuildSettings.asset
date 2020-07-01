@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/Title.unity
     guid: a70c74c63bf3ceb4e919ccef6d9d6037
   - enabled: 1
+    path: Assets/Resources/Scenes/Slime Setup.unity
+    guid: 35849de3f9ca6c04c84afb0697fc2459
+  - enabled: 1
     path: Assets/Resources/Scenes/Overworld.unity
     guid: 8a2093de6acf61f4b82f2ce066c04806
+  - enabled: 1
+    path: Assets/Resources/Scenes/Battle.unity
+    guid: b1df3fadaa3da1942a8c9ae48beadfc9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: f68ed043afc37544f8ced5ab2410bc7b,
       type: 2}

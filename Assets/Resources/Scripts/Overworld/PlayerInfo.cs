@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public static class PlayerInfo
 {
+    public static bool hasSlime;
+
     public static uint goldCount;
     public static string playerName;
 

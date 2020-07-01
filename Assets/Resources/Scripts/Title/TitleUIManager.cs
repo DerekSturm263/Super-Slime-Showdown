@@ -14,13 +14,36 @@ public class TitleUIManager : MonoBehaviour
 
         TouchSimulation.Enable();
 
-        controls.UI.Tap.performed += ctx => StartCoroutine(StartGame());
+        controls.UI.Tap.performed += ctx => StartGame();
     }
 
-    private IEnumerator StartGame()
+    private void StartGame()
     {
         anim.SetBool("EndScene", true);
+
+        if (PlayerInfo.hasSlime)
+            StartCoroutine(LoadOverworld());
+        else
+            StartCoroutine(LoadSlimeSetup());
+    }
+    private IEnumerator LoadSlimeSetup()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Slime Setup");
+    }
+    private IEnumerator LoadOverworld()
+    {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Overworld");
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }
