@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public static class PlayerInfo
 {
     public static uint goldCount;
+    public static string playerName;
 
     public static Dictionary<Type, float> typeAffinities = new Dictionary<Type, float>();
     public static List<Type> types = new List<Type>();
