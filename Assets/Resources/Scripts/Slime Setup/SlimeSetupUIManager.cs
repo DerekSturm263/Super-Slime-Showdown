@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SlimeSetupUIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public TMPro.TMP_InputField nameSlot;
+
+    public void OnInputFieldEnter()
     {
-        
+        PlayerInfo.playerName = nameSlot.text;
+        StartCoroutine(LoadOverworld());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator LoadOverworld()
     {
-        
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Overworld");
     }
 }
