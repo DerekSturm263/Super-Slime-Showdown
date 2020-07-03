@@ -16,7 +16,10 @@ public static class PlayerInfo
     public static List<Ability> ownedAbilities = new List<Ability>();
     public static Ability activeAbility;
 
-    public static List<TypeCosmetic> ownedCosmetics = new List<TypeCosmetic>();
+    public static List<Cosmetic> ownedCosmetics = new List<Cosmetic>();
+    public static List<Cosmetic> activeCosmetics = new List<Cosmetic>();
+
+    public static List<TypeCosmetic> ownedTypeCosmetics = new List<TypeCosmetic>();
     public static List<TypeCosmetic> activeTypeCosmetics = new List<TypeCosmetic>();
 
     public static List<Item> inventory = new List<Item>();

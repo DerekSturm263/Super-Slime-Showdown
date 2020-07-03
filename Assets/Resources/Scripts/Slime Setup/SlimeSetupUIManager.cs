@@ -1,21 +1,61 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class SlimeSetupUIManager : MonoBehaviour
 {
+    private EventSystem eventSystem;
+
+    public SpriteRenderer playerSprtRndr;
+
     public TMPro.TMP_InputField nameSlot;
-    public Animator anim;
+    public TMPro.TMP_Text typePrompt;
+
+    public Animator nameAnim;
+    public Animator typeAnim;
+
+    public Type currentType = Types.Nature;
+
+    public void Awake()
+    {
+        eventSystem = EventSystem.current;
+    }
 
     public void OnInputFieldEnter()
     {
         PlayerInfo.playerName = nameSlot.text;
-        anim.SetBool("EndScene", true);
+        nameAnim.SetBool("GoToTypes", true);
+        typeAnim.SetBool("GoToTypes", true);
+    }
+
+    public void OnSelectType()
+    {
+        Type newType = eventSystem.currentSelectedGameObject.GetComponent<ButtonType>().buttonType;
+
+        if (currentType != newType)
+        {
+            currentType = newType;
+            typePrompt.text = "Please choose a type\nfor your slime.\nType Selected: " + currentType.Name;
+
+            playerSprtRndr.color = currentType.TypeColor;
+        }
+        else
+        {
+            OnConfirmType();
+        }
+    }
+
+    public void OnConfirmType()
+    {
+        PlayerInfo.typeAffinities.Add(currentType, 1f);
+        typeAnim.SetBool("EndScene", true);
         StartCoroutine(LoadOverworld());
     }
 
     private IEnumerator LoadOverworld()
     {
+        PlayerInfo.hasSlime = true;
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Overworld");
     }
