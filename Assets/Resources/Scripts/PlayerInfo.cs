@@ -7,6 +7,16 @@ public static class PlayerInfo
     public static uint goldCount;
     public static string playerName;
 
+    public static uint HPMax;
+    public static uint HPCurrent;
+
+    public static uint EnergyMax;
+    public static uint EnergyCurrent;
+
+    public static float Pow;
+    public static float Def;
+    public static float Spd;
+
     public static Dictionary<Type, float> typeAffinities = new Dictionary<Type, float>();
     public static List<Type> types = new List<Type>();
 

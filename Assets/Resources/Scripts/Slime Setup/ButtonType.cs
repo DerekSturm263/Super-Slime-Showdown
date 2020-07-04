@@ -8,7 +8,7 @@ public class ButtonType : MonoBehaviour
     {
         Nature, Fire, Water, Ice, Earth, Volt, Toxin, Wind, Light, Shadow
     }
-    [SerializeField] private TypeEnum slimeType;
+    [SerializeField] private TypeEnum slimeType = TypeEnum.Nature;
 
     public Type buttonType;
 
