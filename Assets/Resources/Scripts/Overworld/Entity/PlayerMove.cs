@@ -17,7 +17,7 @@ public class PlayerMove : EntityMove
 
         controls.Player.StartMovement.performed += ctx => StartMove(ctx.ReadValue<Vector2>());
         controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>(), true);
-        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerUp += ctx => StopMove();
+        if (Input.touches[0].phase == TouchPhase.Ended) StopMove();
 
         maxDist = Screen.width / 1.75f;
     }
