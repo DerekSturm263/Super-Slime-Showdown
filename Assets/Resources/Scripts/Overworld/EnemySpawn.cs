@@ -74,6 +74,7 @@ public class EnemySpawn : MonoBehaviour
     private Dictionary<uint, List<Enemy>> islandBosses = new Dictionary<uint, List<Enemy>>(); // Dictionary represents Island Number as Key, List of Enemies as Values.
 
     [SerializeField] private GameObject enemySlime = null;
+    public GameObject playerSlime;
 
     private class ShuffleComparer<T> : IComparer<T>
     {
@@ -99,12 +100,12 @@ public class EnemySpawn : MonoBehaviour
 
         spawnPoints.Add(Types.Ice, new List<Vector2>
         {
-            new Vector2(3.3f, 15.7f),
-            new Vector2(20.3f, 21.3f),
-            new Vector2(35.2f, 20.3f),
-            new Vector2(-18.6f, 16.6f),
-            new Vector2(-37.4f, 6.2f),
-            new Vector2(-36.9f, 6.4f)
+            new Vector2(-37f, 5.5f),
+            new Vector2(-20.7f, 16.3f),
+            new Vector2(23.7f, 24.9f),
+            new Vector2(-3.1f, 17.1f),
+            new Vector2(38.7f, 23.5f),
+            new Vector2(8.6f, 24.7f)
         });
 
         bossSpawnPoints.Add(1, new List<Vector2>
@@ -169,6 +170,9 @@ public class EnemySpawn : MonoBehaviour
         {
             for (int i = 0; i < islandEnemies[type].Count; i++)
             {
+                if (Vector2.Distance(playerSlime.transform.position, spawnPoints[type][i]) < 5f)
+                    i++;
+
                 Enemy newEnemy = islandEnemies[type][i];
                 SpawnEnemy(newEnemy, spawnPoints[type][i]);
             }

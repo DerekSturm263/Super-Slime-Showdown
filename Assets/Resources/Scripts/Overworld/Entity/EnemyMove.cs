@@ -9,9 +9,11 @@ public class EnemyMove : EntityMove
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         rb2 = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        ps = GetComponent<ParticleSystem>();
     }
     private void Start()
     {

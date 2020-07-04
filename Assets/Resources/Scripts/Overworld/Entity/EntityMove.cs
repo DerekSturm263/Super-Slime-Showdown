@@ -17,6 +17,7 @@ public class EntityMove : MonoBehaviour
 
     protected Rigidbody2D rb2;
     protected Animator anim;
+    protected ParticleSystem ps;
     private Vector2 currentVel;
 
     [Header("Settings")]
@@ -45,6 +46,9 @@ public class EntityMove : MonoBehaviour
 
     protected void Move(Vector2 tapPos, bool isPlayer = false)
     {
+        if (!ps.isPlaying)
+            ps.Play();
+
         Vector2 moveVect;
 
         if (isPlayer)
@@ -130,6 +134,8 @@ public class EntityMove : MonoBehaviour
 
     protected void StopMove(bool isPlayer = false)
     {
+        ps.Stop();
+
         if (isPlayer)
         {
             tapStartIcon.gameObject.SetActive(false);

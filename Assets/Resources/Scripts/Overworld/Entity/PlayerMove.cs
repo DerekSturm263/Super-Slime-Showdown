@@ -11,6 +11,7 @@ public class PlayerMove : EntityMove
 
         rb2 = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        ps = GetComponent<ParticleSystem>();
 
         TouchSimulation.Enable();
 

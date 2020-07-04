@@ -24,7 +24,12 @@ public class SlimeSetupUIManager : MonoBehaviour
 
     public void OnInputFieldEnter()
     {
+        // Name needs to be at least 1 character, not counting spaces.
+        if (nameSlot.text.Trim().Length == 0)
+            return;
+
         PlayerInfo.playerName = nameSlot.text;
+
         nameAnim.SetBool("GoToTypes", true);
         typeAnim.SetBool("GoToTypes", true);
     }
