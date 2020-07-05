@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cook : MonoBehaviour
+public class CookingManager : MonoBehaviour
 {
-    public void CookMeal(List<Ingredient> ingredients)
+    public static void OpenCookingPot()
+    {
+
+    }
+
+    public static void CookMeal(List<Ingredient> ingredients)
     {
         ingredients.Sort((x, y) => (int)(y.Priority - x.Priority));
 
