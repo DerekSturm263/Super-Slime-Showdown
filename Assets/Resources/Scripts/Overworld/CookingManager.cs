@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookingManager : MonoBehaviour
+public static class CookingManager
 {
-    public static void OpenCookingPot()
-    {
-
-    }
-
     public static void CookMeal(List<Ingredient> ingredients)
     {
         ingredients.Sort((x, y) => (int)(y.Priority - x.Priority));

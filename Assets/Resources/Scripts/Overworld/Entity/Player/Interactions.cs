@@ -18,13 +18,16 @@ public class Interactions : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
             StartCoroutine(LoadBattle(col.gameObject));
 
+        else if (col.gameObject.CompareTag("Tent"))
+            OverworldUIManager.OpenTent();
+
         // Open shop.
         else if (col.gameObject.CompareTag("Shopkeeper"))
-            ShopManager.OpenShop();
+            OverworldUIManager.OpenShop();
 
         // Open cooking pot.
         else if (col.gameObject.CompareTag("CookingPot"))
-            CookingManager.OpenCookingPot();
+            OverworldUIManager.OpenCookingPot();
     }
 
     private IEnumerator LoadBattle(GameObject enemy)
@@ -32,7 +35,7 @@ public class Interactions : MonoBehaviour
         gc.enemyData = enemy.GetComponent<EntityData>().data;
         gc.playerLoc = transform.position;
 
-        //yield return new WaitForSeconds(1f); When we add the battle opening animation this'll be important.
+        // yield return new WaitForSeconds(1f); When we add the battle opening animation this will be important.
         SceneManager.LoadScene("Battle");
         yield return null;
     }

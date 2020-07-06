@@ -2,20 +2,20 @@
 
 public static class PlayerInfo
 {
-    public static bool hasSlime;
+    public static bool hasSlime = false;
 
-    public static uint goldCount;
-    public static string playerName;
+    public static uint goldCount = 0;
+    public static string playerName = "";
 
-    public static uint HPMax;
-    public static uint HPCurrent;
+    public static uint HPMax = 20;
+    public static uint HPCurrent = 20;
 
-    public static uint EnergyMax;
-    public static uint EnergyCurrent;
+    public static uint EnergyMax = 20;
+    public static uint EnergyCurrent = 20;
 
-    public static float Pow;
-    public static float Def;
-    public static float Spd;
+    public static float Pow = 5;
+    public static float Def = 5;
+    public static float Spd = 5;
 
     public static Dictionary<Type, float> typeAffinities = new Dictionary<Type, float>();
     public static List<Type> types = new List<Type>();

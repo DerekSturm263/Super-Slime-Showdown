@@ -37,9 +37,11 @@ public class EntityMove : MonoBehaviour
     {
         tapStartPos = tapPos;
 
+        tapStartIcon.gameObject.SetActive(false);
         tapStartIcon.gameObject.SetActive(true);
         tapStartIcon.GetComponent<RectTransform>().anchoredPosition = tapStartPos - new Vector2(Screen.width, Screen.height) / 2f;
 
+        tapHoldIcon.gameObject.SetActive(false);
         tapHoldIcon.gameObject.SetActive(true);
         tapHoldIcon.GetComponent<RectTransform>().anchoredPosition = tapStartIcon.GetComponent<RectTransform>().anchoredPosition;
     }
@@ -138,8 +140,8 @@ public class EntityMove : MonoBehaviour
 
         if (isPlayer)
         {
-            tapStartIcon.gameObject.SetActive(false);
-            tapHoldIcon.gameObject.SetActive(false);
+            tapStartIcon.GetComponent<Animator>().SetBool("Exit", true);
+            tapHoldIcon.GetComponent<Animator>().SetBool("Exit", true);
         }
 
         // Stops all movement.

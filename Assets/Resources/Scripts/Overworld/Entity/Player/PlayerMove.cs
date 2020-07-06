@@ -17,9 +17,16 @@ public class PlayerMove : EntityMove
 
         controls.Player.StartMovement.performed += ctx => StartMove(ctx.ReadValue<Vector2>());
         controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>(), true);
-        if (Input.touches[0].phase == TouchPhase.Ended) StopMove();
 
         maxDist = Screen.width / 1.75f;
+    }
+
+    private void Update()
+    {
+        if (Input.touches.Length > 0)
+        {
+            if (Input.touches[0].phase == TouchPhase.Ended) StopMove(true);
+        }
     }
 
     private void OnEnable()

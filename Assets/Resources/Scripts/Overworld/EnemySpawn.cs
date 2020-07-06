@@ -1,68 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    #region Enemy Slime Declaration
-
-    // Enemies.
-    static readonly Enemy Acorn = new Enemy("Acorn", 0, 0, 0f, 0f, 0f, // Name & Stats.
-        new Dictionary<Type, float>() { [Types.Nature] = 1f }, // Type Affinities.
-        new List<Move>() { Moves.Roll }, 1.5f ); // Move list.
-
-    static readonly Enemy Herb = new Enemy("Herb", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f );
-
-    static readonly Enemy Peanut = new Enemy("Peanut", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f );
-
-    static readonly Enemy NatureEnemy4 = new Enemy("Nature Enemy 4", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f );
-
-    static readonly Enemy NatureEnemy5 = new Enemy("Nature Enemy 5", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f );
-
-    static readonly Enemy Frost = new Enemy("Frost", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f );
-
-    static readonly Enemy Snowflake = new Enemy("Snowflake", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f );
-
-    static readonly Enemy IceEnemy3 = new Enemy("Ice Enemy 3", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f );
-
-    static readonly Enemy IceEnemy4 = new Enemy("Ice Enemy 4", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f );
-
-    static readonly Enemy IceEnemy5 = new Enemy("Ice Enemy 5", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f );
-
-    // Bosses
-    static readonly Enemy ExampleBoss = new Enemy("Nature Boss", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Nature] = 10f, [Types.Ice] = 2.5f },
-        new List<Move>() { Moves.Slam, Moves.Roll },
-        1f, 2.5f, false ); // Size & CanMove.
-
-    static readonly Enemy ExampleBoss2 = new Enemy("Ice Boss", 0, 0, 0f, 0f, 0f,
-        new Dictionary<Type, float>() { [Types.Ice] = 10f, [Types.Nature] = 2.5f },
-        new List<Move>() { Moves.Slam, Moves.Roll },
-        1f, 2.5f, false );
-
-    #endregion
-
     [Tooltip("Each int represents an island 1 - 6.")] public uint islandNum;
 
     // Enemies.
@@ -119,9 +59,9 @@ public class EnemySpawn : MonoBehaviour
         #region Enemies
 
         // First island.
-        islandEnemies.Add( Types.Nature, new List<Enemy> { Acorn, Herb, Peanut, NatureEnemy4, NatureEnemy5 } );
-        islandEnemies.Add( Types.Ice, new List<Enemy> { Frost, Snowflake, IceEnemy3, IceEnemy4, IceEnemy5 } );
-        islandBosses.Add( 1, new List<Enemy> { ExampleBoss, ExampleBoss2 } );
+        islandEnemies.Add( Types.Nature, new List<Enemy> { Enemies.Acorn, Enemies.Herb, Enemies.Peanut, Enemies.NatureEnemy4, Enemies.NatureEnemy5 } );
+        islandEnemies.Add( Types.Ice, new List<Enemy> { Enemies.Frost, Enemies.Snowflake, Enemies.IceEnemy3, Enemies.IceEnemy4, Enemies.IceEnemy5 } );
+        islandBosses.Add( 1, new List<Enemy> { Enemies.ExampleBoss, Enemies.ExampleBoss2 } );
 
         #endregion
 

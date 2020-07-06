@@ -26,10 +26,10 @@ public class BattleManager : MonoBehaviour
         playerName.text = PlayerInfo.playerName;
         enemyName.text = gc.enemyData.Name;
 
-        UpdateStats();
-
         player.Render();
         enemy.Render(gc.enemyData);
+
+        UpdateStats();
     }
 
     public void UpdateStats()
