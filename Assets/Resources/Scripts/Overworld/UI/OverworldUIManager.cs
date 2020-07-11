@@ -6,7 +6,7 @@ public class OverworldUIManager : MonoBehaviour
 {
     public enum Menu
     {
-        None, Pause, Stats, Tent, Shop, Cooking_Pot
+        None, Pause, Stats, Tent, Shop, Cooking_Pot, Online
     }
     public static Menu openUI;
 
@@ -60,5 +60,13 @@ public class OverworldUIManager : MonoBehaviour
             return;
 
         openUI = Menu.Cooking_Pot;
+    }
+
+    public static void OpenOnline()
+    {
+        if (openUI != Menu.None)
+            return;
+
+        openUI = Menu.Online;
     }
 }

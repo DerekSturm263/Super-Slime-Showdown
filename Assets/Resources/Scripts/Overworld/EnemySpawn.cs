@@ -40,7 +40,7 @@ public class EnemySpawn : MonoBehaviour
 
         spawnPoints.Add(Types.Ice, new List<Vector2>
         {
-            new Vector2(-37f, 5.5f),
+            new Vector2(-40f, 12f),
             new Vector2(-20.7f, 16.3f),
             new Vector2(23.7f, 24.9f),
             new Vector2(-3.1f, 17.1f),
@@ -108,13 +108,13 @@ public class EnemySpawn : MonoBehaviour
 
         foreach (Type type in islandTypes)
         {
-            for (int i = 0; i < islandEnemies[type].Count; i++)
+            for (int i = 0, j = 0; i < islandEnemies[type].Count; i++, j++)
             {
-                if (Vector2.Distance(playerSlime.transform.position, spawnPoints[type][i]) < 5f)
-                    i++;
+                if (Vector2.Distance(PlayerInfo.lastPlayerPos, spawnPoints[type][i]) < 5f)
+                    j++;
 
                 Enemy newEnemy = islandEnemies[type][i];
-                SpawnEnemy(newEnemy, spawnPoints[type][i]);
+                SpawnEnemy(newEnemy, spawnPoints[type][j]);
             }
         }
 

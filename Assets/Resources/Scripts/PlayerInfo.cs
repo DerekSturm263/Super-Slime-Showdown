@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 public static class PlayerInfo
 {
     public static bool hasSlime = false;
+    public static Vector2 lastPlayerPos;
 
     public static uint goldCount = 0;
     public static string playerName = "";

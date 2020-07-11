@@ -18,6 +18,7 @@ public class Interactions : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
             StartCoroutine(LoadBattle(col.gameObject));
 
+        // Open tent.
         else if (col.gameObject.CompareTag("Tent"))
             OverworldUIManager.OpenTent();
 
@@ -26,14 +27,18 @@ public class Interactions : MonoBehaviour
             OverworldUIManager.OpenShop();
 
         // Open cooking pot.
-        else if (col.gameObject.CompareTag("CookingPot"))
+        else if (col.gameObject.CompareTag("Chef"))
             OverworldUIManager.OpenCookingPot();
+
+        // Open online.
+        else if (col.gameObject.CompareTag("Online"))
+            OverworldUIManager.OpenOnline();
     }
 
     private IEnumerator LoadBattle(GameObject enemy)
     {
         gc.enemyData = enemy.GetComponent<EntityData>().data;
-        gc.playerLoc = transform.position;
+        PlayerInfo.lastPlayerPos = transform.position;
 
         // yield return new WaitForSeconds(1f); When we add the battle opening animation this will be important.
         SceneManager.LoadScene("Battle");
