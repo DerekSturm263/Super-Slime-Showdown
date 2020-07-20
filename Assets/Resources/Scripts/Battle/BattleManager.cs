@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BattleManager : MonoBehaviour
 {
     private GameController gc;
+    public Canvas playerButtons;
 
     [Header("Player")]
     public BattlePlayer player;
@@ -19,6 +20,9 @@ public class BattleManager : MonoBehaviour
     public Image enemyHP;
     public Image enemyEnergy;
 
+    [Header("Textbox")]
+    public TMPro.TMP_Text textBox;
+
     private void Start()
     {
         gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -30,6 +34,27 @@ public class BattleManager : MonoBehaviour
         enemy.Render(gc.enemyData);
 
         UpdateStats();
+    }
+
+    public void ShowOptions()
+    {
+        playerButtons.gameObject.SetActive(true);
+    }
+
+    public void OnFight()
+    {
+        playerButtons.gameObject.SetActive(false);
+    }
+
+    public void OnSnacks()
+    {
+        playerButtons.gameObject.SetActive(false);
+    }
+
+    public void OnFlee()
+    {
+        playerButtons.gameObject.SetActive(false);
+        TextBox.WriteText(textBox, PlayerInfo.playerName + " has fled the battle!");
     }
 
     public void UpdateStats()
