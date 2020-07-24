@@ -19,14 +19,13 @@ public class PlayerMove : EntityMove
         controls.Player.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>(), true);
 
         maxDist = Screen.width / 1.75f;
+        transform.position = PlayerInfo.lastPlayerPos;
     }
 
     private void Update()
     {
         if (Input.touches.Length > 0)
-        {
             if (Input.touches[0].phase == TouchPhase.Ended) StopMove(true);
-        }
     }
 
     private void OnEnable()

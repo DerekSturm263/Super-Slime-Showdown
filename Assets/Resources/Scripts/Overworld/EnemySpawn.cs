@@ -59,9 +59,9 @@ public class EnemySpawn : MonoBehaviour
         #region Enemies
 
         // First island.
-        islandEnemies.Add( Types.Nature, new List<Enemy> { Enemies.Acorn, Enemies.Herb, Enemies.Peanut, Enemies.NatureEnemy4, Enemies.NatureEnemy5 } );
-        islandEnemies.Add( Types.Ice, new List<Enemy> { Enemies.Frost, Enemies.Snowflake, Enemies.IceEnemy3, Enemies.IceEnemy4, Enemies.IceEnemy5 } );
-        islandBosses.Add( 1, new List<Enemy> { Enemies.ExampleBoss, Enemies.ExampleBoss2 } );
+        islandEnemies.Add( Types.Nature, new List<Enemy> { Enemies.Acorn, Enemies.Herb, Enemies.Peanut, Enemies.Daisy, Enemies.Iris } );
+        islandEnemies.Add( Types.Ice, new List<Enemy> { Enemies.Frost, Enemies.Snowflake, Enemies.Winter, Enemies.IceEnemy4, Enemies.IceEnemy5 } );
+        islandBosses.Add( 1, new List<Enemy> { Enemies.NatureBoss, Enemies.IceBoss } );
 
         #endregion
 

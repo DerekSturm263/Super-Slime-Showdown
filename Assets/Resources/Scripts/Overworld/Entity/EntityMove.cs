@@ -35,6 +35,9 @@ public class EntityMove : MonoBehaviour
 
     protected void StartMove(Vector2 tapPos)
     {
+        if (tapPos.y > Screen.height - 250)
+            return;
+
         tapStartPos = tapPos;
 
         tapStartIcon.gameObject.SetActive(false);
@@ -67,6 +70,12 @@ public class EntityMove : MonoBehaviour
                 // Clamps the distance of the tap hold icon.
                 tapHoldIcon.GetComponent<RectTransform>().anchoredPosition = tapStartPos + ( (tapPos - tapStartPos).normalized * maxDist ) - new Vector2(Screen.width, Screen.height) / 2f;
                 tapDist = maxDist;
+            }
+
+            if (tapDist < 75f)
+            {
+                rb2.velocity = Vector2.zero;
+                return;
             }
 
             // Lerps speed.

@@ -5,4 +5,12 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public Enemy enemyData;
+
+    private void Awake()
+    {
+        Moves.Initialize();
+        Abilities.Initialize();
+        Types.Initialize();
+        Enemies.Initialize();
+    }
 }

@@ -4,55 +4,326 @@ using UnityEngine;
 
 public class Enemies : MonoBehaviour
 {
-    // Enemies.
-    public static readonly Enemy Acorn = new Enemy("Acorn", 20, 20, 5f, 4f, 3f, // Name & Stats.
-        new Dictionary<Type, float>() { [Types.Nature] = 1f }, // Type Affinities.
-        new List<Move>() { Moves.Roll }, 1.5f); // Move list.
+    // Grass type enemies.
+    public static Enemy Acorn = new Enemy("Acorn", 16, 22, 6f, 4f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Nature] = 1f
+        },
+        Abilities.HealingFactor, 3);
+    
+    public static Enemy Herb = new Enemy("Herb", 16, 22, 6f, 4f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Nature] = 1f
+        },
+        Abilities.Photosynthesis, 3);
 
-    public static readonly Enemy Herb = new Enemy("Herb", 20, 20, 5f, 4f, 3f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f);
+    public static Enemy Peanut = new Enemy("Peanut", 16, 22, 6f, 4f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Nature] = 1f
+        },
+        Abilities.Rooted, 3);
 
-    public static readonly Enemy Peanut = new Enemy("Peanut", 20, 20, 5f, 4f, 3f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f);
+    public static Enemy Daisy = new Enemy("Daisy", 16, 22, 6f, 4f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Nature] = 1f
+        },
+        Abilities.NaturesBlessing, 3);
 
-    public static readonly Enemy NatureEnemy4 = new Enemy("Nature Enemy 4", 20, 20, 5f, 4f, 3f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f);
+    public static Enemy Iris = new Enemy("Iris", 16, 22, 6f, 4f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Nature] = 1f
+        },
+        Abilities.HealingFactor, 3);
 
-    public static readonly Enemy NatureEnemy5 = new Enemy("Nature Enemy 5", 20, 20, 5f, 4f, 3f,
-        new Dictionary<Type, float>() { [Types.Nature] = 1f },
-        new List<Move>() { Moves.Roll }, 1.5f);
+    // Ice type enemies.
+    public static Enemy Frost = new Enemy("Frost", 16, 22, 4f, 6f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Ice] = 1f
+        },
+        Abilities.ColdToTheTouch, 3);
 
-    public static readonly Enemy Frost = new Enemy("Frost", 20, 20, 4f, 5f, 3f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f);
+    public static Enemy Snowflake = new Enemy("Snowflake", 16, 22, 4f, 6f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Ice] = 1f
+        },
+        Abilities.WeakIce, 3);
 
-    public static readonly Enemy Snowflake = new Enemy("Snowflake", 20, 20, 4f, 5f, 3f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f);
+    public static Enemy Winter = new Enemy("Winter", 16, 22, 4f, 6f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Ice] = 1f
+        },
+        Abilities.StrongIce, 3);
 
-    public static readonly Enemy IceEnemy3 = new Enemy("Ice Enemy 3", 20, 20, 4f, 5f, 3f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f);
+    public static Enemy IceEnemy4 = new Enemy("Ice Enemy 4", 16, 22, 4f, 6f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Ice] = 1f
+        },
+        Abilities.Permafrost, 3);
 
-    public static readonly Enemy IceEnemy4 = new Enemy("Ice Enemy 4", 20, 20, 4f, 5f, 3f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f);
-
-    public static readonly Enemy IceEnemy5 = new Enemy("Ice Enemy 5", 20, 20, 4f, 5f, 3f,
-        new Dictionary<Type, float>() { [Types.Ice] = 1f },
-        new List<Move>() { Moves.Slam }, 1.5f);
+    public static Enemy IceEnemy5 = new Enemy("Ice Enemy 5", 16, 22, 4f, 6f, 4f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Ice] = 1f
+        },
+        Abilities.WeakIce, 3);
 
     // Bosses.
-    public static readonly Enemy ExampleBoss = new Enemy("Nature Boss", 100, 100, 20f, 15f, 10f,
-        new Dictionary<Type, float>() { [Types.Nature] = 10f },
-        new List<Move>() { Moves.Slam, Moves.Roll },
-        1f, 2.5f, false); // Size & CanMove.
+    public static Enemy NatureBoss = new Enemy("Nature Boss", 200, 100, 20f, 20f, 10f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Nature] = 10f
+        },
+        Abilities.Rooted, 1, 2.5f, false); // Size & CanMove.
 
-    public static readonly Enemy ExampleBoss2 = new Enemy("Ice Boss", 100, 100, 15f, 20f, 10f,
-        new Dictionary<Type, float>() { [Types.Ice] = 10f },
-        new List<Move>() { Moves.Slam, Moves.Roll },
-        1f, 2.5f, false);
+    public static Enemy IceBoss = new Enemy("Ice Boss", 200, 100, 20f, 20f, 10f,
+        new Dictionary<Type, float>()
+        {
+            [Types.Ice] = 10f
+        },
+        Abilities.StrongIce, 1, 2.5f, false);
+
+    public static void Initialize()
+    {
+        // Acorn.
+        Acorn.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Uproot
+        };
+        Acorn.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.Uproot
+        };
+        Acorn.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.Uproot
+        };
+        Acorn.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.Uproot, Moves.SawgrassSlice
+        };
+        Acorn.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.SuperHeal, Moves.SawgrassSlice, Moves.TwistingVines
+        };
+
+        // Herb.
+        Herb.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal
+        };
+        Herb.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.Grow
+        };
+        Herb.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.Grow
+        };
+        Herb.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Grow, Moves.SawgrassSlice, Moves.ProtectionLeaf
+        };
+        Herb.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Grow, Moves.SuperHeal, Moves.TwistingVines
+        };
+
+        // Peanut.
+        Peanut.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Grow
+        };
+        Peanut.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Grow, Moves.SawgrassSlice
+        };
+        Peanut.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Grow, Moves.SawgrassSlice
+        };
+        Peanut.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Grow, Moves.SawgrassSlice, Moves.Heal
+        };
+        Peanut.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.SawgrassSlice, Moves.Heal, Moves.TwistingVines
+        };
+
+        // Daisy.
+        Daisy.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal
+        };
+        Daisy.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.SawgrassSlice
+        };
+        Daisy.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.SawgrassSlice
+        };
+        Daisy.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.SawgrassSlice, Moves.ProtectionLeaf
+        };
+        Daisy.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Heal, Moves.TwistingVines, Moves.ProtectionLeaf
+        };
+
+        // Iris.
+        Iris.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Uproot
+        };
+        Iris.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Uproot, Moves.SawgrassSlice
+        };
+        Iris.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Uproot, Moves.SawgrassSlice
+        };
+        Iris.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Uproot, Moves.SawgrassSlice, Moves.SuperHeal
+        };
+        Iris.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.TwistingVines, Moves.SawgrassSlice, Moves.SuperHeal
+        };
+
+
+        // Frost.
+        Frost.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap
+        };
+        Frost.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.Freeze
+        };
+        Frost.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.Freeze
+        };
+        Frost.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.Freeze, Moves.IcicleShot
+        };
+        Frost.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Freeze, Moves.IcicleShot, Moves.Crystalize
+        };
+
+        // Snowflake.
+        Snowflake.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap
+        };
+        Snowflake.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.IcicleShot
+        };
+        Snowflake.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.IcicleShot
+        };
+        Snowflake.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.IcicleShot, Moves.Icebreath
+        };
+        Snowflake.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Icebreath, Moves.IcicleShot, Moves.BuildingIce
+        };
+
+        // Winter 3.
+        Winter.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle
+        };
+        Winter.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle, Moves.Freeze
+        };
+        Winter.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle, Moves.Freeze
+        };
+        Winter.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle, Moves.Freeze, Moves.IcicleShot
+        };
+        Winter.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle, Moves.Icebreath, Moves.IcicleShot
+        };
+
+        // Ice Enemy 4.
+        IceEnemy4.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap
+        };
+        IceEnemy4.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.Freeze
+        };
+        IceEnemy4.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.Freeze
+        };
+        IceEnemy4.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.FrozenTap, Moves.Freeze, Moves.BuildingIce
+        };
+        IceEnemy4.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.BuildingIce, Moves.IcicleShot, Moves.Crystalize
+        };
+
+        // Ice Enemy 5.
+        IceEnemy5.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle
+        };
+        IceEnemy5.Level2Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle, Moves.Freeze
+        };
+        IceEnemy5.Level3Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle, Moves.Freeze
+        };
+        IceEnemy5.Level4Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.IceTackle, Moves.Freeze, Moves.BuildingIce
+        };
+        IceEnemy5.Level5Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.BuildingIce, Moves.Icebreath, Moves.IcicleShot
+        };
+
+        // Nature Boss.
+        NatureBoss.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.SuperHeal, Moves.PetalStorm, Moves.SneakAttack
+        };
+
+        // Ice Boss.
+        IceBoss.Level1Moves = new List<Move>()
+        {
+            Moves.Roll, Moves.Icebreath, Moves.Crystalize, Moves.DryIceSlam
+        };
+    }
 }

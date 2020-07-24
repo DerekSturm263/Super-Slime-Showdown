@@ -8,17 +8,40 @@ public class Type
     public string Name;
     public Color TypeColor;
 
+    public Dictionary<int, Move> LevelUpMoves = new Dictionary<int, Move>();
+    public Dictionary<int, Ability> LevelUpAbilities = new Dictionary<int, Ability>();
+    public Dictionary<int, TypeCosmetic> LevelUpCosmetics = new Dictionary<int, TypeCosmetic>();
+
     public List<Type> Weaknesses;
     public List<Type> Resistances;
     public List<Type> Immunities;
 
-    public Type(string name, Color typeColor, List<Type> weaknesses = null, List<Type> resistances = null, List<Type> immunities = null)
+    public Type(string name, Color typeColor)
     {
         Name = name;
         TypeColor = typeColor;
+    }
 
+    public void SetWeaknesses(List<Type> weaknesses)
+    {
         Weaknesses = weaknesses;
+    }
+
+
+    public void SetResistances(List<Type> resistances)
+    {
         Resistances = resistances;
-        Immunities = immunities;
+    }
+
+    public void SetImmunities(List<Type> immmunities)
+    {
+        Immunities = immmunities;
+    }
+
+    public void SetDictionaries(Dictionary<int, Move> levelUpMoves = null, Dictionary<int, Ability> levelUpAbilities = null, Dictionary<int, TypeCosmetic> levelUpCosmetics = null)
+    {
+        LevelUpMoves = levelUpMoves;
+        LevelUpAbilities = levelUpAbilities;
+        LevelUpCosmetics = levelUpCosmetics;
     }
 }

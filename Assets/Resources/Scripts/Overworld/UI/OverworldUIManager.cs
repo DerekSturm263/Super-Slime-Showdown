@@ -10,32 +10,73 @@ public class OverworldUIManager : MonoBehaviour
     }
     public static Menu openUI;
 
-    public Image darkenedBG;
+    public GameObject pauseMenu;
+    public GameObject statsMenu;
+    public GameObject tentMenu;
+    public GameObject shopMenu;
+    public GameObject cookingPotMenu;
+    public GameObject onlineMenu;
 
-    public void CloseMenu()
+    [Header("Stats")]
+    public TMPro.TMP_Text hpMax;
+    public TMPro.TMP_Text hpCurrent;
+    public TMPro.TMP_Text energyMax;
+    public TMPro.TMP_Text energyCurrent;
+    public TMPro.TMP_Text pow;
+    public TMPro.TMP_Text def;
+    public TMPro.TMP_Text spd;
+
+    public void UpdateStats()
     {
-        StartCoroutine(Close());
+        hpMax.text = PlayerInfo.HPMax.ToString();
+        hpCurrent.text = PlayerInfo.HPCurrent.ToString();
+        energyMax.text = PlayerInfo.EnergyMax.ToString();
+        energyCurrent.text = PlayerInfo.EnergyCurrent.ToString();
+        pow.text = PlayerInfo.Pow.ToString();
+        def.text = PlayerInfo.Def.ToString();
+        spd.text = PlayerInfo.Spd.ToString();
     }
 
-    private IEnumerator Close()
+    public void OnClose()
     {
-        yield return new WaitForSeconds(0.5f);
-        openUI = Menu.None;
+        switch (openUI)
+        {
+            case Menu.Pause:
+                pauseMenu.SetActive(false);
+                break;
+            case Menu.Stats:
+                statsMenu.SetActive(false);
+                break;
+            case Menu.Tent:
+                tentMenu.SetActive(false);
+                break;
+            case Menu.Shop:
+                shopMenu.SetActive(false);
+                break;
+            case Menu.Cooking_Pot:
+                cookingPotMenu.SetActive(false);
+                break;
+            case Menu.Online:
+                onlineMenu.SetActive(false);
+                break;
+        }
     }
 
-    public void OpenPause()
+    public void OnOpenPause()
     {
         if (openUI != Menu.None)
             return;
 
         openUI = Menu.Pause;
     }
-    public void OpenStats()
+    public void OnOpenStats()
     {
         if (openUI != Menu.None)
             return;
 
         openUI = Menu.Stats;
+        statsMenu.SetActive(true);
+        UpdateStats();
     }
 
     public static void OpenTent()

@@ -15,7 +15,7 @@ public class SlimeSetupUIManager : MonoBehaviour
     public Animator nameAnim;
     public Animator typeAnim;
 
-    public Type currentType = Types.Nature;
+    public Type currentType = Types.Typeless;
 
     public void Awake()
     {
@@ -41,7 +41,7 @@ public class SlimeSetupUIManager : MonoBehaviour
         if (currentType != newType)
         {
             currentType = newType;
-            typePrompt.text = "Please choose a type\nfor your slime.\nType Selected: " + currentType.Name;
+            typePrompt.text = "Choose a type for your slime.\nTap the square again to select it.\nType Selected: " + currentType.Name;
 
             playerSprtRndr.color = currentType.TypeColor;
         }
@@ -53,7 +53,9 @@ public class SlimeSetupUIManager : MonoBehaviour
 
     public void OnConfirmType()
     {
-        PlayerInfo.typeAffinities.Add(currentType, 1f);
+        PlayerInfo.LearnMove(Moves.Roll);
+        PlayerInfo.RaiseAffinity(currentType, 1f);
+
         typeAnim.SetBool("EndScene", true);
         StartCoroutine(LoadOverworld());
     }

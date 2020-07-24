@@ -11,6 +11,8 @@ public class CameraFollow : MonoBehaviour
     private void Awake()
     {
         cameraDistance = transform.position.z;
+
+        transform.position = PlayerInfo.lastPlayerPos;
     }
 
     private void FixedUpdate()

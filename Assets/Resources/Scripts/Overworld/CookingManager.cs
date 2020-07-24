@@ -53,10 +53,7 @@ public static class CookingManager
 
         foreach (KeyValuePair<Type, float> affinity in newMeal.TypeStrengths)
         {
-            if (PlayerInfo.typeAffinities.ContainsKey(affinity.Key))
-                PlayerInfo.typeAffinities[affinity.Key] += affinity.Value;
-            else
-                PlayerInfo.typeAffinities.Add(affinity.Key, affinity.Value);
+            PlayerInfo.RaiseAffinity(affinity.Key, affinity.Value);
         }
     }
 }
