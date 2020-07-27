@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Interactions : MonoBehaviour
 {
     private GameController gc;
+    public OverworldUIManager ui;
 
     private void Start()
     {
@@ -20,19 +21,19 @@ public class Interactions : MonoBehaviour
 
         // Open tent.
         else if (col.gameObject.CompareTag("Tent"))
-            OverworldUIManager.OpenTent();
+            ui.OpenTent();
 
         // Open shop.
         else if (col.gameObject.CompareTag("Shopkeeper"))
-            OverworldUIManager.OpenShop();
+            ui.OpenShop();
 
         // Open cooking pot.
         else if (col.gameObject.CompareTag("Chef"))
-            OverworldUIManager.OpenCookingPot();
+            ui.OpenCookingPot();
 
         // Open online.
         else if (col.gameObject.CompareTag("Online"))
-            OverworldUIManager.OpenOnline();
+            ui.OpenOnline();
     }
 
     private IEnumerator LoadBattle(GameObject enemy)

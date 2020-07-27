@@ -2,10 +2,10 @@
 {
     // Typeless moves.
     public static Move Roll;                        // Start with the move.
-    public static Move Slam;           // Unlock the move through leveling.
-    public static Move Headbutt;       // Unlock the move through leveling.
-    public static Move WarmUp;           // Find the move in the overworld.
-    public static Move Foresight;        // Find the move in the overworld.
+    public static Move Slam;                            // Unlock the move.
+    public static Move Headbutt;                        // Unlock the move.
+    public static Move WarmUp;                          // Unlock the move.
+    public static Move Foresight;                       // Unlock the move.
 
     // Nature moves: Mostly involve restoring HP or Energy.
 
@@ -22,16 +22,16 @@
 
     // Water Moves:
 
-    public static Move Splash;         // Unlock the move through leveling.
-    public static Move Waterball;      // Unlock the move through leveling.
-    public static Move Rehydrate;      // Unlock the move through leveling.
-    public static Move WaterMove4;     // Unlock the move through leveling.
-    public static Move WaterMove5;     // Unlock the move through leveling.
-    public static Move WaterMove6;     // Unlock the move through leveling.
-    public static Move ToweringWave;     // Find the move in the overworld.
-    public static Move CorrosiveBlast;   // Find the move in the overworld.
-    public static Move WaterMove9;             // Unlock by beating a boss.
-    public static Move WaterMove10;            // Unlock by beating a boss.
+    public static Move Splash;        
+    public static Move Waterball;     
+    public static Move Rehydrate;     
+    public static Move Aquify;        
+    public static Move WaterMove9;
+    public static Move ToweringWave;
+    public static Move WaterMove10;
+    public static Move CorrosiveBlast;
+    public static Move WaterDown;
+    public static Move Tsunami;
 
     // Fire Moves: Mostly involve a chance to burn the opponent.
 
@@ -64,7 +64,7 @@
     public static Move PebbleToss; // Unlock the move through leveling.
     public static Move MudShot; // Unlock the move through leveling.
     public static Move SeismicSmash; // Unlock the move through leveling.
-    public static Move EarthMove4; // Unlock the move through leveling.
+    public static Move Landslide; // Unlock the move through leveling.
     public static Move EarthMove5; // Unlock the move through leveling.
     public static Move EarthMove6; // Unlock the move through leveling.
     public static Move Earthquake; // Find the move in the overworld.
@@ -74,16 +74,16 @@
 
     // Volt Moves: Mostly involve waiting a turn to deal extra damage and shocking the opponent.
 
-    public static Move ZippityZap; // Unlock the move through leveling.
-    public static Move Thundershock; // Unlock the move through leveling.
-    public static Move ShockStrike; // Unlock the move through leveling.
-    public static Move Charge; // Unlock the move through leveling.
-    public static Move VoltMove5; // Unlock the move through leveling.
-    public static Move VoltMove6; // Unlock the move through leveling.
-    public static Move ElectricalOverload; // Find the move in the overworld.
-    public static Move LightingBoltBlast; // Find the move in the overworld.
-    public static Move VoltMove9; // Unlock by beating a boss.
-    public static Move VoltMove10; // Unlock by beating a boss.
+    public static Move ZippityZap;     // Unlock the move through leveling.
+    public static Move Charge;         // Unlock the move through leveling.
+    public static Move Thundershock;   // Unlock the move through leveling.
+    public static Move StaticSlame;    // Unlock the move through leveling.
+    public static Move ElectroPulse;   // Unlock the move through leveling.
+    public static Move Resistor;       // Unlock the move through leveling.
+    public static Move ShockStrike;      // Find the move in the overworld.
+    public static Move LightingBoltBlast;// Find the move in the overworld.
+    public static Move ElectricalOverload;     // Unlock by beating a boss.
+    public static Move GalvanicExplosion;      // Unlock by beating a boss.
 
     // Wind Moves: Mostly involve affecting the speed of the user or the opponent.
 
@@ -104,7 +104,7 @@
     public static Move ToxicBlock; // Unlock the move through leveling.
     public static Move VenomousStrike; // Unlock the move through leveling.
     public static Move ToxinMove4; // Unlock the move through leveling.
-    public static Move ToxinMove5; // Unlock the move through leveling.
+    public static Move PoisonPummel; // Unlock the move through leveling.
     public static Move ToxinMove6; // Unlock the move through leveling.
     public static Move PoisonFangs; // Find the move in the overworld.
     public static Move ToxicSludge; // Find the move in the overworld.
@@ -116,7 +116,7 @@
     public static Move HeavenlyRestore; // Unlock the move through leveling.
     public static Move HaloHop; // Unlock the move through leveling.
     public static Move SavingGrace; // Unlock the move through leveling.
-    public static Move LightMove4; // Unlock the move through leveling.
+    public static Move ShiningStrike; // Unlock the move through leveling.
     public static Move LightMove5; // Unlock the move through leveling.
     public static Move LightMove6; // Unlock the move through leveling.
     public static Move BlindingLight; // Find the move in the overworld.
@@ -126,16 +126,16 @@
 
     // Shadow Moves: Mostly involve indrect bonuses and cursing the opponent.
 
-    public static Move Backstab; // Unlock the move through leveling.
-    public static Move Curse; // Unlock the move through leveling.
-    public static Move UmbraSlash; // Unlock the move through leveling.
-    public static Move ShadowMove4; // Unlock the move through leveling.
-    public static Move ShadowMove5; // Unlock the move through leveling.
-    public static Move ShadowMove6; // Unlock the move through leveling.
-    public static Move Manipulate; // Find the move in the overworld.
-    public static Move BlackHole; // Find the move in the overworld.
-    public static Move ShadowMove9; // Unlock by beating a boss.
-    public static Move ShadowMove10; // Unlock by beating a boss.
+    public static Move Backstab;       // Unlock the move through leveling.
+    public static Move UmbraSlash;     // Unlock the move through leveling.
+    public static Move LifeSteal;      // Unlock the move through leveling.
+    public static Move Curse;          // Unlock the move through leveling.
+    public static Move Nightmare;      // Unlock the move through leveling.
+    public static Move EvilPlan;       // Unlock the move through leveling.
+    public static Move ShadowMove6;      // Find the move in the overworld.
+    public static Move BlackHole;        // Find the move in the overworld.
+    public static Move Manipulate;             // Unlock by beating a boss.
+    public static Move PitchBlackTerror;       // Unlock by beating a boss.
 
     public static void Initialize()
     {

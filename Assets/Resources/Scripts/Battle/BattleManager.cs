@@ -228,7 +228,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                timePerLetter = 0.1f;
+                timePerLetter = 0.02f;
             }
         }
     }

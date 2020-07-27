@@ -8,7 +8,9 @@ public class OverworldUIManager : MonoBehaviour
     {
         None, Pause, Stats, Tent, Shop, Cooking_Pot, Online
     }
-    public static Menu openUI;
+    public static Menu openUI = Menu.None;
+
+    public Animator buttonOverlays;
 
     public GameObject pauseMenu;
     public GameObject statsMenu;
@@ -26,15 +28,23 @@ public class OverworldUIManager : MonoBehaviour
     public TMPro.TMP_Text def;
     public TMPro.TMP_Text spd;
 
+    [Header("Items")]
+    public TMPro.TMP_Text goldCurrent;
+
     public void UpdateStats()
     {
-        hpMax.text = PlayerInfo.HPMax.ToString();
+        hpMax.text = "/" + PlayerInfo.HPMax.ToString();
         hpCurrent.text = PlayerInfo.HPCurrent.ToString();
-        energyMax.text = PlayerInfo.EnergyMax.ToString();
+        energyMax.text = "/" + PlayerInfo.EnergyMax.ToString();
         energyCurrent.text = PlayerInfo.EnergyCurrent.ToString();
         pow.text = PlayerInfo.Pow.ToString();
         def.text = PlayerInfo.Def.ToString();
         spd.text = PlayerInfo.Spd.ToString();
+    }
+
+    public void UpdateItems()
+    {
+        goldCurrent.text = "x" + PlayerInfo.goldCount.ToString();
     }
 
     public void OnClose()
@@ -60,6 +70,10 @@ public class OverworldUIManager : MonoBehaviour
                 onlineMenu.SetActive(false);
                 break;
         }
+
+        buttonOverlays.SetBool("Enter", true);
+        buttonOverlays.SetBool("Exit", false);
+        openUI = Menu.None;
     }
 
     public void OnOpenPause()
@@ -68,7 +82,11 @@ public class OverworldUIManager : MonoBehaviour
             return;
 
         openUI = Menu.Pause;
+        pauseMenu.SetActive(true);
+        buttonOverlays.SetBool("Exit", true);
+        buttonOverlays.SetBool("Enter", false);
     }
+
     public void OnOpenStats()
     {
         if (openUI != Menu.None)
@@ -76,38 +94,52 @@ public class OverworldUIManager : MonoBehaviour
 
         openUI = Menu.Stats;
         statsMenu.SetActive(true);
+        buttonOverlays.SetBool("Exit", true);
+        buttonOverlays.SetBool("Enter", false);
         UpdateStats();
     }
 
-    public static void OpenTent()
+    public void OpenTent()
     {
         if (openUI != Menu.None)
             return;
 
         openUI = Menu.Tent;
+        tentMenu.SetActive(true);
+        buttonOverlays.SetBool("Exit", true);
+        buttonOverlays.SetBool("Enter", false);
     }
 
-    public static void OpenShop()
+    public void OpenShop()
     {
         if (openUI != Menu.None)
             return;
 
         openUI = Menu.Shop;
+        shopMenu.SetActive(true);
+        buttonOverlays.SetBool("Exit", true);
+        buttonOverlays.SetBool("Enter", false);
     }
 
-    public static void OpenCookingPot()
+    public void OpenCookingPot()
     {
         if (openUI != Menu.None)
             return;
 
         openUI = Menu.Cooking_Pot;
+        cookingPotMenu.SetActive(true);
+        buttonOverlays.SetBool("Exit", true);
+        buttonOverlays.SetBool("Enter", false);
     }
 
-    public static void OpenOnline()
+    public void OpenOnline()
     {
         if (openUI != Menu.None)
             return;
 
         openUI = Menu.Online;
+        onlineMenu.SetActive(true);
+        buttonOverlays.SetBool("Exit", true);
+        buttonOverlays.SetBool("Enter", false);
     }
 }
