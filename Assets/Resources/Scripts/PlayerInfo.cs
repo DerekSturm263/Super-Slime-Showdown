@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public static class PlayerInfo
 {
@@ -180,5 +181,14 @@ public static class PlayerInfo
             }
             catch { }
         }
+
+        // Update type.
+        types.Clear();
+
+        var typesList = typeAffinities.ToList();
+        typesList.Sort((x, y) => (y.Value.CompareTo(x.Value)));
+        float highestAffinity = typesList[0].Value;
+        typesList.FindAll(x => x.Value == highestAffinity)
+            .ForEach(x => types.Add(x.Key));
     }
 }

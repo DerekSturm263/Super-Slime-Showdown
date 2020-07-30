@@ -4,11 +4,8 @@ using UnityEngine.UI;
 
 public class OverworldUIManager : MonoBehaviour
 {
-    public enum Menu
-    {
-        None, Pause, Stats, Tent, Shop, Cooking_Pot, Online
-    }
-    public static Menu openUI = Menu.None;
+    public static GameObject currentMenu = null;
+    public static GameObject currentTab = null;
 
     public Animator buttonOverlays;
 
@@ -27,12 +24,81 @@ public class OverworldUIManager : MonoBehaviour
     public TMPro.TMP_Text pow;
     public TMPro.TMP_Text def;
     public TMPro.TMP_Text spd;
+    public TMPro.TMP_Text types;
 
     [Header("Items")]
     public TMPro.TMP_Text goldCurrent;
 
-    public void UpdateStats()
+    [Header("Tent")]
+    public TMPro.TMP_Text tentHPMax;
+    public TMPro.TMP_Text tentHPCurrent;
+    public TMPro.TMP_Text tentEnergyMax;
+    public TMPro.TMP_Text tentEnergyCurrent;
+
+    private void Awake()
     {
+        currentMenu = null;
+    }
+
+    public void OnClose()
+    {
+        CloseMenu(currentMenu);
+
+        buttonOverlays.SetBool("Enter", true);
+        buttonOverlays.SetBool("Exit", false);
+    }
+
+    public void OpenMenu(GameObject menu)
+    {
+        if (currentMenu != null)
+            return;
+
+        menu.SetActive(true);
+        currentMenu = menu;
+
+        if (menu == statsMenu)
+        {
+            UpdateStatsPage();
+            SwitchTab(statsMenu.transform.GetChild(3).gameObject);
+        }
+        else if (menu == tentMenu)
+        {
+            UpdateTentPage();
+        }
+
+        ResetButtons();
+    }
+
+    public void CloseMenu(GameObject menu)
+    {
+        if (menu.GetComponent<Animator>() != null)
+            menu.GetComponent<Animator>().SetBool("Exit", true);
+        else
+            menu.SetActive(false);
+
+        currentMenu = null;
+    }
+
+    public void SwitchTab(GameObject newTab)
+    {
+        if (newTab == currentTab)
+            return;
+
+        if (currentTab != null)
+            currentTab.SetActive(false);
+        newTab.SetActive(true);
+        currentTab = newTab;
+    }
+
+    private void ResetButtons()
+    {
+        buttonOverlays.SetBool("Exit", true);
+        buttonOverlays.SetBool("Enter", false);
+    }
+
+    public void UpdateStatsPage()
+    {
+        // Stats.
         hpMax.text = "/" + PlayerInfo.HPMax.ToString();
         hpCurrent.text = PlayerInfo.HPCurrent.ToString();
         energyMax.text = "/" + PlayerInfo.EnergyMax.ToString();
@@ -40,106 +106,31 @@ public class OverworldUIManager : MonoBehaviour
         pow.text = PlayerInfo.Pow.ToString();
         def.text = PlayerInfo.Def.ToString();
         spd.text = PlayerInfo.Spd.ToString();
-    }
+        types.text = "";
+        PlayerInfo.types.ForEach(x => types.text += x.Name);
 
-    public void UpdateItems()
-    {
+        // Inventory.
         goldCurrent.text = "x" + PlayerInfo.goldCount.ToString();
     }
 
-    public void OnClose()
+    public void UpdateTentPage()
     {
-        switch (openUI)
-        {
-            case Menu.Pause:
-                pauseMenu.SetActive(false);
-                break;
-            case Menu.Stats:
-                statsMenu.SetActive(false);
-                break;
-            case Menu.Tent:
-                tentMenu.SetActive(false);
-                break;
-            case Menu.Shop:
-                shopMenu.SetActive(false);
-                break;
-            case Menu.Cooking_Pot:
-                cookingPotMenu.SetActive(false);
-                break;
-            case Menu.Online:
-                onlineMenu.SetActive(false);
-                break;
-        }
-
-        buttonOverlays.SetBool("Enter", true);
-        buttonOverlays.SetBool("Exit", false);
-        openUI = Menu.None;
+        tentHPMax.text = "/" + PlayerInfo.HPMax.ToString();
+        tentHPCurrent.text = PlayerInfo.HPCurrent.ToString();
+        tentEnergyMax.text = "/" + PlayerInfo.EnergyMax.ToString();
+        tentEnergyCurrent.text = PlayerInfo.EnergyCurrent.ToString();
     }
 
-    public void OnOpenPause()
+    public void Heal()
     {
-        if (openUI != Menu.None)
+        if (PlayerInfo.goldCount < 100)
             return;
 
-        openUI = Menu.Pause;
-        pauseMenu.SetActive(true);
-        buttonOverlays.SetBool("Exit", true);
-        buttonOverlays.SetBool("Enter", false);
-    }
+        PlayerInfo.HPCurrent = PlayerInfo.HPMax;
+        PlayerInfo.EnergyCurrent = PlayerInfo.EnergyMax;
 
-    public void OnOpenStats()
-    {
-        if (openUI != Menu.None)
-            return;
+        PlayerInfo.goldCount -= 100;
 
-        openUI = Menu.Stats;
-        statsMenu.SetActive(true);
-        buttonOverlays.SetBool("Exit", true);
-        buttonOverlays.SetBool("Enter", false);
-        UpdateStats();
-    }
-
-    public void OpenTent()
-    {
-        if (openUI != Menu.None)
-            return;
-
-        openUI = Menu.Tent;
-        tentMenu.SetActive(true);
-        buttonOverlays.SetBool("Exit", true);
-        buttonOverlays.SetBool("Enter", false);
-    }
-
-    public void OpenShop()
-    {
-        if (openUI != Menu.None)
-            return;
-
-        openUI = Menu.Shop;
-        shopMenu.SetActive(true);
-        buttonOverlays.SetBool("Exit", true);
-        buttonOverlays.SetBool("Enter", false);
-    }
-
-    public void OpenCookingPot()
-    {
-        if (openUI != Menu.None)
-            return;
-
-        openUI = Menu.Cooking_Pot;
-        cookingPotMenu.SetActive(true);
-        buttonOverlays.SetBool("Exit", true);
-        buttonOverlays.SetBool("Enter", false);
-    }
-
-    public void OpenOnline()
-    {
-        if (openUI != Menu.None)
-            return;
-
-        openUI = Menu.Online;
-        onlineMenu.SetActive(true);
-        buttonOverlays.SetBool("Exit", true);
-        buttonOverlays.SetBool("Enter", false);
+        UpdateTentPage();
     }
 }

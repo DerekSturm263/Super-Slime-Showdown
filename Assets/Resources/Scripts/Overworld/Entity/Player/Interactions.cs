@@ -21,19 +21,19 @@ public class Interactions : MonoBehaviour
 
         // Open tent.
         else if (col.gameObject.CompareTag("Tent"))
-            ui.OpenTent();
+            ui.OpenMenu(ui.tentMenu);
 
         // Open shop.
         else if (col.gameObject.CompareTag("Shopkeeper"))
-            ui.OpenShop();
+            ui.OpenMenu(ui.shopMenu);
 
         // Open cooking pot.
         else if (col.gameObject.CompareTag("Chef"))
-            ui.OpenCookingPot();
+            ui.OpenMenu(ui.cookingPotMenu);
 
         // Open online.
         else if (col.gameObject.CompareTag("Online"))
-            ui.OpenOnline();
+            ui.OpenMenu(ui.onlineMenu);
     }
 
     private IEnumerator LoadBattle(GameObject enemy)

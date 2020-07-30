@@ -14,21 +14,21 @@ public static class Abilities
     // Water abilities.
     public static Ability Gills; // Unlock the ability through leveling.
     public static Ability FastSwimmer; // Unlock the ability through leveling.
-    public static Ability WaterAbility3; // Unlock the ability through leveling.
-    public static Ability WaterAbility4; // Find the ability in the overworld.
+    public static Ability Waterlog; // Unlock the ability through leveling.
+    public static Ability Aqueduct; // Find the ability in the overworld.
     public static Ability RainDance; // Unlock by beating a boss.
 
     // Fire abilities.
     public static Ability HotToTheTouch; // Unlock the ability through leveling.
+    public static Ability BurnOut; // Find the ability in the overworld.
+    public static Ability FirstDegreeBurn; // Unlock the ability through leveling.
     public static Ability WhiteHotFlame; // Unlock the ability through leveling.
-    public static Ability FireAbility3; // Unlock the ability through leveling.
-    public static Ability FireAbility4; // Find the ability in the overworld.
-    public static Ability FireAbility5; // Unlock by beating a boss.
+    public static Ability PlayingWithFire; // Unlock by beating a boss.
 
     // Ice abilities.
-    public static Ability ColdToTheTouch; // Unlock the ability through leveling.
     public static Ability WeakIce; // Unlock the ability through leveling.
     public static Ability StrongIce; // Unlock the ability through leveling.
+    public static Ability ColdToTheTouch; // Unlock the ability through leveling.
     public static Ability Permafrost; // Find the ability in the overworld.
     public static Ability Blizzard; // Unlock by beating a boss.
 
@@ -82,31 +82,31 @@ public static class Abilities
         NaturesBlessing = new Ability("Nature's Blessing", "If the user uses a nature type move, they have a chance to become Blessed.", Types.Nature);
         Fertilize = new Ability("Fertilize", "If the user uses a nature type move, the battlefield will become overgrown.", Types.Nature);
 
-        Gills = new Ability("Gills", "The user heals a low amount of they are hit with a water type move.", Types.Water); // The user heals back 20% of their HP if they are hit by a water type move.
+        Gills = new Ability("Gills", "The user heals a low amount if they are hit with a water type move.", Types.Water); // The user heals back 20% of their HP if they are hit by a water type move.
         FastSwimmer = new Ability("Fast Swimmer", "If the user is underwater, their speed is doubled.", Types.Water); // If the battlefield is underwater, the user's speed is doubled.
-        WaterAbility3 = new Ability("Water Ability 3", "", Types.Water);
-        WaterAbility4 = new Ability("Water Ability 4", "", Types.Water);
+        Waterlog = new Ability("Waterlog", "If the use uses a water type move on the opponent, the opponent has a chance to not use their next move.", Types.Water); // If the user uses a water type move on the opponent, the opponent has a 10% chance not to attack.
+        Aqueduct = new Ability("Aqueduct", "The user's water type moves deal extra damage.", Types.Water); // The user's water type moves deal 25% more damage.
         RainDance = new Ability("Rain Dance", "If the user uses a water type move, rain will begin to fall.", Types.Water); // If the user uses a water type move, the battlefield will have the Rain effect.
 
         HotToTheTouch = new Ability("Hot To The Touch", "If the user is hit with a weak fire type move, attacker is burned.", Types.Fire); // If the user is hit by a fire type move that deals less than 20% of their total HP, the attacker gets the Burn effect.
-        WhiteHotFlame = new Ability("White Hot Flame", "Any burns on an opponent caused by the user deal extra damage.", Types.Fire); // If the user burns the opponent, the opponent will take 50% more damage from their burn.
-        FireAbility3 = new Ability("Fire Ability 3", "", Types.Fire);
-        FireAbility4 = new Ability("Fire Ability 4", "", Types.Fire);
-        FireAbility5 = new Ability("Fire Ability 5", "If the user uses a fire type move, the battlefield will become scorching hot.", Types.Fire); // If the user uses a fire type move, the battlefield will have the Scorching Hot effect.
+        BurnOut = new Ability("Burn Out", "Fire type moves used against the user deal less damage.", Types.Fire); // If the user is hit by a fire type move, they only take 75% damage from the attack.
+        FirstDegreeBurn = new Ability("First Degree Burn", "Any burns on an opponent caused by the user deal extra damage.", Types.Fire); // If the user burns the opponent, the opponent will take 50% more damage from their burn.
+        WhiteHotFlame= new Ability("White Hot Flame", "Any burns on an opponent caused by the user last longer.", Types.Fire); // If the user burns the opponent, the opponent will stay burned for 1 more turn than usual.
+        PlayingWithFire = new Ability("Playing With Fire", "If the user uses a fire type move, the battlefield will become scorching hot.", Types.Fire); // If the user uses a fire type move, the battlefield will have the Scorching Hot effect.
 
-        ColdToTheTouch = new Ability("Cold To The Touch", "If the user would become frozen, the attacker will become frozen instead.", Types.Ice); // If the user would become frozen by a move used by another slime, the slime who would've frozen the user becomes frozen instead.
         WeakIce = new Ability("Weak Ice", "If the user freezes the opponent, the opponent takes more damage from attacks than usual when frozen.", Types.Ice); // If the user freezes the opponent, they take 50% more damage than they usually would when frozen. (When a slime is frozen, they take 50% less damage from attacks.)
         StrongIce = new Ability("Strong Ice", "If the user is frozen, they take less damage than usual when frozen.", Types.Ice); // If the user is frozen, they take 50% less damage than they usually would when frozen.
+        ColdToTheTouch = new Ability("Cold To The Touch", "If the user would become frozen, the attacker will become frozen instead.", Types.Ice); // If the user would become frozen by a move used by another slime, the slime who would've frozen the user becomes frozen instead.
         Permafrost = new Ability("Permafrost", "If the user would freeze the opponent, the opponent instead takes extra damage from the attack.", Types.Ice); // If the user uses an attack that successfully freezes the opponent, instead of becoming frozen, the opponent takes 100% extra damage.
         Blizzard = new Ability("Blizzard", "If the user uses an ice type move, snow will begin to fall.", Types.Ice); // If the user uses an ice type move, the battlefield will have the Snow effect.
 
-        Aseismic = new Ability("Aseismic", "On the first turn, the user's earth type moves deal extra damage. The user will also take 0.75x from earth type moves.", Types.Earth);
+        Aseismic = new Ability("Aseismic", "On the first turn, the user's earth type moves deal extra damage. The user will also take less damage from earth type moves.", Types.Earth);
         EarthAbility2 = new Ability("Earth Ability 2", "", Types.Earth);
         EarthAbility3 = new Ability("Earth Ability 3", "", Types.Earth);
         EarthAbility4 = new Ability("Earth Ability 4", "", Types.Earth);
         DustDevil = new Ability("Dust Devil", "If the user uses an earth type move, a sandstorm will kick up.", Types.Earth);
 
-        Ampacity = new Ability("Ampacity", "All volt type move sused by the user use less energy.", Types.Volt);
+        Ampacity = new Ability("Ampacity", "All volt type moves used by the user use less energy.", Types.Volt);
         ClosedCircuit = new Ability("Closed Circuit", "If the user is hit by a volt type move, the attacker receives a low amount of damage.", Types.Volt);
         ExtraVoltage = new Ability("Extra Voltage", "If the user shocks the opponent, the opponent takes extra damage.", Types.Volt);
         Conductor = new Ability("Conductor", "If there's an electrical storm, the user's volt type moves deal extra damage.", Types.Volt);
@@ -118,9 +118,9 @@ public static class Abilities
         WindAbility4 = new Ability("Wind Ability 4", "", Types.Wind);
         Twister = new Ability("Twister", "If the user uses a wind type move, the battlefield will become windy.", Types.Wind);
 
+        DeadlyPoison = new Ability("Deadly Poison", "All poison caused by the user deals extra damage.", Types.Toxin);
         Antidote = new Ability("Anidote", "The user can't become poisoned.", Types.Toxin);
         PoisonousSkin = new Ability("Poisonous Skin", "If the user is damaged, the attacker has a small chance to become poisoned.", Types.Toxin);
-        DeadlyPoison = new Ability("Deadly Poison", "All poison caused by the user deals extra damage.", Types.Toxin);
         ToxinAbility4 = new Ability("Toxin Ability 4", "If the user becomes poisoned, they deal extra damage when attacking.", Types.Toxin);
         ToxinAbility5 = new Ability("Toxin Ability 5", "If the user uses a poison type move, the battlefield will become drenched in poison.", Types.Toxin);
 

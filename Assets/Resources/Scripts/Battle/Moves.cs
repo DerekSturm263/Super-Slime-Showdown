@@ -1,6 +1,7 @@
 ﻿public static class Moves
 {
     // Typeless moves.
+
     public static Move Roll;                        // Start with the move.
     public static Move Slam;                            // Unlock the move.
     public static Move Headbutt;                        // Unlock the move.
@@ -21,17 +22,17 @@
     public static Move BulbousBeatdown;        // Unlock by beating a boss.
 
     // Water Moves:
-
-    public static Move Splash;        
-    public static Move Waterball;     
-    public static Move Rehydrate;     
-    public static Move Aquify;        
-    public static Move WaterMove9;
-    public static Move ToweringWave;
-    public static Move WaterMove10;
-    public static Move CorrosiveBlast;
-    public static Move WaterDown;
-    public static Move Tsunami;
+                                      
+    public static Move Splash;         // Unlock the move through leveling.
+    public static Move Downpour;       // Unlock the move through leveling.
+    public static Move Rehydrate;      // Unlock the move through leveling.
+    public static Move Waterball;      // Unlock the move through leveling.
+    public static Move Aquify;         // Unlock the move through leveling.
+    public static Move Absorption;     // Unlock the move through leveling.
+    public static Move ToweringWave;     // Find the move in the overworld.
+    public static Move CorrosiveBlast;   // Find the move in the overworld.
+    public static Move WaterDown;              // Unlock by beating a boss.
+    public static Move Tsunami;                // Unlock by beating a boss.
 
     // Fire Moves: Mostly involve a chance to burn the opponent.
 
@@ -77,7 +78,7 @@
     public static Move ZippityZap;     // Unlock the move through leveling.
     public static Move Charge;         // Unlock the move through leveling.
     public static Move Thundershock;   // Unlock the move through leveling.
-    public static Move StaticSlame;    // Unlock the move through leveling.
+    public static Move StaticSlam;    // Unlock the move through leveling.
     public static Move ElectroPulse;   // Unlock the move through leveling.
     public static Move Resistor;       // Unlock the move through leveling.
     public static Move ShockStrike;      // Find the move in the overworld.
@@ -132,7 +133,7 @@
     public static Move Curse;          // Unlock the move through leveling.
     public static Move Nightmare;      // Unlock the move through leveling.
     public static Move EvilPlan;       // Unlock the move through leveling.
-    public static Move ShadowMove6;      // Find the move in the overworld.
+    public static Move ShadowMove7;      // Find the move in the overworld.
     public static Move BlackHole;        // Find the move in the overworld.
     public static Move Manipulate;             // Unlock by beating a boss.
     public static Move PitchBlackTerror;       // Unlock by beating a boss.
@@ -158,16 +159,16 @@
         BulbousBeatdown = new Move("Bulbous Beatdown", "The user uses their bulbs to beat the opponent into oblivion.", 120f, 16f, Types.Nature);
 
         // Water type moves.
-        Splash = new Move("Splash", "The user makes a splash in the water.", 20f, 5f, Types.Water);
-        Waterball = new Move("Waterball", "The user shoots a waterball at the opponent.", 40f, 15f, Types.Water);
-        Rehydrate = new Move("Rehydrate", "The user rehydrates themselves to regain some HP.", 0f, 15f, Types.Water, Move.Target.Self);
-        WaterMove4 = new Move("Water Move 3", "", 0f, 0f, Types.Water);
-        WaterMove5 = new Move("Water Move 4", "", 0f, 0f, Types.Water);
-        WaterMove6 = new Move("Water Move 5", "", 0f, 0f, Types.Water);
-        ToweringWave = new Move("Towering Wave", "The user calls upon a giant wave to engulf the opponent.", 65f, 20f, Types.Water);
-        CorrosiveBlast = new Move("Corrosive Blast", "The user blasts high-speed water at the opponent.", 85f, 35f, Types.Water);
-        WaterMove9 = new Move("Water Move 9", "", 0f, 0f, Types.Water);
-        WaterMove10 = new Move("Water Move 10", "", 0f, 0f, Types.Water);
+        Splash = new Move("Splash", "The user makes a splash in the water.", 15f, 2f, Types.Water);
+        Downpour = new Move("Downpout", "The user calls rain down on the opponent.", 30f, 4f, Types.Water);
+        Rehydrate = new Move("Rehydrate", "The user rehydrates themselves to regain some HP.", 0f, 6f, Types.Water, Move.Target.Self);
+        Waterball = new Move("Waterball", "The user shoots a waterball at the opponent.", 50f, 6f, Types.Water);
+        Aquify = new Move("Aquify", "The user blasts the opponent with high-speed water.", 60f, 6f, Types.Water);
+        Absorption = new Move("Absorption", "The user absorbs all the water nearby to heal themselves. If there is water in the terrain, this increases.", 0f, 10f, Types.Water, Move.Target.Self);
+        ToweringWave = new Move("Towering Wave", "The user calls upon a giant wave to engulf the opponent.", 80f, 8f, Types.Water);
+        CorrosiveBlast = new Move("Corrosive Blast", "The user blasts high-speed water at the opponent.", 100f, 12f, Types.Water);
+        WaterDown = new Move("Water Down", "The opponent's non-water type moves deal less damage for 3 turns.", 60f, 8f, Types.Water);
+        Tsunami = new Move("Tsunami", "The user creates an earthquake that causes a tsunami that drenches the opponent.", 120f, 14f, Types.Water);
 
         // Fire type moves.
         Firebreath = new Move("Firebreath", "The user uses their firebreath to burn the opponent.", 20f, 4f, Types.Fire); // Small chance of burn.
@@ -197,7 +198,7 @@
         PebbleToss = new Move("Pebble Toss", "The user tosses a pebble at the opponent.", 20f, 5f, Types.Earth);
         MudShot = new Move("Mud Shot", "The user tosses mud at the opponent.", 30f, 10f, Types.Earth); // Medium chance to blind.
         SeismicSmash = new Move("Seismic Smash", "The user slams into the opponent with tremendous force.", 70f, 30f, Types.Earth);
-        EarthMove4 = new Move("Earth Move 3", "", 0f, 0f, Types.Earth);
+        Landslide = new Move("Landslide", "", 0f, 0f, Types.Earth);
         EarthMove5 = new Move("Earth Move 4", "", 0f, 0f, Types.Earth);
         EarthMove6 = new Move("Earth Move 5", "", 0f, 0f, Types.Earth);
         Earthquake = new Move("Earthquake", "The user causes an earthquake to damage the opponent.", 90f, 40f, Types.Earth);
@@ -207,15 +208,15 @@
 
         // Volt type moves.
         ZippityZap = new Move("Zippity-Zap", "The user zaps the opponent with electricity.", 30f, 10f, Types.Volt);
-        Thundershock = new Move("Thundershock", "The user calls down a bolt of lightning to strike the opponent.", 45f, 20f, Types.Volt); // Low chance to shock.
-        ShockStrike = new Move("Shock Strike", "The user strikes the opponent with a powerful shock.", 60f, 25f, Types.Volt); // Medium chance of shock.
-        Charge = new Move("Volt Move 3", "The user charges up their electricity.", 0f, 0f, Types.Volt);
-        VoltMove5 = new Move("Volt Move 4", "", 0f, 0f, Types.Volt);
-        VoltMove6 = new Move("Volt Move 5", "", 0f, 0f, Types.Volt);
-        ElectricalOverload = new Move("Electrical Overload", "The user explodes with electricity to harm the opponent.", 80f, 35f, Types.Volt); // Medium chance of shock.
-        LightingBoltBlast = new Move("Lightning Bolts Blast", "The user sends down multiple bolts of lightning to strike the opponent.", 100f, 50f, Types.Volt); // Definite chance of shock.
-        VoltMove9 = new Move("Volt Move 9", "", 0f, 0f, Types.Volt);
-        VoltMove10 = new Move("Volt Move 10", "", 0f, 0f, Types.Volt);
+        Charge = new Move("Charge", "", 45f, 20f, Types.Volt);
+        Thundershock = new Move("Thundershock", "", 60f, 25f, Types.Volt);
+        StaticSlam = new Move("StaticSlam", "", 0f, 0f, Types.Volt);
+        ElectroPulse = new Move("ElectroPulse", "", 0f, 0f, Types.Volt);
+        Resistor = new Move("Resistor", "", 0f, 0f, Types.Volt);
+        ShockStrike = new Move("ShockStrike", "", 80f, 35f, Types.Volt);
+        LightingBoltBlast = new Move("Lightning Bolt Blast", "", 100f, 50f, Types.Volt);
+        ElectricalOverload = new Move("ElectricalOverload", "", 0f, 0f, Types.Volt);
+        GalvanicExplosion = new Move("GalvanicExplosion", "", 0f, 0f, Types.Volt);
 
         // Wind type moves.
         GentleBreeze = new Move("Gentle Breeze", "The user creates a gentle breeze aimed towards the opponent.", 10f, 5f, Types.Wind);
@@ -234,7 +235,7 @@
         ToxicBlock = new Move("Toxic Block", "The user blocks the next attack from the opponent.", 0f, 0f, Types.Toxin, Move.Target.Self); // Low chance of poison.
         VenomousStrike = new Move("Venomous Strike", "The user strikes the opponent with a venomous attack.", 70f, 30f, Types.Toxin); // High chance of poison.
         ToxinMove4 = new Move("Toxin Move 3", "", 0f, 0f, Types.Toxin);
-        ToxinMove5 = new Move("Toxin Move 4", "", 0f, 0f, Types.Toxin);
+        PoisonPummel = new Move("Poison Pummel", "", 0f, 0f, Types.Toxin);
         ToxinMove6 = new Move("Toxin Move 5", "", 0f, 0f, Types.Toxin);
         PoisonFangs = new Move("Poison Fangs", "The user bites down into the opponent with their poisonous fangs.", 50f, 15f, Types.Toxin); // Medium chance of poison.
         ToxicSludge = new Move("Toxic Sludge", "The user sends a wave of toxic sludge towards the opponent.", 85f, 25f, Types.Toxin); // High chance of poison.
@@ -245,7 +246,7 @@
         HeavenlyRestore = new Move("Heavenly Restore", "The user regains some HP by healing themselves.", 0f, 0f, Types.Light, Move.Target.Self);
         HaloHop = new Move("Halo Hop", "The user hops into the air and lands on top of the opponent.", 30f, 10f, Types.Light);
         SavingGrace = new Move("Saving Grace", "The user blesses themselves.", 0f, 10f, Types.Light, Move.Target.Self); // Definite chance to bless the user.
-        LightMove4 = new Move("Light Move 3", "", 0f, 0f, Types.Light);
+        ShiningStrike = new Move("Light Move 3", "", 0f, 0f, Types.Light);
         LightMove5 = new Move("Light Move 4", "", 0f, 0f, Types.Light);
         LightMove6 = new Move("Light Move 5", "", 0f, 0f, Types.Light);
         BlindingLight = new Move("Blinding Light", "The user casts a blinding light to blind the opponent.", 0f, 15f, Types.Light); // Definite chance of blindness.
@@ -255,14 +256,14 @@
 
         // Dark type moves.
         Backstab = new Move("Backstab", "The user waits to attack the opponent until the next turn.", 40f, 10f, Types.Shadow);
-        Curse = new Move("Curse", "The user places a curse on the opponent.", 0f, 10f, Types.Shadow); // Definite chance of curse.
-        UmbraSlash = new Move("Umbra Slash", "The user slashes the opponent with a dark claw.", 40f, 15f, Types.Shadow);
-        ShadowMove4 = new Move("Shadow Move 3", "", 0f, 0f, Types.Shadow);
-        ShadowMove5 = new Move("Shadow Move 4", "", 0f, 0f, Types.Shadow);
-        ShadowMove6 = new Move("Shadow Move 5", "", 0f, 0f, Types.Shadow);
-        Manipulate = new Move("Manipulate", "", 0f, 0f, Types.Shadow); // I don't know what this will do yet but I like the name Manipulate.
-        BlackHole = new Move("Black Hole", "The user creates a black hole to suck up the opponent and spit back out.", 100f, 40f, Types.Shadow);
-        ShadowMove9 = new Move("Shadow Move 9", "", 0f, 0f, Types.Shadow);
-        ShadowMove10 = new Move("Shadow Move 10", "", 0f, 0f, Types.Shadow);
+        UmbraSlash = new Move("UmbraSlash", ".", 0f, 10f, Types.Shadow);
+        LifeSteal = new Move("Life Steal", ".", 40f, 15f, Types.Shadow);
+        Curse = new Move("Curse", "", 0f, 0f, Types.Shadow);
+        Nightmare = new Move("Nightmare", "", 0f, 0f, Types.Shadow);
+        EvilPlan = new Move("Evil Plan", "", 0f, 0f, Types.Shadow);
+        ShadowMove7 = new Move("ShadowMove7", "", 0f, 0f, Types.Shadow);
+        BlackHole = new Move("Black Hole", ".", 100f, 40f, Types.Shadow);
+        Manipulate = new Move("Manipulate", "", 0f, 0f, Types.Shadow);
+        PitchBlackTerror = new Move("Pitch Black Terror", "", 0f, 0f, Types.Shadow);
     }
 }

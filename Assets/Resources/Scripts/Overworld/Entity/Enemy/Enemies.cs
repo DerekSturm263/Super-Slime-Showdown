@@ -203,7 +203,6 @@ public class Enemies : MonoBehaviour
             Moves.Roll, Moves.TwistingVines, Moves.SawgrassSlice, Moves.SuperHeal
         };
 
-
         // Frost.
         Frost.Level1Moves = new List<Move>()
         {
