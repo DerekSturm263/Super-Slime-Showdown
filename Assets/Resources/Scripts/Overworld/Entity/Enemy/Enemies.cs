@@ -114,6 +114,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.SuperHeal, Moves.SawgrassSlice, Moves.TwistingVines
         };
+        Acorn.SetDrops(new List<Ingredient> { Ingredients.Oats, Ingredients.Sugar } );
 
         // Herb.
         Herb.Level1Moves = new List<Move>()
@@ -136,6 +137,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.Grow, Moves.SuperHeal, Moves.TwistingVines
         };
+        Herb.SetDrops(new List<Ingredient> { Ingredients.Wheat, Ingredients.Rice });
 
         // Peanut.
         Peanut.Level1Moves = new List<Move>()
@@ -158,6 +160,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.SawgrassSlice, Moves.Heal, Moves.TwistingVines
         };
+        Peanut.SetDrops(new List<Ingredient> { Ingredients.Lettuce, Ingredients.Sugar });
 
         // Daisy.
         Daisy.Level1Moves = new List<Move>()
@@ -180,6 +183,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.Heal, Moves.TwistingVines, Moves.ProtectionLeaf
         };
+        Daisy.SetDrops(new List<Ingredient> { Ingredients.Wheat, Ingredients.Oats });
 
         // Iris.
         Iris.Level1Moves = new List<Move>()
@@ -202,6 +206,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.TwistingVines, Moves.SawgrassSlice, Moves.SuperHeal
         };
+        Iris.SetDrops(new List<Ingredient> { Ingredients.Rice, Ingredients.Lettuce });
 
         // Frost.
         Frost.Level1Moves = new List<Move>()
@@ -224,6 +229,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.Freeze, Moves.IcicleShot, Moves.Crystalize
         };
+        Frost.SetDrops(new List<Ingredient> { Ingredients.IceCube, Ingredients.IceCube2 });
 
         // Snowflake.
         Snowflake.Level1Moves = new List<Move>()
@@ -246,6 +252,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.Icebreath, Moves.IcicleShot, Moves.BuildingIce
         };
+        Snowflake.SetDrops(new List<Ingredient> { Ingredients.IceCube3, Ingredients.IceCube4 });
 
         // Winter 3.
         Winter.Level1Moves = new List<Move>()
@@ -268,6 +275,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.IceTackle, Moves.Icebreath, Moves.IcicleShot
         };
+        Winter.SetDrops(new List<Ingredient> { Ingredients.IceCube5, Ingredients.IceCube2 });
 
         // Ice Enemy 4.
         IceEnemy4.Level1Moves = new List<Move>()
@@ -290,6 +298,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.BuildingIce, Moves.IcicleShot, Moves.Crystalize
         };
+        IceEnemy4.SetDrops(new List<Ingredient> { Ingredients.IceCube3, Ingredients.IceCube });
 
         // Ice Enemy 5.
         IceEnemy5.Level1Moves = new List<Move>()
@@ -312,6 +321,7 @@ public class Enemies : MonoBehaviour
         {
             Moves.Roll, Moves.BuildingIce, Moves.Icebreath, Moves.IcicleShot
         };
+        IceEnemy5.SetDrops(new List<Ingredient> { Ingredients.IceCube4, Ingredients.IceCube5 });
 
         // Nature Boss.
         NatureBoss.Level1Moves = new List<Move>()

@@ -12,5 +12,6 @@ public class GameController : MonoBehaviour
         Abilities.Initialize();
         Types.Initialize();
         Enemies.Initialize();
+        PlayerInfo.Initialize();
     }
 }

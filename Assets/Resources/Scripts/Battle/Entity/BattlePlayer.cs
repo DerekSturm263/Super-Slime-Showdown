@@ -10,13 +10,14 @@ public class BattlePlayer : BattleEntity
         #region Stats
 
         Name = PlayerInfo.playerName;
-        HPMax = PlayerInfo.HPMax;
-        HPCurrent = PlayerInfo.HPCurrent;
-        EnergyMax = PlayerInfo.EnergyMax;
-        EnergyCurrent = PlayerInfo.EnergyCurrent;
-        Pow = PlayerInfo.Pow;
-        Def = PlayerInfo.Def;
-        Spd = PlayerInfo.Spd;
+
+        entityStats.HPMax = PlayerInfo.playerStats.HPMax;
+        entityStats.HPCurrent = PlayerInfo.playerStats.HPCurrent;
+        entityStats.EnergyMax = PlayerInfo.playerStats.EnergyMax;
+        entityStats.EnergyCurrent = PlayerInfo.playerStats.EnergyCurrent;
+        entityStats.Pow = PlayerInfo.playerStats.Pow;
+        entityStats.Def = PlayerInfo.playerStats.Def;
+        entityStats.Spd = PlayerInfo.playerStats.Spd;
 
         TopTypes = PlayerInfo.types;
         TypeAffinities = PlayerInfo.typeAffinities;

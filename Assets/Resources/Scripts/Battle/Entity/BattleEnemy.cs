@@ -8,13 +8,14 @@ public class BattleEnemy : BattleEntity
         #region Stats
 
         Name = e.Name;
-        HPMax = e.HPMax * e.TimesFought;
-        HPCurrent = HPMax;
-        EnergyMax = (int) (e.EnergyMax * (e.TimesFought / 2f));
-        EnergyCurrent = EnergyMax;
-        Pow = e.Pow * e.TimesFought;
-        Def = e.Def * e.TimesFought;
-        Spd = e.Spd * e.TimesFought;
+
+        entityStats.HPMax = e.enemyStats.HPMax * e.TimesFought;
+        entityStats.HPCurrent = entityStats.HPMax;
+        entityStats.EnergyMax = (uint) (e.enemyStats.EnergyMax * (e.TimesFought / 2f));
+        entityStats.EnergyCurrent = entityStats.EnergyMax;
+        entityStats.Pow = e.enemyStats.Pow * e.TimesFought;
+        entityStats.Def = e.enemyStats.Def * e.TimesFought;
+        entityStats.Spd = e.enemyStats.Spd * e.TimesFought;
 
         TopTypes = e.Types;
         TypeAffinities = e.TypeAffinities;

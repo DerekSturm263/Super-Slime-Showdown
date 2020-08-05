@@ -6,13 +6,8 @@ public class Enemy
     public List<Type> Types = new List<Type>(); // This is the type that is displayed in battle. The player can have up to 2 is they dual type.
 
     public string Name;
-    public uint HPMax;
-    public uint HPCurrent;
-    public uint EnergyMax;
-    public uint EnergyCurrent;
-    public float Pow;
-    public float Def;
-    public float Spd;
+
+    public Stats enemyStats;
 
     // Overworld stuff.
     public float Size; // Used in overworld for bosses.
@@ -35,18 +30,22 @@ public class Enemy
 
     public uint TimesFought; // The nubmer of times you've beaten an enemy.
 
+    public List<Ingredient> Drops; // What the enemy drops upon being defeated.
+
     public Enemy(string name, uint hp, uint energy, float pow, float def, float spd,
         Dictionary<Type, float> typeAffinities, Ability ability, uint abilityThreshold = 1, float size = 1f, bool canMove = true,
         List<TypeCosmetic> typeCosmetics = null, ShopCosmetic shopCosmetic = null)
     {
         Name = name;
-        HPMax = hp;
-        HPCurrent = HPMax;
-        EnergyMax = energy;
-        EnergyCurrent = EnergyMax;
-        Pow = pow;
-        Def = def;
-        Spd = spd;
+
+        enemyStats.HPMax = hp;
+        enemyStats.HPCurrent = enemyStats.HPMax;
+        enemyStats.EnergyMax = energy;
+        enemyStats.EnergyCurrent = enemyStats.EnergyMax;
+        enemyStats.Pow = pow;
+        enemyStats.Def = def;
+        enemyStats.Spd = spd;
+
         TypeAffinities = typeAffinities;
         AbilityThreshold = abilityThreshold;
         Size = size;
@@ -66,5 +65,10 @@ public class Enemy
         typesList.ForEach((x) => Types.Add(x.Key));
 
         #endregion
+    }
+
+    public void SetDrops(List<Ingredient> drops)
+    {
+        Drops = drops;
     }
 }

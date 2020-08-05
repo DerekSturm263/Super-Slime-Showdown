@@ -3,17 +3,17 @@ using UnityEngine;
 
 public static class Types
 {
-    public static Type Typeless = new Type("Typeless", new Color(1f, 1f, 1f, 0.9f));
-    public static Type Nature = new Type("Nature", new Color(0.2559f, 1f, 0.25f, 0.9f));
-    public static Type Water = new Type("Water", new Color(0.25f, 0.75f, 1f, 0.9f));
-    public static Type Fire = new Type("Fire", new Color(0.9f, 0.5631f, 0.2252f, 0.9f));
-    public static Type Ice = new Type("Ice", new Color(0f, 1f, 1f, 0.9f));
-    public static Type Earth = new Type("Earth", new Color(0.75f, 0.75f, 0.375f, 0.9f));
-    public static Type Volt = new Type("Volt", new Color(1f, 1f, 0f, 0.9f));
-    public static Type Wind = new Type("Wind", new Color(1f, 0.504f, 0.752f, 0.9f));
-    public static Type Toxin = new Type("Toxin", new Color(0.8187f, 0.405f, 0.9f, 0.9f));
-    public static Type Light = new Type("Light", new Color(1f, 1f, 0.75f, 0.9f));
-    public static Type Shadow = new Type("Shadow", new Color(0f, 0f, 0f, 0.9f));
+    public static Type Typeless = new Type("Typeless", new Color(1f, 1f, 1f, 0.9f), 0, 0, 0, 0, 0); // 0 total.
+    public static Type Nature = new Type("Nature", new Color(0.2559f, 1f, 0.25f, 0.9f), 3, 3, 1, 2, 1); // 10 total.
+    public static Type Water = new Type("Water", new Color(0.25f, 0.75f, 1f, 0.9f), 2, 2, 3, 2, 1); // 10 total.
+    public static Type Fire = new Type("Fire", new Color(0.9f, 0.5631f, 0.2252f, 0.9f), 1, 2, 3, 3, 1); // 10 total.
+    public static Type Ice = new Type("Ice", new Color(0f, 1f, 1f, 0.9f), 3, 1, 2, 3, 2); // 11 total.
+    public static Type Earth = new Type("Earth", new Color(0.75f, 0.75f, 0.375f, 0.9f), 2, 1, 3, 3, 1); // 10 total.
+    public static Type Volt = new Type("Volt", new Color(1f, 1f, 0f, 0.9f), 1, 1, 3, 3, 2); // 10 total.
+    public static Type Wind = new Type("Wind", new Color(1f, 0.504f, 0.752f, 0.9f), 2, 1, 2, 1, 3); // 9 total.
+    public static Type Toxin = new Type("Toxin", new Color(0.8187f, 0.405f, 0.9f, 0.9f), 1, 3, 3, 3, 1); // 11 total.
+    public static Type Light = new Type("Light", new Color(1f, 1f, 0.75f, 0.9f), 3, 1, 3, 1, 3); // 10 total.
+    public static Type Shadow = new Type("Shadow", new Color(0f, 0f, 0f, 0.9f), 2, 2, 2, 2, 2); // 10 total.
 
     public static void Initialize()
     {
@@ -286,7 +286,7 @@ public static class Types
         Light.SetDictionaries(
             new Dictionary<int, Move>
         {
-            { 1, Moves.Heal },
+            { 1, Moves.HeavenlyRestore },
             { 3, Moves.HaloHop },
             { 8, Moves.SavingGrace },
             { 12, Moves.ShiningStrike },

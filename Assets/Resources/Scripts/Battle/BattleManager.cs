@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -153,7 +154,7 @@ public class BattleManager : MonoBehaviour
 
     public static void SwitchTurns()
     {
-        if (enemy.HPCurrent == 0 || player.HPCurrent == 0)
+        if (enemy.entityStats.HPCurrent == 0 || player.entityStats.HPCurrent == 0)
         {
             battleTurn = BattleTurn.End;
             return;
@@ -237,18 +238,18 @@ public class BattleManager : MonoBehaviour
 
     public void UpdateStats()
     {
-        playerHP.fillAmount = player.HPCurrent / player.HPMax;
-        playerEnergy.fillAmount = player.EnergyCurrent / player.EnergyMax;
+        playerHP.fillAmount = (float) player.entityStats.HPCurrent / (float) player.entityStats.HPMax;
+        playerEnergy.fillAmount = (float) player.entityStats.EnergyCurrent / (float) player.entityStats.EnergyMax;
 
-        enemyHP.fillAmount = enemy.HPCurrent / enemy.HPMax;
-        enemyEnergy.fillAmount = enemy.EnergyCurrent / enemy.EnergyMax;
+        enemyHP.fillAmount = (float) enemy.entityStats.HPCurrent / (float) enemy.entityStats.HPMax;
+        enemyEnergy.fillAmount = (float) enemy.entityStats.EnergyCurrent / (float) enemy.entityStats.EnergyMax;
     }
 
     public void End()
     {
-        if (enemy.HPCurrent == 0)
+        if (enemy.entityStats.HPCurrent == 0)
             Win();
-        else if (player.HPCurrent == 0)
+        else if (player.entityStats.HPCurrent == 0)
             Lose();
         else
             Tie();
@@ -260,10 +261,21 @@ public class BattleManager : MonoBehaviour
         int coinBonus = (int) (player.CoinBonus * 100f);
         coinBonus = (coinBonus < 0) ? 0 : coinBonus;
 
-        Write(player.Name + " has won the battle!\nYou won " + coinBonus + " gold!");
+        List<Ingredient> loot = new List<Ingredient>();
+
+        for (int i = 0; i < 2; i++)
+        {
+            loot.Add(gc.enemyData.Drops[Random.Range(0, 2)]);
+        }
+
+        if (loot[0] != loot[1])
+            Write(player.Name + " has won the battle!\nYou won " + coinBonus + " gold, 1 " + loot[0].ItemName + ", and 1 " + loot[1].ItemName + "!");
+        else
+            Write(player.Name + " has won the battle!\nYou won " + coinBonus + " gold and 2 " + loot[0].ItemName + "!");
 
         gc.enemyData.TimesFought++;
         PlayerInfo.goldCount += (uint) coinBonus;
+        loot.ForEach(x => PlayerInfo.inventory.Add(x));
     }
 
     public void Lose()
@@ -275,7 +287,7 @@ public class BattleManager : MonoBehaviour
 
         Write(player.Name + " has lost the battle...\nYou lost " + coinLoss + " gold...");
 
-        player.HPCurrent = 1;
+        player.entityStats.HPCurrent = 1;
         PlayerInfo.goldCount -= (uint) coinLoss;
     }
 
@@ -289,8 +301,8 @@ public class BattleManager : MonoBehaviour
     {
         SceneManager.LoadScene("Overworld");
 
-        PlayerInfo.HPCurrent = (uint) player.HPCurrent;
-        PlayerInfo.EnergyCurrent = (uint) player.EnergyCurrent;
+        PlayerInfo.playerStats.HPCurrent = (uint) player.entityStats.HPCurrent;
+        PlayerInfo.playerStats.EnergyCurrent = (uint) player.entityStats.EnergyCurrent;
     }
 
     private void OnEnable()

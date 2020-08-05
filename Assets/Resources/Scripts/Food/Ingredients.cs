@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredients
+public static class Ingredients
 {
-    public static readonly Ingredient Potato = new Ingredient("Raw Potato", "A raw potato.", "Starchy", "starchy", "starch", Types.Nature, 25,
-        Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), Salmon, "Baked Potato", "baked potato", Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), 1f, 3);
+    public static readonly string path = "Sprites/Overworld/Food/Ingredients/";
 
-    public static readonly Ingredient Salmon = new Ingredient("Raw Salmon", "An uncooked fish.", "Fishy", "fishy", "fish", Types.Water, 40,
-        Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), Potato, "Smoked Salmon", "smoked salmon", Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), 2f, 5);
+    // Nature type ingredients.
+    public static Ingredient Wheat = new Ingredient("Wheat", Resources.Load(path + "ingredient_wheat", typeof(Sprite)) as Sprite, "", 0, Types.Nature);
+    public static Ingredient Rice = new Ingredient("Rice", Resources.Load(path + "ingredient_rice", typeof(Sprite)) as Sprite, "", 0, Types.Nature);
+    public static Ingredient Oats = new Ingredient("Oats", Resources.Load(path + "ingredient_oats", typeof(Sprite)) as Sprite, "", 0, Types.Nature);
+    public static Ingredient Lettuce = new Ingredient("Lettuce", Resources.Load(path + "ingredient_lettuce", typeof(Sprite)) as Sprite, "", 0, Types.Nature);
+    public static Ingredient Sugar = new Ingredient("Sugar", Resources.Load(path + "ingredient_sugar", typeof(Sprite)) as Sprite, "", 0, Types.Nature);
 
-    public static readonly Ingredient Jalapeno = new Ingredient("Jalapeno", "A spicy jalapeno.", "Spicy", "spicy", "spice", Types.Fire, 30,
-        Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), Lemon, "Cooked Jalapeno", "cooked jalapeno", Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), 2f, 2);
-
-    public static readonly Ingredient Lemon = new Ingredient("Lemon", "A tangy lemon.", "Tangy", "tangy", "tang", Types.Volt, 35,
-        Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), Jalapeno, "Fresh Lemon", "freshly squeezed lemon", Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), 1f, 2);
-
-    public static readonly Ingredient Candy = new Ingredient("Candy", "A sweet piece of candy.", "Sweet", "sweet", "sweetness", Types.Wind, 20,
-        Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), Potato, "Delicious Candy", "piece of candy", Sprite.Create(new Texture2D(0, 0), new Rect(), new Vector2(0f, 0f)), 1f, 3);
+    // Ice type ingredients.
+    public static Ingredient IceCube = new Ingredient("Ice Cube", Resources.Load(path + "ingredient_iceCube", typeof(Sprite)) as Sprite, "", 0, Types.Ice);
+    public static Ingredient IceCube2 = new Ingredient("Ice Cube2", Resources.Load(path + "ingredient_iceCube", typeof(Sprite)) as Sprite, "", 0, Types.Ice);
+    public static Ingredient IceCube3 = new Ingredient("Ice Cube3", Resources.Load(path + "ingredient_iceCube", typeof(Sprite)) as Sprite, "", 0, Types.Ice);
+    public static Ingredient IceCube4 = new Ingredient("Ice Cube4", Resources.Load(path + "ingredient_iceCube", typeof(Sprite)) as Sprite, "", 0, Types.Ice);
+    public static Ingredient IceCube5 = new Ingredient("Ice Cube5", Resources.Load(path + "ingredient_iceCube", typeof(Sprite)) as Sprite, "", 0, Types.Ice);
 }

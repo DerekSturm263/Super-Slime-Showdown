@@ -28,6 +28,7 @@ public class OverworldUIManager : MonoBehaviour
 
     [Header("Items")]
     public TMPro.TMP_Text goldCurrent;
+    public GameObject itemLayout;
 
     [Header("Tent")]
     public TMPro.TMP_Text tentHPMax;
@@ -99,26 +100,36 @@ public class OverworldUIManager : MonoBehaviour
     public void UpdateStatsPage()
     {
         // Stats.
-        hpMax.text = "/" + PlayerInfo.HPMax.ToString();
-        hpCurrent.text = PlayerInfo.HPCurrent.ToString();
-        energyMax.text = "/" + PlayerInfo.EnergyMax.ToString();
-        energyCurrent.text = PlayerInfo.EnergyCurrent.ToString();
-        pow.text = PlayerInfo.Pow.ToString();
-        def.text = PlayerInfo.Def.ToString();
-        spd.text = PlayerInfo.Spd.ToString();
+        hpMax.text = "/" + PlayerInfo.playerStats.HPMax.ToString();
+        hpCurrent.text = PlayerInfo.playerStats.HPCurrent.ToString();
+        energyMax.text = "/" + PlayerInfo.playerStats.EnergyMax.ToString();
+        energyCurrent.text = PlayerInfo.playerStats.EnergyCurrent.ToString();
+        pow.text = PlayerInfo.playerStats.Pow.ToString();
+        def.text = PlayerInfo.playerStats.Def.ToString();
+        spd.text = PlayerInfo.playerStats.Spd.ToString();
         types.text = "";
         PlayerInfo.types.ForEach(x => types.text += x.Name);
 
         // Inventory.
         goldCurrent.text = "x" + PlayerInfo.goldCount.ToString();
+        
+        PlayerInfo.inventory.ForEach(x =>
+        {
+            GameObject newItem = new GameObject(x.ItemName);
+            Image icon = newItem.AddComponent<Image>();
+
+            newItem.transform.SetParent(itemLayout.transform);
+            newItem.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+            icon.sprite = x.Icon;
+        });
     }
 
     public void UpdateTentPage()
     {
-        tentHPMax.text = "/" + PlayerInfo.HPMax.ToString();
-        tentHPCurrent.text = PlayerInfo.HPCurrent.ToString();
-        tentEnergyMax.text = "/" + PlayerInfo.EnergyMax.ToString();
-        tentEnergyCurrent.text = PlayerInfo.EnergyCurrent.ToString();
+        tentHPMax.text = "/" + PlayerInfo.playerStats.HPMax.ToString();
+        tentHPCurrent.text = PlayerInfo.playerStats.HPCurrent.ToString();
+        tentEnergyMax.text = "/" + PlayerInfo.playerStats.EnergyMax.ToString();
+        tentEnergyCurrent.text = PlayerInfo.playerStats.EnergyCurrent.ToString();
     }
 
     public void Heal()
@@ -126,8 +137,8 @@ public class OverworldUIManager : MonoBehaviour
         if (PlayerInfo.goldCount < 100)
             return;
 
-        PlayerInfo.HPCurrent = PlayerInfo.HPMax;
-        PlayerInfo.EnergyCurrent = PlayerInfo.EnergyMax;
+        PlayerInfo.playerStats.HPCurrent = PlayerInfo.playerStats.HPMax;
+        PlayerInfo.playerStats.EnergyCurrent = PlayerInfo.playerStats.EnergyMax;
 
         PlayerInfo.goldCount -= 100;
 

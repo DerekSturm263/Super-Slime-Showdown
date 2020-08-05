@@ -35,7 +35,7 @@ public class EntityMove : MonoBehaviour
 
     protected void StartMove(Vector2 tapPos)
     {
-        if (tapPos.y > Screen.height - 250)
+        if (tapPos.y > Screen.height - 250 || OverworldUIManager.currentMenu != null)
             return;
 
         tapStartPos = tapPos;
@@ -51,6 +51,9 @@ public class EntityMove : MonoBehaviour
 
     protected void Move(Vector2 tapPos, bool isPlayer = false)
     {
+        if (OverworldUIManager.currentMenu != null)
+            return;
+
         if (!ps.isPlaying)
             ps.Play();
 

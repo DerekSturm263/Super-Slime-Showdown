@@ -10,13 +10,8 @@ public class BattleEntity : MonoBehaviour
     #region Stats
 
     public string Name;
-    public float HPMax;
-    public float HPCurrent;
-    public float EnergyMax;
-    public float EnergyCurrent;
-    public float Pow;
-    public float Def;
-    public float Spd;
+
+    public Stats entityStats;
 
     public Dictionary<Type, float> TypeAffinities;
     public List<Type> TopTypes; // Display of types based on highest affinities.
@@ -44,7 +39,7 @@ public class BattleEntity : MonoBehaviour
             attack = Moves[Random.Range(0, Moves.Count)];
 
         // Exits out of attack if the user doesn't have enough energy.
-        if (EnergyCurrent < attack.EnergyUse)
+        if (entityStats.EnergyCurrent < attack.EnergyUse)
         {
             if (this is BattlePlayer)
                 (this as BattlePlayer).CoinBonus -= 0.20f;
@@ -78,12 +73,12 @@ public class BattleEntity : MonoBehaviour
         int totalDamage;
 
         if (attack.Type != Types.Typeless)
-            totalDamage = (int) ((attack.Damage + (Pow * 2.5f - target.Def * 2.5f)) * (TypeAffinities[attack.Type] * 0.25f + 0.75f) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf);
+            totalDamage = (int) ((attack.Damage + (entityStats.Pow * 2.5f - target.entityStats.Def * 2.5f)) * (TypeAffinities[attack.Type] * 0.25f + 0.75f) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf);
         else
-            totalDamage = (int) ((attack.Damage + (Pow * 2.5f - target.Def * 2.5f)) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf);
+            totalDamage = (int) ((attack.Damage + (entityStats.Pow * 2.5f - target.entityStats.Def * 2.5f)) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf);
 
         // Caps damage if it's greater than the target's HP.
-        totalDamage = (totalDamage > target.HPCurrent) ? (int) target.HPCurrent : totalDamage;
+        totalDamage = (totalDamage > target.entityStats.HPCurrent) ? (int) target.entityStats.HPCurrent : totalDamage;
 
         target.TakeDamage(totalDamage);
         LoseEnergy(attack.EnergyUse);
@@ -96,7 +91,7 @@ public class BattleEntity : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        HPCurrent -= (dmg > HPCurrent) ? HPCurrent : dmg;
+        entityStats.HPCurrent -= (dmg > entityStats.HPCurrent) ? entityStats.HPCurrent : (uint) dmg;
 
         if (this is BattlePlayer)
             BattleManager.player.CoinBonus -= dmg / 40f;
@@ -106,7 +101,7 @@ public class BattleEntity : MonoBehaviour
 
     public void Heal(float amount)
     {
-        HPCurrent += (amount > HPMax - HPCurrent) ? HPMax - HPCurrent : amount;
+        entityStats.HPCurrent += (amount > entityStats.HPMax - entityStats.HPCurrent) ? entityStats.HPMax - entityStats.HPCurrent : (uint) amount;
 
         if (this is BattlePlayer)
             BattleManager.player.CoinBonus += amount / 40f;
@@ -116,11 +111,11 @@ public class BattleEntity : MonoBehaviour
 
     public void LoseEnergy(float energy)
     {
-        EnergyCurrent -= (energy > EnergyCurrent) ? EnergyCurrent : energy;
+        entityStats.EnergyCurrent -= (energy > entityStats.EnergyCurrent) ? entityStats.EnergyCurrent : (uint) energy;
     }
 
     public void GainEnergy(float energy)
     {
-        EnergyCurrent += (energy > EnergyMax - EnergyCurrent) ? EnergyMax - EnergyCurrent : energy;
+        entityStats.EnergyCurrent += (energy > entityStats.EnergyMax - entityStats.EnergyCurrent) ? entityStats.EnergyMax - entityStats.EnergyCurrent : (uint) energy;
     }
 }

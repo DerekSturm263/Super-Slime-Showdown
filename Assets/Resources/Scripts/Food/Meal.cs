@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Meal
 {
-    public string Name;
+    public string MealName;
+    public Sprite Icon;
     public string Description;
 
-    public Sprite Image;
+    public List<Ingredient> Ingredients;
 
-    public Dictionary<Type, float> TypeStrengths = new Dictionary<Type, float>();
-
-    public Meal(string name, string description, Sprite image, Dictionary<Type, float> typeStrengths)
+    public Meal(string mealName, Sprite icon, string description, List<Ingredient> ingredients)
     {
-        Name = name;
+        MealName = mealName;
+        Icon = icon;
         Description = description;
-        Image = image;
-        TypeStrengths = typeStrengths;
+        Ingredients = ingredients;
+
+        Meals.allMeals.Add(this);
     }
 }

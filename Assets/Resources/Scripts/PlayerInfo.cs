@@ -10,15 +10,7 @@ public static class PlayerInfo
     public static uint goldCount = 0;
     public static string playerName = "";
 
-    public static uint HPMax = 20;
-    public static uint HPCurrent = 20;
-
-    public static uint EnergyMax = 20;
-    public static uint EnergyCurrent = 20;
-
-    public static float Pow = 5f;
-    public static float Def = 5f;
-    public static float Spd = 5f;
+    public static Stats playerStats;
 
     public static Dictionary<Type, float> typeAffinities = new Dictionary<Type, float>()
     {
@@ -48,6 +40,17 @@ public static class PlayerInfo
     public static List<TypeCosmetic> activeTypeCosmetics = new List<TypeCosmetic>();
 
     public static List<Item> inventory = new List<Item>();
+
+    public static void Initialize()
+    {
+        playerStats.HPMax = 19;
+        playerStats.HPCurrent = playerStats.HPMax;
+        playerStats.EnergyMax = 19;
+        playerStats.EnergyCurrent = playerStats.EnergyMax;
+        playerStats.Pow = 4;
+        playerStats.Def = 4;
+        playerStats.Spd = 4;
+    }
 
     public static void LearnMove(Move m)
     {
@@ -187,8 +190,20 @@ public static class PlayerInfo
 
         var typesList = typeAffinities.ToList();
         typesList.Sort((x, y) => (y.Value.CompareTo(x.Value)));
+
         float highestAffinity = typesList[0].Value;
-        typesList.FindAll(x => x.Value == highestAffinity)
-            .ForEach(x => types.Add(x.Key));
+        foreach (KeyValuePair<Type, float> affinity in typesList)
+        {
+            if (affinity.Value == highestAffinity)
+                types.Add(affinity.Key);
+        }
+
+        playerStats.HPMax += t.statBoosts.HPMax * (uint) amount;
+        playerStats.HPCurrent += t.statBoosts.HPMax * (uint) amount;
+        playerStats.EnergyMax += t.statBoosts.EnergyMax * (uint) amount;
+        playerStats.EnergyCurrent += t.statBoosts.EnergyMax * (uint) amount;
+        playerStats.Pow += t.statBoosts.Pow * amount;
+        playerStats.Def += t.statBoosts.Def * amount;
+        playerStats.Spd += t.statBoosts.Spd * amount;
     }
 }

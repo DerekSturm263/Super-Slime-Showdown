@@ -16,10 +16,18 @@ public class Type
     public List<Type> Resistances;
     public List<Type> Immunities;
 
-    public Type(string name, Color typeColor)
+    public Stats statBoosts;
+
+    public Type(string name, Color typeColor, uint hpBuff, uint energyBuff, uint powBuff, uint defBuff, uint spdBuff)
     {
         Name = name;
         TypeColor = typeColor;
+
+        statBoosts.HPMax = hpBuff;
+        statBoosts.EnergyMax = energyBuff;
+        statBoosts.Pow = powBuff;
+        statBoosts.Def = defBuff;
+        statBoosts.Spd = spdBuff;
     }
 
     public void SetWeaknesses(List<Type> weaknesses)
