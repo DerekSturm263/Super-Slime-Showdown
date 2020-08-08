@@ -374,6 +374,300 @@ TextureImporter:
   - first:
       213: 4097230468708058619
     second: overworld_island1_ground_19
+  - first:
+      213: -8005672162069921038
+    second: overworld_island1_ground_80
+  - first:
+      213: -2911993293215553836
+    second: overworld_island1_ground_81
+  - first:
+      213: -3445190427540015751
+    second: overworld_island1_ground_82
+  - first:
+      213: -4733014895482304992
+    second: overworld_island1_ground_83
+  - first:
+      213: 2293621698534647591
+    second: overworld_island1_ground_84
+  - first:
+      213: 6429854953505809020
+    second: overworld_island1_ground_85
+  - first:
+      213: -4266449283679755985
+    second: overworld_island1_ground_86
+  - first:
+      213: -4616592109034298927
+    second: overworld_island1_ground_87
+  - first:
+      213: -3654942010915499876
+    second: overworld_island1_ground_88
+  - first:
+      213: -3781770388703240956
+    second: overworld_island1_ground_89
+  - first:
+      213: 6154064394467381543
+    second: overworld_island1_ground_90
+  - first:
+      213: -5150177752347079722
+    second: overworld_island1_ground_91
+  - first:
+      213: -3476322593731222255
+    second: overworld_island1_ground_92
+  - first:
+      213: -799545074238155149
+    second: overworld_island1_ground_93
+  - first:
+      213: 1687193939084101629
+    second: overworld_island1_ground_94
+  - first:
+      213: -2440311427986943948
+    second: overworld_island1_ground_95
+  - first:
+      213: 8545664988734072392
+    second: overworld_island1_ground_96
+  - first:
+      213: -3392873303306205031
+    second: overworld_island1_ground_97
+  - first:
+      213: -3133679814932547576
+    second: overworld_island1_ground_98
+  - first:
+      213: 8433686746603614247
+    second: overworld_island1_ground_99
+  - first:
+      213: -3758744910385883571
+    second: overworld_island1_ground_100
+  - first:
+      213: -574644797812464244
+    second: overworld_island1_ground_101
+  - first:
+      213: 6404565805880690343
+    second: overworld_island1_ground_102
+  - first:
+      213: 8424173479706490374
+    second: overworld_island1_ground_103
+  - first:
+      213: -6202142534431515262
+    second: overworld_island1_ground_104
+  - first:
+      213: -5287964090747888710
+    second: overworld_island1_ground_105
+  - first:
+      213: -2316863267514242731
+    second: overworld_island1_ground_106
+  - first:
+      213: 8449774023972272351
+    second: overworld_island1_ground_107
+  - first:
+      213: -3456117286700449386
+    second: overworld_island1_ground_108
+  - first:
+      213: 1307368092255326358
+    second: overworld_island1_ground_109
+  - first:
+      213: 5775894202106321113
+    second: overworld_island1_ground_110
+  - first:
+      213: -6852252142285193655
+    second: overworld_island1_ground_111
+  - first:
+      213: -130480332595426243
+    second: overworld_island1_ground_112
+  - first:
+      213: -2132059012386303731
+    second: overworld_island1_ground_113
+  - first:
+      213: -5002431134828530879
+    second: overworld_island1_ground_114
+  - first:
+      213: 4546381389956182315
+    second: overworld_island1_ground_115
+  - first:
+      213: -5575865348667158750
+    second: overworld_island1_ground_116
+  - first:
+      213: 2174845563640747140
+    second: overworld_island1_ground_117
+  - first:
+      213: -3547214603473710679
+    second: overworld_island1_ground_118
+  - first:
+      213: 1274805230867253754
+    second: overworld_island1_ground_119
+  - first:
+      213: 897765369217072987
+    second: overworld_island1_ground_120
+  - first:
+      213: -1406133689827855387
+    second: overworld_island1_ground_121
+  - first:
+      213: -3039178474012256983
+    second: overworld_island1_ground_122
+  - first:
+      213: 1460724877731839484
+    second: overworld_island1_ground_123
+  - first:
+      213: -5015534362775101642
+    second: overworld_island1_ground_124
+  - first:
+      213: -1653802031496840659
+    second: overworld_island1_ground_125
+  - first:
+      213: -5921730037578771235
+    second: overworld_island1_ground_126
+  - first:
+      213: -8541050504799521694
+    second: overworld_island1_ground_127
+  - first:
+      213: 3066921765659332835
+    second: overworld_island1_ground_128
+  - first:
+      213: -2405388190565843150
+    second: overworld_island1_ground_129
+  - first:
+      213: -1532605374297202791
+    second: overworld_island1_ground_130
+  - first:
+      213: 3662951969850766882
+    second: overworld_island1_ground_131
+  - first:
+      213: -6965159215677695506
+    second: overworld_island1_ground_132
+  - first:
+      213: -1810962756426421155
+    second: overworld_island1_ground_133
+  - first:
+      213: -2220844094000012798
+    second: overworld_island1_ground_134
+  - first:
+      213: -3767349600458064403
+    second: overworld_island1_ground_135
+  - first:
+      213: 2066850635369940878
+    second: overworld_island1_ground_136
+  - first:
+      213: 3047499559459416290
+    second: overworld_island1_ground_137
+  - first:
+      213: -4000608410560260216
+    second: overworld_island1_ground_138
+  - first:
+      213: -4842530460941638729
+    second: overworld_island1_ground_139
+  - first:
+      213: 7756109072706064153
+    second: overworld_island1_ground_140
+  - first:
+      213: 635419556102118520
+    second: overworld_island1_ground_141
+  - first:
+      213: -3116496013838326158
+    second: overworld_island1_ground_142
+  - first:
+      213: -6936517696373170786
+    second: overworld_island1_ground_143
+  - first:
+      213: -4982535770151362629
+    second: overworld_island1_ground_144
+  - first:
+      213: -5193137632923961276
+    second: overworld_island1_ground_145
+  - first:
+      213: -1148710232049971308
+    second: overworld_island1_ground_146
+  - first:
+      213: 4430929933192486580
+    second: overworld_island1_ground_147
+  - first:
+      213: 8936232345373518199
+    second: overworld_island1_ground_148
+  - first:
+      213: -5324867158128320752
+    second: overworld_island1_ground_149
+  - first:
+      213: -6845860595091768088
+    second: overworld_island1_ground_150
+  - first:
+      213: 9151564875223855502
+    second: overworld_island1_ground_151
+  - first:
+      213: 1083442492245560286
+    second: overworld_island1_ground_152
+  - first:
+      213: -1387995030459392594
+    second: overworld_island1_ground_153
+  - first:
+      213: 6273783770790063962
+    second: overworld_island1_ground_154
+  - first:
+      213: -6951886033849889548
+    second: overworld_island1_ground_155
+  - first:
+      213: -7631475589354311279
+    second: overworld_island1_ground_156
+  - first:
+      213: -2021339578795583638
+    second: overworld_island1_ground_157
+  - first:
+      213: 2331121019426004540
+    second: overworld_island1_ground_158
+  - first:
+      213: 5739756861176045101
+    second: overworld_island1_ground_159
+  - first:
+      213: 1433169829637399274
+    second: overworld_island1_ground_160
+  - first:
+      213: -7905218665637457613
+    second: overworld_island1_ground_161
+  - first:
+      213: 8378749091822945706
+    second: overworld_island1_ground_162
+  - first:
+      213: 393186226716879718
+    second: overworld_island1_ground_163
+  - first:
+      213: -6915302636126784456
+    second: overworld_island1_ground_164
+  - first:
+      213: 114601703790395448
+    second: overworld_island1_ground_165
+  - first:
+      213: 1590869440888979707
+    second: overworld_island1_ground_166
+  - first:
+      213: -4554486629024126379
+    second: overworld_island1_ground_167
+  - first:
+      213: -48137404606840858
+    second: overworld_island1_ground_168
+  - first:
+      213: 3626549349190668777
+    second: overworld_island1_ground_169
+  - first:
+      213: 5496695090256084295
+    second: overworld_island1_ground_170
+  - first:
+      213: -531650345106317116
+    second: overworld_island1_ground_171
+  - first:
+      213: -966841716040121351
+    second: overworld_island1_ground_172
+  - first:
+      213: 5113350156094651532
+    second: overworld_island1_ground_173
+  - first:
+      213: 6256964067892950515
+    second: overworld_island1_ground_174
+  - first:
+      213: 5222563198918939509
+    second: overworld_island1_ground_175
+  - first:
+      213: -3290287999290895104
+    second: overworld_island1_ground_176
+  - first:
+      213: 413168745020044851
+    second: overworld_island1_ground_177
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -417,7 +711,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 153
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -475,11 +769,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 458
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -495,12 +789,12 @@ TextureImporter:
       name: overworld_island1_ground_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 153
+        y: 458
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -516,12 +810,12 @@ TextureImporter:
       name: overworld_island1_ground_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
+        x: 306
+        y: 458
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -537,12 +831,12 @@ TextureImporter:
       name: overworld_island1_ground_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 0
+        y: 305
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -558,12 +852,12 @@ TextureImporter:
       name: overworld_island1_ground_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 96
-        width: 32
-        height: 32
+        x: 153
+        y: 305
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -579,12 +873,12 @@ TextureImporter:
       name: overworld_island1_ground_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
+        x: 306
+        y: 305
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -600,12 +894,12 @@ TextureImporter:
       name: overworld_island1_ground_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 0
+        y: 152
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -621,12 +915,12 @@ TextureImporter:
       name: overworld_island1_ground_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
+        x: 153
+        y: 152
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -642,12 +936,12 @@ TextureImporter:
       name: overworld_island1_ground_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
+        x: 306
+        y: 152
+        width: 153
+        height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -655,237 +949,6 @@ TextureImporter:
       bones: []
       spriteID: b47e18796bbb04370800000000000000
       internalID: 8304844105771509579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_9
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee97c168b4375dda0800000000000000
-      internalID: -5920699366898894354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e3c17df37647d050800000000000000
-      internalID: 5825202107014300640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_11
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d347918dee62e6040800000000000000
-      internalID: 4642691073135178813
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_12
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5c3148a467a0f600800000000000000
-      internalID: 500083609399540826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_13
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63c6d591d4226b140800000000000000
-      internalID: 4735009772760034358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b636b2f771a0d6c0800000000000000
-      internalID: -4120616122498795847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 464db3b753c080750800000000000000
-      internalID: 6271275904953734244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_16
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c21dede7112f62ae0800000000000000
-      internalID: -1574304862762512084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_17
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7004cc60aa22dba60800000000000000
-      internalID: 7691341852272508935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_18
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dcaf4dff94b2829e0800000000000000
-      internalID: -1646018066979161395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: overworld_island1_ground_19
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf5404a37694cd830800000000000000
-      internalID: 4097230468708058619
       vertices: []
       indices: 
       edges: []
