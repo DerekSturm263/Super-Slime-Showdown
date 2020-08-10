@@ -240,9 +240,11 @@ public class BattleManager : MonoBehaviour
     {
         playerHP.fillAmount = (float) player.entityStats.HPCurrent / (float) player.entityStats.HPMax;
         playerEnergy.fillAmount = (float) player.entityStats.EnergyCurrent / (float) player.entityStats.EnergyMax;
+        playerHP.color = (playerHP.fillAmount > 0.5f) ? Color.Lerp(Color.yellow, Color.green, playerHP.fillAmount) : Color.Lerp(Color.red, Color.yellow, playerHP.fillAmount);
 
         enemyHP.fillAmount = (float) enemy.entityStats.HPCurrent / (float) enemy.entityStats.HPMax;
         enemyEnergy.fillAmount = (float) enemy.entityStats.EnergyCurrent / (float) enemy.entityStats.EnergyMax;
+        enemyHP.color = (enemyHP.fillAmount > 0.5f) ? Color.Lerp(Color.yellow, Color.green, enemyHP.fillAmount) : Color.Lerp(Color.red, Color.yellow, enemyHP.fillAmount);
     }
 
     public void End()

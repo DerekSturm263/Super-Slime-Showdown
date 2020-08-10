@@ -39,6 +39,7 @@ public class EntityMove : MonoBehaviour
             return;
 
         tapStartPos = tapPos;
+        rb2.velocity = Vector2.zero;
 
         tapStartIcon.gameObject.SetActive(false);
         tapStartIcon.gameObject.SetActive(true);
@@ -51,11 +52,16 @@ public class EntityMove : MonoBehaviour
 
     protected void Move(Vector2 tapPos, bool isPlayer = false)
     {
-        if (OverworldUIManager.currentMenu != null)
-            return;
-
-        if (!ps.isPlaying)
-            ps.Play();
+        if (isPlayer)
+        {
+            if (!tapStartIcon.IsActive() || OverworldUIManager.currentMenu != null)
+                return;
+        }
+        else
+        {
+            if (OverworldUIManager.currentMenu != null)
+                return;
+        }
 
         Vector2 moveVect;
 
@@ -102,6 +108,9 @@ public class EntityMove : MonoBehaviour
         // Applies your velocity.
         rb2.velocity = currentVel * currentSpeed;
 
+        if (!ps.isPlaying && rb2.velocity != Vector2.zero)
+            ps.Play();
+
         #region Animation States
 
         // Sets the direction you're moving in.
@@ -119,6 +128,9 @@ public class EntityMove : MonoBehaviour
 
     protected void MoveTowards(GameObject g)
     {
+        if (OverworldUIManager.currentMenu != null)
+            return;
+
         Vector2 moveVal = new Vector2(g.transform.position.x - transform.position.x, g.transform.position.y - transform.position.y).normalized;
 
         // Sets an x and a y based on input.

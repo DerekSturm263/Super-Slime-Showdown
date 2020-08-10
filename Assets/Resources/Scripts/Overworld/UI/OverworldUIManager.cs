@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class OverworldUIManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class OverworldUIManager : MonoBehaviour
     [Header("Items")]
     public TMPro.TMP_Text goldCurrent;
     public GameObject itemLayout;
+
+    [Header("Cooking Pot")]
+    public GameObject cookingItemLayout;
 
     [Header("Tent")]
     public TMPro.TMP_Text tentHPMax;
@@ -65,6 +69,10 @@ public class OverworldUIManager : MonoBehaviour
         else if (menu == tentMenu)
         {
             UpdateTentPage();
+        }
+        else if (menu == cookingPotMenu)
+        {
+            UpdateCookingPage();
         }
 
         ResetButtons();
@@ -112,7 +120,12 @@ public class OverworldUIManager : MonoBehaviour
 
         // Inventory.
         goldCurrent.text = "x" + PlayerInfo.goldCount.ToString();
-        
+
+        //itemLayout.GetComponentsInChildren<Transform>().ToList().ForEach(x =>
+        //{
+        //    if (itemLayout.name.Equals("Content"))
+        //        Destroy(x);
+        //});
         PlayerInfo.inventory.ForEach(x =>
         {
             GameObject newItem = new GameObject(x.ItemName);
@@ -130,6 +143,20 @@ public class OverworldUIManager : MonoBehaviour
         tentHPCurrent.text = PlayerInfo.playerStats.HPCurrent.ToString();
         tentEnergyMax.text = "/" + PlayerInfo.playerStats.EnergyMax.ToString();
         tentEnergyCurrent.text = PlayerInfo.playerStats.EnergyCurrent.ToString();
+    }
+
+    public void UpdateCookingPage()
+    {
+        cookingItemLayout.GetComponentsInChildren<Transform>().ToList().ForEach((x) => Destroy(x));
+        PlayerInfo.inventory.ForEach(x =>
+        {
+            GameObject newItem = new GameObject(x.ItemName);
+            Image icon = newItem.AddComponent<Image>();
+
+            newItem.transform.SetParent(cookingItemLayout.transform);
+            newItem.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+            icon.sprite = x.Icon;
+        });
     }
 
     public void Heal()
