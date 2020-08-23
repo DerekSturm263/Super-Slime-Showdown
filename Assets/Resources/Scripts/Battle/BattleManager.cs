@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.EnhancedTouch;
+using System;
 
 public class BattleManager : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class BattleManager : MonoBehaviour
         Attack, Dialogue
     }
     public static AttackPhase attackPhase = AttackPhase.Attack;
+
+    public Dictionary<uint, Action> turnEffects = new Dictionary<uint, Action>();
+    public uint turnsPassed = 0;
+
+    public bool ignoreOptions = false;
 
     private Controls controls;
     private GameController gc;
@@ -115,7 +121,7 @@ public class BattleManager : MonoBehaviour
     {
         HideOptions();
 
-        float random = Random.Range(0, 2);
+        float random = UnityEngine.Random.Range(0, 2);
 
         if (random == 1)
         {
@@ -149,7 +155,15 @@ public class BattleManager : MonoBehaviour
     private void PlayerTurn()
     {
         textBox.transform.parent.gameObject.gameObject.GetComponent<Animator>().SetBool("Exit", true);
-        ShowOptions();
+
+        // Tries to run an action every time a turn comes up.
+        try
+        {
+            turnEffects[turnsPassed]();
+        } catch { }
+
+        // Shows the options unless told not to.
+        if (!ignoreOptions) ShowOptions();
     }
 
     public static void SwitchTurns()
@@ -267,7 +281,7 @@ public class BattleManager : MonoBehaviour
 
         for (int i = 0; i < 2; i++)
         {
-            loot.Add(gc.enemyData.Drops[Random.Range(0, 2)]);
+            loot.Add(gc.enemyData.Drops[UnityEngine.Random.Range(0, 2)]);
         }
 
         if (loot[0] != loot[1])

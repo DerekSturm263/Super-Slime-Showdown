@@ -1622,10 +1622,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb58897aa86b7340aa740bc8c2a816f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnsPassed: 0
   battleOptions: {fileID: 205989249}
   playerName: {fileID: 55059823}
   playerHP: {fileID: 657839573}
-  playerEnergy: {fileID: 1708358922}
+  playerEnergy: {fileID: 88223965}
   enemyName: {fileID: 1282709030}
   enemyHP: {fileID: 1885275080}
   enemyEnergy: {fileID: 1819068410}

@@ -1,4 +1,6 @@
-﻿public static class Moves
+﻿using UnityEngine;
+
+public static class Moves
 {
     // Typeless moves.
 
@@ -143,17 +145,53 @@
         Roll = new Move("Roll", "The user rolls their body into the target.", 20f, 0f, Types.Typeless);
         Slam = new Move("Slam", "The user slams their body in the target.", 40f, 3f, Types.Typeless);
         Headbutt = new Move("Headbutt", "The user headbutts the target.", 60f, 6f, Types.Typeless);
-        WarmUp = new Move("Warm Up", "The user warms up for their next attack.", 0f, 0f, Types.Typeless, Move.Target.Self);
-        Foresight = new Move("Foresight", "The user predicts what the target will do so they might dodge it.", 0f, 0f, Types.Typeless, Move.Target.Self);
+        WarmUp = new Move("Warm Up", "The user warms up for their next attack.", 0f, 0f, Types.Typeless);
+        Foresight = new Move("Foresight", "The user predicts what the target will do so they might dodge it.", 0f, 0f, Types.Typeless);
 
         // Nature type moves.
-        Heal = new Move("Heal", "The user heals back some of their HP.", 0f, 6f, Types.Nature, Move.Target.Self);
+        Heal = new Move("Heal", "The user heals back some of their HP.", 0f, 6f, Types.Nature);
+        Heal.extraEffect = () =>
+        {
+            BattleManager bm = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+
+            float RNG = Random.Range(0.8f, 1.0f);
+            float bestBonus = (Heal.GetUser().TopTypes.Contains(Types.Nature)) ? 1.25f : 1f;
+            int healAmount = (int) ((Heal.GetUser().entityStats.HPMax * Heal.GetUser().TypeAffinities[Types.Nature] / 5f) * RNG * bestBonus);
+
+            // Caps damage if it's greater than the target's HP.
+            healAmount = (healAmount > Heal.GetUser().entityStats.HPCurrent) ? (int)Heal.GetUser().entityStats.HPCurrent : healAmount;
+
+            Heal.GetUser().Heal(healAmount);
+            Heal.GetUser().LoseEnergy(Heal.EnergyUse);
+
+            bm.Write(Heal.GetUser().Name + " used Heal and healed " + healAmount + " damage!");
+        };
         Uproot = new Move("Uproot", "The user scoops the opponent from the ground.", 20f, 2f, Types.Nature);
-        Grow = new Move("Grow", "The user heals back some of their Energy and boosts the damage they do next turn.", 0f, 0f, Types.Nature, Move.Target.Self);
+        Grow = new Move("Grow", "The user heals back some of their Energy and boosts the damage they do next turn.", 0f, 0f, Types.Nature);
+        Grow.extraEffect = () =>
+        {
+            BattleManager bm = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+
+            float RNG = Random.Range(0.8f, 1.0f);
+            float bestBonus = (Heal.GetUser().TopTypes.Contains(Types.Nature)) ? 1.25f : 1f;
+            int restoreAmount = (int) ((Heal.GetUser().entityStats.EnergyMax * Heal.GetUser().TypeAffinities[Types.Nature] / 10f) * RNG * bestBonus);
+
+            // Caps damage if it's greater than the target's HP.
+            restoreAmount = (restoreAmount > Heal.GetUser().entityStats.HPCurrent) ? (int)Heal.GetUser().entityStats.HPCurrent : restoreAmount;
+
+            Grow.GetUser().GainEnergy(restoreAmount);
+
+            bm.Write(Grow.GetUser().Name + " used Grow and restored " + restoreAmount + " energy!");
+
+            bm.turnEffects.Add(bm.turnsPassed + 2, () =>
+            {
+                Grow.GetUser().damageBuff = 1.5f;
+            });
+        };
         SawgrassSlice = new Move("Sawgrass Slice", "The user slices the opponent with a sharp blade of grass.", 40f, 4f, Types.Nature);
-        ProtectionLeaf = new Move("Protection Leaf", "The user protects themselves from the next attack.", 0f, 6f, Types.Nature, Move.Target.Self);
+        ProtectionLeaf = new Move("Protection Leaf", "The user protects themselves from the next attack.", 0f, 6f, Types.Nature);
         TwistingVines = new Move("Twisting Vines", "The user grows vines out of the ground to attack the opponent.", 60f, 6f, Types.Nature);
-        SuperHeal = new Move("Super Heal", "The user heals back some of their HP for 3 turns.", 0f, 8f, Types.Nature, Move.Target.Self);
+        SuperHeal = new Move("Super Heal", "The user heals back some of their HP for 3 turns.", 0f, 8f, Types.Nature);
         PetalStorm = new Move("Petal Storm", "The user calls upon a huge storm of petals to attack the opponent.", 100f, 16f, Types.Nature);
         SneakAttack = new Move("Sneak Attack", "The user sneaks through the grass to deliver a surprise attack onto the opponent.", 80f, 10f, Types.Nature);
         BulbousBeatdown = new Move("Bulbous Beatdown", "The user uses their bulbs to beat the opponent into oblivion.", 120f, 16f, Types.Nature);
@@ -161,10 +199,10 @@
         // Water type moves.
         Splash = new Move("Splash", "The user makes a splash in the water.", 15f, 2f, Types.Water);
         Downpour = new Move("Downpout", "The user calls rain down on the opponent.", 30f, 4f, Types.Water);
-        Rehydrate = new Move("Rehydrate", "The user rehydrates themselves to regain some HP.", 0f, 6f, Types.Water, Move.Target.Self);
+        Rehydrate = new Move("Rehydrate", "The user rehydrates themselves to regain some HP.", 0f, 6f, Types.Water);
         Waterball = new Move("Waterball", "The user shoots a waterball at the opponent.", 50f, 6f, Types.Water);
         Aquify = new Move("Aquify", "The user blasts the opponent with high-speed water.", 60f, 6f, Types.Water);
-        Absorption = new Move("Absorption", "The user absorbs all the water nearby to heal themselves. If there is water in the terrain, this increases.", 0f, 10f, Types.Water, Move.Target.Self);
+        Absorption = new Move("Absorption", "The user absorbs all the water nearby to heal themselves. If there is water in the terrain, this increases.", 0f, 10f, Types.Water);
         ToweringWave = new Move("Towering Wave", "The user calls upon a giant wave to engulf the opponent.", 80f, 8f, Types.Water);
         CorrosiveBlast = new Move("Corrosive Blast", "The user blasts high-speed water at the opponent.", 100f, 12f, Types.Water);
         WaterDown = new Move("Water Down", "The opponent's non-water type moves deal less damage for 3 turns.", 60f, 8f, Types.Water);
@@ -187,7 +225,7 @@
         IceTackle = new Move("Ice Tackle", "The user tackles the opponent with a frozen body.", 40f, 6f, Types.Ice); // Small chance of freeze.
         Freeze = new Move("Freeze", "The user freezes the opponent.", 0f, 6f, Types.Ice); // Definite chance of freeze.
         IcicleShot = new Move("Icicle Shot", "The user shoots an icicle at the opponent.", 50f, 6f, Types.Ice);
-        BuildingIce = new Move("Building Ice", "The user boosts their defense and damage dealt by ice type moves for 3 turns.", 0f, 8f, Types.Ice, Move.Target.Self);
+        BuildingIce = new Move("Building Ice", "The user boosts their defense and damage dealt by ice type moves for 3 turns.", 0f, 8f, Types.Ice);
         Icebreath = new Move("Icebreath", "The user uses a strong ice breath attack on the opponent.", 60f, 8f, Types.Ice); // Medium chance of freeze.
         Crystalize = new Move("Crystalize", "The user crystalizes the air around them to attack the opponent.", 80f, 10f, Types.Ice);
         BlackIce = new Move("Black Ice", "The user creates black ice on the ground, which may cause the opponent to miss.", 80f, 12f, Types.Ice);
@@ -232,7 +270,7 @@
 
         // Toxin type moves.
         PoisonSpit = new Move("Poison Spit", "The user spits poison at the opponent.", 20f, 10f, Types.Toxin); // Low chance of poison.
-        ToxicBlock = new Move("Toxic Block", "The user blocks the next attack from the opponent.", 0f, 0f, Types.Toxin, Move.Target.Self); // Low chance of poison.
+        ToxicBlock = new Move("Toxic Block", "The user blocks the next attack from the opponent.", 0f, 0f, Types.Toxin); // Low chance of poison.
         VenomousStrike = new Move("Venomous Strike", "The user strikes the opponent with a venomous attack.", 70f, 30f, Types.Toxin); // High chance of poison.
         ToxinMove4 = new Move("Toxin Move 3", "", 0f, 0f, Types.Toxin);
         PoisonPummel = new Move("Poison Pummel", "", 0f, 0f, Types.Toxin);
@@ -243,9 +281,25 @@
         ToxinMove10 = new Move("Toxin Move 10", "", 0f, 0f, Types.Toxin);
 
         // Light type moves.
-        HeavenlyRestore = new Move("Heavenly Restore", "The user regains some HP by healing themselves.", 0f, 0f, Types.Light, Move.Target.Self);
+        HeavenlyRestore = new Move("Heavenly Restore", "The user regains some HP by healing themselves.", 0f, 4f, Types.Light);
+        HeavenlyRestore.extraEffect = () =>
+        {
+            BattleManager bm = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+
+            float RNG = Random.Range(0.8f, 1.0f);
+            float bestBonus = (HeavenlyRestore.GetUser().TopTypes.Contains(Types.Light)) ? 1.25f : 1f;
+            int healAmount = (int) ((HeavenlyRestore.GetUser().entityStats.HPMax * HeavenlyRestore.GetUser().TypeAffinities[Types.Light] / 7.5f) * RNG * bestBonus);
+
+            // Caps damage if it's greater than the target's HP.
+            healAmount = (healAmount > Heal.GetUser().entityStats.HPCurrent) ? (int) Heal.GetUser().entityStats.HPCurrent : healAmount;
+
+            HeavenlyRestore.GetUser().Heal(healAmount);
+            HeavenlyRestore.GetUser().LoseEnergy(HeavenlyRestore.EnergyUse);
+
+            bm.Write(HeavenlyRestore.GetUser().Name + " used Heavenly Restore and healed " + healAmount + " damage!");
+        };
         HaloHop = new Move("Halo Hop", "The user hops into the air and lands on top of the opponent.", 30f, 10f, Types.Light);
-        SavingGrace = new Move("Saving Grace", "The user blesses themselves.", 0f, 10f, Types.Light, Move.Target.Self); // Definite chance to bless the user.
+        SavingGrace = new Move("Saving Grace", "The user blesses themselves.", 0f, 10f, Types.Light); // Definite chance to bless the user.
         ShiningStrike = new Move("Light Move 3", "", 0f, 0f, Types.Light);
         LightMove5 = new Move("Light Move 4", "", 0f, 0f, Types.Light);
         LightMove6 = new Move("Light Move 5", "", 0f, 0f, Types.Light);
@@ -255,7 +309,51 @@
         LightMove10 = new Move("Light Move 10", "", 0f, 0f, Types.Light);
 
         // Dark type moves.
-        Backstab = new Move("Backstab", "The user waits to attack the opponent until the next turn.", 40f, 10f, Types.Shadow);
+        Backstab = new Move("Backstab", "The user waits to attack the opponent until the next turn.", 35f, 8f, Types.Shadow);
+        Backstab.extraEffect = () =>
+        {
+            BattleManager bm = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
+
+            // Exits out of attack if the user doesn't have enough energy.
+            if (Backstab.GetUser().entityStats.EnergyCurrent < 8)
+            {
+                if (Backstab.GetUser() is BattlePlayer)
+                    (Backstab.GetUser() as BattlePlayer).CoinBonus -= 0.20f;
+
+                bm.Write(Backstab.GetUser().Name + " does not have enough energy to use that attack!");
+                return;
+            }
+
+            bm.Write(Backstab.GetUser().Name + " is waiting to use Backstab...");
+
+            bm.turnEffects.Add(bm.turnsPassed + 2, () =>
+            {
+                BattleEntity target = (Backstab.GetUser() is BattlePlayer) ? (BattleEntity)BattleManager.enemy : BattleManager.player;
+
+                float resNerf = 1f;
+                float weakBonus = 1f;
+                float RNG = Random.Range(0.8f, 1.0f);
+                float bestBonus = (Backstab.GetUser().TopTypes.Contains(Types.Shadow)) ? 1.25f : 1f;
+                float bestWeakBonus = 1f;
+                float bestResNerf = 1f;
+                float immuneNerf = 1f;
+
+                // Calculate weaknesses and resistances.
+                // Calculate weakness and resistance bonuses if it's the strongest type.
+
+                int totalDamage = (int)((35 + (Backstab.GetUser().entityStats.Pow * 2.5f - target.entityStats.Def * 2.5f)) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf * Backstab.GetUser().damageBuff);
+
+                // Caps damage if it's greater than the target's HP.
+                totalDamage = (totalDamage > target.entityStats.HPCurrent) ? (int)target.entityStats.HPCurrent : totalDamage;
+
+                target.TakeDamage(totalDamage);
+                Backstab.GetUser().LoseEnergy(8);
+
+                bm.ignoreOptions = true;
+
+                bm.Write(Backstab.GetUser().Name + " used Backstab and did " + totalDamage + " damage!");
+            });
+        };
         UmbraSlash = new Move("UmbraSlash", ".", 0f, 10f, Types.Shadow);
         LifeSteal = new Move("Life Steal", ".", 40f, 15f, Types.Shadow);
         Curse = new Move("Curse", "", 0f, 0f, Types.Shadow);
