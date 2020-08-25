@@ -147,7 +147,7 @@ public class OverworldUIManager : MonoBehaviour
 
     public void UpdateCookingPage()
     {
-        cookingItemLayout.GetComponentsInChildren<Transform>().ToList().ForEach((x) => Destroy(x));
+        //cookingItemLayout.GetComponentsInChildren<Transform>().ToList().ForEach((x) => Destroy(x));
         PlayerInfo.inventory.ForEach(x =>
         {
             GameObject newItem = new GameObject(x.ItemName);

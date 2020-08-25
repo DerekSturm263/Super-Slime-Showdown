@@ -19,6 +19,7 @@ public class Move
     public float EnergyUse;
 
     public Action ExtraEffect;
+    public Action Animation;
 
     public Move(string name, string description, float damage, float energyUse, Type type, Function moveFunction = Function.Attack)
     {

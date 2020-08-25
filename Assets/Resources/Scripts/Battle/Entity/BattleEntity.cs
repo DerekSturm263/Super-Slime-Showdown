@@ -70,6 +70,7 @@ public class BattleEntity : MonoBehaviour
             attack.ExtraEffect();
         }
 
+        attack.Animation();
         bm.UpdateStats();
         bm.turnsPassed++;
         BattleManager.SwitchTurns();

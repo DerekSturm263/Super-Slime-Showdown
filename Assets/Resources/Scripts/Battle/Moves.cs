@@ -140,6 +140,9 @@ public static class Moves
     public static Move Manipulate;             // Unlock by beating a boss.
     public static Move PitchBlackTerror;       // Unlock by beating a boss.
 
+    public static string particlePath = "Prefabs/Battle/Particles/";
+    public static string animationPath = "Animations/Battle/Slimes";
+
     public static BattleEntity GetUser(bool opposite = false)
     {
         BattleEntity user;
@@ -308,6 +311,11 @@ public static class Moves
 
         // Fire type moves.
         Firebreath = new Move("Firebreath", "The user uses their firebreath to burn the opponent.", 20f, 4f, Types.Fire); // Small chance of burn.
+        Firebreath.Animation = () =>
+        {
+            GameObject firebreathAnimation = Resources.Load(particlePath + "fireBreath", typeof(GameObject)) as GameObject;
+            Object.Instantiate(firebreathAnimation, GetUser().transform);
+        };
         FlameShot = new Move("Flame Shot", "The user throws fire at the opponent.", 30f, 6f, Types.Fire); // Medium chance of burn.
         HeatUp = new Move("Heat Up", "The user boosts the power of their fire type moves during the next turn.", 0f, 6f, Types.Fire, Move.Function.Buff);
         /* Doesnt work */ HeatUp.ExtraEffect = () =>
