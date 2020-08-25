@@ -190,12 +190,12 @@ public static class Types
         Earth.SetDictionaries(
             new Dictionary<int, Move>
         {
-            { 1, Moves.PebbleToss },
-            { 3, Moves.MudShot },
-            { 8, Moves.SeismicSmash },
-            { 12, Moves.Landslide },
+            { 1, Moves.MudShot },
+            { 3, Moves.PebbleToss },
+            { 8, Moves.Landslide },
+            { 12, Moves.SharpRocks },
             { 20, Moves.RockWall },
-            { 25, Moves.EarthMove6 }
+            { 25, Moves.SandBlast }
         },
             new Dictionary<int, Ability>
         {
@@ -217,7 +217,7 @@ public static class Types
             { 1, Moves.ZippityZap },
             { 3, Moves.Charge },
             { 8, Moves.Thundershock },
-            { 12, Moves.StaticSlam },
+            { 12, Moves.LightningQuickTackle },
             { 20, Moves.ElectroPulse },
             { 25, Moves.Resistor }
         },
