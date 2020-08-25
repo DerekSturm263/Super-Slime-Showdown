@@ -17,7 +17,7 @@ public class BattleEntity : MonoBehaviour
     public Dictionary<Type, float> TypeAffinities;
     public List<Type> TopTypes; // Display of types based on highest affinities.
 
-    public List<Move> Moves;
+    public List<Move> MyMoves;
     public Ability Ability;
 
     #endregion
@@ -30,14 +30,22 @@ public class BattleEntity : MonoBehaviour
 
     public void Attack(Button button = null)
     {
-        BattleEntity target = null;
+        BattleEntity target = (this is BattlePlayer) ? (BattleEntity) BattleManager.enemy : BattleManager.player;
         Move attack;
 
         // Chooses between player and enemy attack types.
         if (this is BattlePlayer)
+        {
             attack = button.GetComponent<BattleButton>().assignedMove;
+
+            // If the user uses a move on the enemy that the enemy hasn't seen before, it learns that the opponent has that move.
+            if (!(target as BattleEnemy).OpponentsKnownMoves.Contains(attack))
+                (target as BattleEnemy).OpponentsKnownMoves.Add(attack);
+        }
         else
-            attack = Moves[Random.Range(0, Moves.Count)];
+        {
+            attack = (this as BattleEnemy).ChooseMove(target);
+        }
 
         // Exits out of attack if the user doesn't have enough energy.
         if (entityStats.EnergyCurrent < attack.EnergyUse)
@@ -49,31 +57,9 @@ public class BattleEntity : MonoBehaviour
             return;
         }
 
-        if (attack.extraEffect == null)
+        if (attack.ExtraEffect == null)
         {
-            target = (this is BattlePlayer) ? (BattleEntity)BattleManager.enemy : BattleManager.player;
-
-            float resNerf = 1f;
-            float weakBonus = 1f;
-            float RNG = Random.Range(0.8f, 1.0f);
-            float bestBonus = (TopTypes.Contains(attack.Type)) ? 1.25f : 1f;
-            float bestWeakBonus = 1f;
-            float bestResNerf = 1f;
-            float immuneNerf = 1f;
-
-            // Calculate weaknesses and resistances.
-            // Calculate weakness and resistance bonuses if it's the strongest type.
-
-            int totalDamage;
-
-            if (attack.Type != Types.Typeless)
-                totalDamage = (int)((attack.Damage + (entityStats.Pow * 2.5f - target.entityStats.Def * 2.5f)) * (TypeAffinities[attack.Type] * 0.25f + 0.75f) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf * damageBuff);
-            else
-                totalDamage = (int)((attack.Damage + (entityStats.Pow * 2.5f - target.entityStats.Def * 2.5f)) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf * damageBuff);
-
-            // Caps damage if it's greater than the target's HP.
-            totalDamage = (totalDamage > target.entityStats.HPCurrent) ? (int)target.entityStats.HPCurrent : totalDamage;
-
+            int totalDamage = CalcDamage(attack, target);
             target.TakeDamage(totalDamage);
             LoseEnergy(attack.EnergyUse);
 
@@ -81,12 +67,38 @@ public class BattleEntity : MonoBehaviour
         }
         else
         {
-            attack.extraEffect();
+            attack.ExtraEffect();
         }
 
         bm.UpdateStats();
         bm.turnsPassed++;
         BattleManager.SwitchTurns();
+    }
+
+    public int CalcDamage(Move attack, BattleEntity target)
+    {
+        float resNerf = 1f;
+        float weakBonus = 1f;
+        float RNG = Random.Range(0.8f, 1.0f);
+        float bestBonus = (TopTypes.Contains(attack.Type)) ? 1.25f : 1f;
+        float bestWeakBonus = 1f;
+        float bestResNerf = 1f;
+        float immuneNerf = 1f;
+
+        // Calculate weaknesses and resistances.
+        // Calculate weakness and resistance bonuses if it's the strongest type.
+
+        int totalDamage;
+
+        if (attack.Type != Types.Typeless)
+            totalDamage = (int)((attack.Damage + (entityStats.Pow * 2.5f - target.entityStats.Def * 2.5f)) * (TypeAffinities[attack.Type] * 0.25f + 0.75f) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf * damageBuff);
+        else
+            totalDamage = (int)((attack.Damage + (entityStats.Pow * 2.5f - target.entityStats.Def * 2.5f)) / 5f / resNerf / weakBonus * RNG * bestBonus * bestWeakBonus * bestResNerf * immuneNerf * damageBuff);
+
+        // Caps damage if it's greater than the target's HP.
+        totalDamage = (totalDamage > target.entityStats.HPCurrent) ? (int)target.entityStats.HPCurrent : totalDamage;
+
+        return (totalDamage > 0) ? totalDamage : 0;
     }
 
     public void TakeDamage(float dmg)

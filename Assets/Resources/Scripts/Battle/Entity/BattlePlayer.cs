@@ -22,7 +22,7 @@ public class BattlePlayer : BattleEntity
         TopTypes = PlayerInfo.types;
         TypeAffinities = PlayerInfo.typeAffinities;
 
-        Moves = PlayerInfo.activeMoves;
+        MyMoves = PlayerInfo.activeMoves;
         Ability = PlayerInfo.activeAbility;
 
         CoinBonus = 1f;

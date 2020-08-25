@@ -194,7 +194,7 @@ public static class Types
             { 3, Moves.MudShot },
             { 8, Moves.SeismicSmash },
             { 12, Moves.Landslide },
-            { 20, Moves.EarthMove5 },
+            { 20, Moves.RockWall },
             { 25, Moves.EarthMove6 }
         },
             new Dictionary<int, Ability>

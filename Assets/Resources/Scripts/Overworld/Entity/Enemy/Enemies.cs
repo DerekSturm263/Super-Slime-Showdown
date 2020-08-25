@@ -5,35 +5,35 @@ using UnityEngine;
 public class Enemies : MonoBehaviour
 {
     // Grass type enemies.
-    public static Enemy Acorn = new Enemy("Acorn", 16, 22, 6f, 4f, 4f,
+    public static Enemy Acorn = new Enemy("Acorn", 14, 22, 6f, 4f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Nature] = 1f
         },
         Abilities.HealingFactor, 3);
     
-    public static Enemy Herb = new Enemy("Herb", 16, 22, 6f, 4f, 4f,
+    public static Enemy Herb = new Enemy("Herb", 14, 22, 6f, 4f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Nature] = 1f
         },
         Abilities.Photosynthesis, 3);
 
-    public static Enemy Peanut = new Enemy("Peanut", 16, 22, 6f, 4f, 4f,
+    public static Enemy Peanut = new Enemy("Peanut", 14, 22, 6f, 4f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Nature] = 1f
         },
         Abilities.Rooted, 3);
 
-    public static Enemy Daisy = new Enemy("Daisy", 16, 22, 6f, 4f, 4f,
+    public static Enemy Daisy = new Enemy("Daisy", 14, 22, 6f, 4f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Nature] = 1f
         },
         Abilities.NaturesBlessing, 3);
 
-    public static Enemy Iris = new Enemy("Iris", 16, 22, 6f, 4f, 4f,
+    public static Enemy Iris = new Enemy("Iris", 14, 22, 6f, 4f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Nature] = 1f
@@ -41,35 +41,35 @@ public class Enemies : MonoBehaviour
         Abilities.HealingFactor, 3);
 
     // Ice type enemies.
-    public static Enemy Frost = new Enemy("Frost", 16, 22, 4f, 6f, 4f,
+    public static Enemy Frost = new Enemy("Frost", 14, 22, 4f, 6f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Ice] = 1f
         },
         Abilities.ColdToTheTouch, 3);
 
-    public static Enemy Snowflake = new Enemy("Snowflake", 16, 22, 4f, 6f, 4f,
+    public static Enemy Snowflake = new Enemy("Snowflake", 14, 22, 4f, 6f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Ice] = 1f
         },
         Abilities.WeakIce, 3);
 
-    public static Enemy Winter = new Enemy("Winter", 16, 22, 4f, 6f, 4f,
+    public static Enemy Winter = new Enemy("Winter", 14, 22, 4f, 6f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Ice] = 1f
         },
         Abilities.StrongIce, 3);
 
-    public static Enemy IceEnemy4 = new Enemy("Ice Enemy 4", 16, 22, 4f, 6f, 4f,
+    public static Enemy IceEnemy4 = new Enemy("Ice Enemy 4", 14, 22, 4f, 6f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Ice] = 1f
         },
         Abilities.Permafrost, 3);
 
-    public static Enemy IceEnemy5 = new Enemy("Ice Enemy 5", 16, 22, 4f, 6f, 4f,
+    public static Enemy IceEnemy5 = new Enemy("Ice Enemy 5", 14, 22, 4f, 6f, 4f,
         new Dictionary<Type, float>()
         {
             [Types.Ice] = 1f
