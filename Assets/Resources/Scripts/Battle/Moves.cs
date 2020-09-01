@@ -313,8 +313,8 @@ public static class Moves
         Firebreath = new Move("Firebreath", "The user uses their firebreath to burn the opponent.", 20f, 4f, Types.Fire); // Small chance of burn.
         Firebreath.Animation = () =>
         {
-            GameObject firebreathAnimation = Resources.Load(particlePath + "fireBreath", typeof(GameObject)) as GameObject;
-            Object.Instantiate(firebreathAnimation, GetUser().transform);
+            GameObject firebreathAnimation = Resources.Load(particlePath + "FireBreath", typeof(GameObject)) as GameObject;
+            Object.Instantiate(firebreathAnimation, GetUser().transform.position, new Quaternion());
         };
         FlameShot = new Move("Flame Shot", "The user throws fire at the opponent.", 30f, 6f, Types.Fire); // Medium chance of burn.
         HeatUp = new Move("Heat Up", "The user boosts the power of their fire type moves during the next turn.", 0f, 6f, Types.Fire, Move.Function.Buff);
