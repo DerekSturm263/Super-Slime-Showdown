@@ -1,69 +1,87 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SlimeSetupUIManager : MonoBehaviour
 {
     private EventSystem eventSystem;
+    private DialogueManager dm;
 
-    public SpriteRenderer playerSprtRndr;
-
-    public TMPro.TMP_InputField nameSlot;
-    public TMPro.TMP_Text typePrompt;
-
-    public Animator nameAnim;
-    public Animator typeAnim;
+    public Image player;
+    public TMPro.TMP_Text currentTypeName;
+    
+    public GameObject typeAnim;
 
     public Type currentType = Types.Typeless;
+
+    public TMPro.TMP_Text[] stats;
+
+    private TouchScreenKeyboard keyboard;
 
     public void Awake()
     {
         eventSystem = EventSystem.current;
-    }
+        dm = FindObjectOfType<DialogueManager>();
 
-    public void OnInputFieldEnter()
-    {
-        // Name needs to be at least 1 character, not counting spaces.
-        if (nameSlot.text.Trim().Length == 0)
-            return;
+        keyboard = new TouchScreenKeyboard("", TouchScreenKeyboardType.DecimalPad, false, false, false, false, "", 12);
 
-        PlayerInfo.playerName = nameSlot.text;
-
-        nameAnim.SetBool("GoToTypes", true);
-        typeAnim.SetBool("GoToTypes", true);
+        dm.WriteDialogue(AllDialogue.introduction, new System.Action(() =>
+        {
+            typeAnim.SetActive(true);
+        }));
     }
 
     public void OnSelectType()
     {
-        Type newType = eventSystem.currentSelectedGameObject.GetComponent<ButtonType>().buttonType;
+        currentType = eventSystem.currentSelectedGameObject.GetComponent<ButtonType>().buttonType;
 
-        if (currentType != newType)
-        {
-            currentType = newType;
-            typePrompt.text = "Choose a type for your slime.\nTap the square again to select it.\nType Selected: " + currentType.Name;
+        currentTypeName.text = currentType.Name;
+        player.color = currentType.TypeColor;
 
-            playerSprtRndr.color = currentType.TypeColor;
-        }
-        else
-        {
-            OnConfirmType();
-        }
+        stats[0].text = (currentType.statBoosts.HPMax + 19).ToString();
+        stats[1].text = (currentType.statBoosts.EnergyMax + 19).ToString();
+        stats[2].text = (currentType.statBoosts.Pow + 4).ToString();
+        stats[3].text = (currentType.statBoosts.Def + 4).ToString();
+        stats[4].text = (currentType.statBoosts.Spd + 4).ToString();
     }
 
     public void OnConfirmType()
     {
-        PlayerInfo.LearnMove(Moves.Roll);
-        PlayerInfo.RaiseAffinity(currentType, 1f);
+        typeAnim.GetComponent<Animator>().SetBool("Close", true);
 
-        typeAnim.SetBool("EndScene", true);
-        StartCoroutine(LoadOverworld());
+        dm.WriteDialogue(AllDialogue.introduction2, new System.Action(() =>
+        {
+            TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        }));
     }
 
-    private IEnumerator LoadOverworld()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PlayerInfo.playerName = "Dev";
+
+            PlayerInfo.LearnMove(Moves.Roll);
+            PlayerInfo.RaiseAffinity(currentType, 1f);
+
+            LoadOverworld();
+        }
+
+        if (keyboard.status == TouchScreenKeyboard.Status.Done)
+        {
+            PlayerInfo.playerName = keyboard.text;
+
+            PlayerInfo.LearnMove(Moves.Roll);
+            PlayerInfo.RaiseAffinity(currentType, 1f);
+
+            LoadOverworld();
+        }
+    }
+
+    private void LoadOverworld()
     {
         PlayerInfo.hasSlime = true;
-        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Overworld");
     }
 }

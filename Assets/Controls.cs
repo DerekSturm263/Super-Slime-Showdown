@@ -49,11 +49,33 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""01fee0f2-f77b-4746-bc29-a4598c55f51c"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Touchscreen"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0f99c618-4706-4b64-8aff-88ec283d89e3"",
                     ""path"": ""<Touchscreen>/primaryTouch/startPosition"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Touchscreen"",
+                    ""action"": ""Start Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9dcea1f4-9c80-4cca-9804-b3580c212b99"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse"",
                     ""action"": ""Start Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -84,6 +106,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Tap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94ebe4bd-04b2-4663-aefd-2174655a2635"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse"",
+                    ""action"": ""Tap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +132,11 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Mouse"",
+            ""bindingGroup"": ""Mouse"",
+            ""devices"": []
         }
     ]
 }");
@@ -235,6 +273,15 @@ public class @Controls : IInputActionCollection, IDisposable
         {
             if (m_TouchscreenSchemeIndex == -1) m_TouchscreenSchemeIndex = asset.FindControlSchemeIndex("Touchscreen");
             return asset.controlSchemes[m_TouchscreenSchemeIndex];
+        }
+    }
+    private int m_MouseSchemeIndex = -1;
+    public InputControlScheme MouseScheme
+    {
+        get
+        {
+            if (m_MouseSchemeIndex == -1) m_MouseSchemeIndex = asset.FindControlSchemeIndex("Mouse");
+            return asset.controlSchemes[m_MouseSchemeIndex];
         }
     }
     public interface IPlayerActions

@@ -142,7 +142,7 @@ public static class Moves
 
     public static string particlePath = "Prefabs/Battle/Particles/";
     public static string animationPath = "Animations/Battle/Slimes";
-
+    
     public static BattleEntity GetUser(bool opposite = false)
     {
         BattleEntity user;
@@ -198,12 +198,12 @@ public static class Moves
 
             // Caps damage if it's greater than the target's HP.
             restoreAmount = (restoreAmount > GetUser().entityStats.EnergyMax - GetUser().entityStats.EnergyCurrent) ? (int)(GetUser().entityStats.EnergyMax - GetUser().entityStats.EnergyCurrent) : restoreAmount;
-            
+
             GetUser().GainEnergy(restoreAmount);
 
             bm.Write(GetUser().Name + " used Grow and restored " + restoreAmount + " energy!");
 
-            bm.turnEffects.Add(bm.turnsPassed + 2, () =>
+            bm.turnEffects[bm.turnsPassed + 2].Add(() =>
             {
                 GetUser().damageBuff = 1.5f;
             });
@@ -216,7 +216,7 @@ public static class Moves
 
             bm.Write(GetUser().Name + " used Protection Leaf!");
 
-            bm.turnEffects.Add(bm.turnsPassed + 1, () =>
+            bm.turnEffects[bm.turnsPassed + 1].Add(() =>
             {
                 // Take 0 damage.
             });
@@ -230,9 +230,9 @@ public static class Moves
             bm.Write(GetUser().Name + " used Super Heal!");
             GetUser().LoseEnergy(6);
 
-            for (int i = 2; i <= 6; i += 2)
+            for (uint i = 2; i <= 6; i += 2)
             {
-                bm.turnEffects.Add((uint) (bm.turnsPassed + i), () =>
+                bm.turnEffects[bm.turnsPassed + i].Add(() =>
                 {
                     float RNG = Random.Range(0.8f, 1.0f);
                     float bestBonus = (GetUser().TopTypes.Contains(Types.Nature)) ? 1.25f : 1f;
@@ -299,9 +299,9 @@ public static class Moves
         {
             BattleManager bm = GetBattleManager();
 
-            for (int i = 1; i <= 5; i += 2)
+            for (uint i = 1; i <= 5; i += 2)
             {
-                bm.turnEffects.Add((uint)(bm.turnsPassed + i), () =>
+                bm.turnEffects[bm.turnsPassed + i].Add(() =>
                 {
                     // Set the power of non-water type moves lower.
                 });
@@ -311,18 +311,13 @@ public static class Moves
 
         // Fire type moves.
         Firebreath = new Move("Firebreath", "The user uses their firebreath to burn the opponent.", 20f, 4f, Types.Fire); // Small chance of burn.
-        Firebreath.Animation = () =>
-        {
-            GameObject firebreathAnimation = Resources.Load(particlePath + "FireBreath", typeof(GameObject)) as GameObject;
-            Object.Instantiate(firebreathAnimation, GetUser().transform.position, new Quaternion());
-        };
         FlameShot = new Move("Flame Shot", "The user throws fire at the opponent.", 30f, 6f, Types.Fire); // Medium chance of burn.
         HeatUp = new Move("Heat Up", "The user boosts the power of their fire type moves during the next turn.", 0f, 6f, Types.Fire, Move.Function.Buff);
         /* Doesnt work */ HeatUp.ExtraEffect = () =>
         {
             BattleManager bm = GetBattleManager();
 
-            bm.turnEffects.Add(bm.turnsPassed + 2, () =>
+            bm.turnEffects[bm.turnsPassed + 2].Add(() =>
             {
                 // Power up user's fire type moves.
             });
@@ -431,7 +426,7 @@ public static class Moves
 
             bm.Write(GetUser().Name + " is waiting to use Backstab...");
 
-            bm.turnEffects.Add(bm.turnsPassed + 2, () =>
+            bm.turnEffects[bm.turnsPassed + 2].Add(() =>
             {
                 // Attack.
 

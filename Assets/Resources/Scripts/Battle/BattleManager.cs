@@ -20,7 +20,7 @@ public class BattleManager : MonoBehaviour
     }
     public static AttackPhase attackPhase = AttackPhase.Attack;
 
-    public Dictionary<uint, Action> turnEffects = new Dictionary<uint, Action>();
+    public Dictionary<uint, List<Action>> turnEffects = new Dictionary<uint, List<Action>>();
     public uint turnsPassed = 0;
 
     public bool ignoreOptions = false;
@@ -159,7 +159,7 @@ public class BattleManager : MonoBehaviour
         // Tries to run an action every time a turn comes up.
         try
         {
-            turnEffects[turnsPassed]();
+            turnEffects[turnsPassed].ForEach(x => x.Invoke());
         } catch { }
 
         // Shows the options unless told not to.

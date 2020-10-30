@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 478068903}
   - component: {fileID: 478068907}
   - component: {fileID: 478068906}
+  - component: {fileID: 478068908}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -421,7 +422,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -430,6 +431,23 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &478068908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478068902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 7a6ce69c06c32074eb6d3b54dca982ec, type: 2}
 --- !u!1 &655411828
 GameObject:
   m_ObjectHideFlags: 0
@@ -44343,7 +44361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 0.5.1
+  m_text: Version 0.6.0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 879d54cfa55413c43a235c08e4e6afd0, type: 2}
   m_sharedMaterial: {fileID: 8554461185801739381, guid: 879d54cfa55413c43a235c08e4e6afd0,
