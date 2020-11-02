@@ -6,11 +6,20 @@ public static class AllDialogue
 
     public static SpeechBubble introduction = new SpeechBubble(Characters.tutorialSlime, new List<string> {
         "Welcome to Super Slime Showdown!",
-        "In this game, you get to train a slime to become the very best!",
-        "Let's start by picking a starting type. This won't affect your stat boosts or moves learned later on."
+        "Thank you for being a beta tester! At the end of this special demo, you will recieve a special gift as a 'thank you'.",
+        "Let's start with a basic explanation of how this game works.",
+        "You will be able to raise and train your own slime to become stronger in different types.",
+        "Each type has different levels and abilities that you learn over time.",
+        "There are 10 different types, and each can be raised to level 50.",
+        "Let's start by choosing the first type for your slime!"
     });
 
     public static SpeechBubble introduction2 = new SpeechBubble(Characters.tutorialSlime, new List<string> {
-        "Great! Now, let's pick out a name for you new slime!"
+        "Great! Now, let's give your slime a name!"
+    });
+
+    public static SpeechBubble introduction3 = new SpeechBubble(Characters.tutorialSlime, new List<string>
+    {
+        "Great! Now we can begin! Good luck on your quest to become the world's strongest slime!"
     });
 }

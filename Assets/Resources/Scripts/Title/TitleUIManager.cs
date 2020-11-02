@@ -2,11 +2,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.UI;
 
 public class TitleUIManager : MonoBehaviour
 {
     private Controls controls;
     public Animator anim;
+    public GameObject slimeTransition;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class TitleUIManager : MonoBehaviour
     private void StartGame()
     {
         anim.SetBool("EndScene", true);
+        slimeTransition.GetComponent<Image>().material.SetFloat("Pattern", Random.Range(-1000f, 1000f));
 
         if (PlayerInfo.hasSlime)
             StartCoroutine(LoadOverworld());

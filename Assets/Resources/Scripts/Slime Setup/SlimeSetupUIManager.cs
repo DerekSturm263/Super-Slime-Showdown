@@ -48,6 +48,9 @@ public class SlimeSetupUIManager : MonoBehaviour
 
     public void OnConfirmType()
     {
+        if (currentType == Types.Typeless)
+            return;
+
         typeAnim.GetComponent<Animator>().SetBool("Close", true);
 
         dm.WriteDialogue(AllDialogue.introduction2, new System.Action(() =>
@@ -58,30 +61,23 @@ public class SlimeSetupUIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || keyboard.status == TouchScreenKeyboard.Status.Done)
         {
-            PlayerInfo.playerName = "Dev";
-
-            PlayerInfo.LearnMove(Moves.Roll);
-            PlayerInfo.RaiseAffinity(currentType, 1f);
-
-            LoadOverworld();
+            ConfirmName();
         }
+    }
 
-        if (keyboard.status == TouchScreenKeyboard.Status.Done)
+    private void ConfirmName()
+    {
+        dm.WriteDialogue(AllDialogue.introduction3, new System.Action(() =>
         {
             PlayerInfo.playerName = keyboard.text;
 
             PlayerInfo.LearnMove(Moves.Roll);
             PlayerInfo.RaiseAffinity(currentType, 1f);
 
-            LoadOverworld();
-        }
-    }
-
-    private void LoadOverworld()
-    {
-        PlayerInfo.hasSlime = true;
-        SceneManager.LoadScene("Overworld");
+            PlayerInfo.hasSlime = true;
+            SceneManager.LoadScene("Overworld");
+        }));
     }
 }
