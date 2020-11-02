@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
 		thisSpeaker = line.Speaker;
 		thisDialogue = line;
 
-		if (speakerIcon != null) speakerIcon.sprite = thisSpeaker.Icon;
+		//if (speakerIcon != null) speakerIcon.sprite = thisSpeaker.Icon;
 		speakerName.text = thisSpeaker.Name;
 
 		dialogue.SetActive(true);
