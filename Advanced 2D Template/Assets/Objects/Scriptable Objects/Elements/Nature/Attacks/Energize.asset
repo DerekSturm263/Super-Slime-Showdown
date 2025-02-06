@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6291502be9978b44f8803de349c95d72, type: 3}
+  m_Name: Energize
+  m_EditorClassIdentifier: 
+  description: 
+  element: {fileID: 11400000, guid: 193496d7fd34be444b4a709c2059ce6f, type: 2}
+  effects:
+    _kvps:
+    - _item1: 0
+      _item2:
+        _item1:
+          _elements: 0000000000000000
+          _width: 4
+          _height: 2
+        _item2:
+          _data:
+            _kvps:
+            - _item1: Test
+              _item2:
+                _type: 0
+                _typeName: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+                  PublicKeyToken=b77a5c561934e089
+                _cSharpObjValue:
+                  rid: 8593071078917275846
+                _unityObjValue: {fileID: 0}
+        _item3:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 11400000}
+              m_TargetAssemblyTypeName: Attack, Runtime
+              m_MethodName: ModifyTemporaryStats
+              m_Mode: 0
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: 8593071078917275846
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 

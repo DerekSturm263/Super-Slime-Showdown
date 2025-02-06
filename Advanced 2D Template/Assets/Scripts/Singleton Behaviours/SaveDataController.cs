@@ -11,12 +11,12 @@ namespace SingletonBehaviours
 
         public override void Initialize()
         {
-            _currentData = Helpers.SerializationHelper.Load(_default.Value, $"{Application.persistentDataPath}/SaveData", $"{_default.name}.json");
+            _currentData = Helpers.SerializationHelper.Load(_default.Value, $"{Application.persistentDataPath}/SaveData/", $"{_default.name}.json");
         }
 
         public override void Shutdown()
         {
-            Helpers.SerializationHelper.Save(_currentData, $"{Application.persistentDataPath}/SaveData", $"{_default.name}.json");
+            Helpers.SerializationHelper.Save(_currentData, $"{Application.persistentDataPath}/SaveData/", $"{_default.name}.json");
         }
     }
 }

@@ -38,6 +38,7 @@ namespace Types.Miscellaneous
             })) + EditorGUIUtility.singleLineHeight;
         }
     }
+
     [CustomPropertyDrawer(typeof(Variant<,,>))]
     internal class Variant2Drawer : PropertyDrawer
     {

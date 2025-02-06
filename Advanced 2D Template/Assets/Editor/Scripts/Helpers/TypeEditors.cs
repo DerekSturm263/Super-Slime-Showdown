@@ -21,7 +21,8 @@ namespace Helpers
             [typeof(Vector2Int)] = (Rect rect, SerializedProperty prop) => EditorGUI.Vector2IntField(rect, " ", (Vector2Int)prop.boxedValue),
             [typeof(Vector3)] = (Rect rect, SerializedProperty prop) => EditorGUI.Vector3Field(rect, " ", (Vector3)prop.boxedValue),
             [typeof(Vector3Int)] = (Rect rect, SerializedProperty prop) => EditorGUI.Vector3IntField(rect, " ", (Vector3Int)prop.boxedValue),
-            [typeof(Vector4)] = (Rect rect, SerializedProperty prop) => EditorGUI.Vector4Field(rect, " ", (Vector4)prop.boxedValue)
+            [typeof(Vector4)] = (Rect rect, SerializedProperty prop) => EditorGUI.Vector4Field(rect, " ", (Vector4)prop.boxedValue),
+            [typeof(Object)] = (Rect rect, SerializedProperty prop) => { EditorGUI.ObjectField(rect, prop, new GUIContent(" ")); return prop.objectReferenceValue; } // MODIFIED
         };
 
         public static Dictionary<System.Type, System.Func<Rect, SerializedProperty, object>> TypeDictionary => _typeDictionary;

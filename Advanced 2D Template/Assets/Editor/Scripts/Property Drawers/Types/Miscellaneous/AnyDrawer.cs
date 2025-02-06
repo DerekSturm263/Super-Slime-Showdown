@@ -40,6 +40,10 @@ namespace Types.Miscellaneous
                 SerializedProperty propertyType = property.FindPropertyRelative("_type");
                 SerializedProperty value;
 
+                propertyType.enumValueIndex = (int)(type == typeof(Object) || type.IsSubclassOf(typeof(Object)) 
+                    ? Any.PropertyType.UnityObject
+                    : Any.PropertyType.CSharpObject);
+
                 if ((Any.PropertyType)propertyType.enumValueIndex == Any.PropertyType.CSharpObject)
                 {
                     value = property.FindPropertyRelative("_cSharpObjValue");
@@ -51,7 +55,7 @@ namespace Types.Miscellaneous
                 {
                     value = property.FindPropertyRelative("_unityObjValue");
 
-                    try { action(valuePosition, value); }
+                    try { value.objectReferenceValue = action(valuePosition, value) as Object; }
                     catch { value.objectReferenceValue = Any.GetDefault(type) as Object; }
                 }
             }

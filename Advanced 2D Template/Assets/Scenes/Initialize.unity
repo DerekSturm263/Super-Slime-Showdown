@@ -213,7 +213,7 @@ MonoBehaviour:
         m_MethodName: Load
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f77e771ebb9a0ad49a0695c32a6127c0, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 5fa042a609fe74647a8b413a5f63a465, type: 2}
           m_ObjectArgumentAssemblyTypeName: Types.Scene.SceneLoadSettingsAsset, Runtime
           m_IntArgument: 0
           m_FloatArgument: 0

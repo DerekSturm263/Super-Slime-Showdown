@@ -137,9 +137,6 @@ namespace Types.Miscellaneous
 
         public readonly override int GetHashCode() => System.HashCode.Combine(_type, _typeName, _cSharpObjValue, _unityObjValue);
 
-        public static Any FromValue<T>(T value)
-        {
-            return new Any(typeof(T), value);
-        }
+        public static Any FromValue<T>(T value) => new(typeof(T), value); // MODIFIED
     }
 }
